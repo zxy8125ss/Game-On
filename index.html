@@ -50,7 +50,7 @@ button{cursor:pointer}
 :focus-visible{outline:2px solid var(--lamp);outline-offset:2px}
 .num{font-family:var(--f-num);font-variant-numeric:tabular-nums}
 
-.app{max-width:440px;margin:0 auto;padding-inline:16px;display:flex;flex-direction:column;gap:10px;padding-block:10px calc(20px + env(safe-area-inset-bottom,0px))}
+.app{max-width:440px;margin:0 auto;padding-inline:16px;display:flex;flex-direction:column;gap:10px;padding-block:22px calc(20px + env(safe-area-inset-bottom,0px))}
 
 /* top bar */
 .top{display:flex;align-items:center;gap:8px}
@@ -109,6 +109,10 @@ button{cursor:pointer}
 .chip.r{font-weight:700}
 .chip.r .ct{color:var(--fg)}
 .chip.d{opacity:.45}
+.chip.d.res{opacity:.8}
+.chip.res .ct{color:var(--lamp)}
+.row .resl{font-size:12px;font-weight:700;color:var(--lamp);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.row .resl.hid{color:var(--muted);font-weight:500}
 .chip .cw{flex:0 0 auto;font-size:10px;font-weight:700;color:var(--surface);background:var(--fg);border-radius:3px;padding:0 4px;align-self:center}
 .chip.more{border-left-color:var(--line);color:var(--muted);font-weight:600}
 .wk-none{font-size:11px;color:var(--muted);padding:3px 0}
@@ -333,7 +337,7 @@ const DEF={
     {id:'fbar',name:'巴萨',aliases:['巴塞罗那','巴萨','Barcelona']},
   ],
   custom:[], marks:{}, removed:[],
-  settings:{lead:15,spoiler:true},
+  settings:{lead:15,spoiler:false},
 };
 let S=JSON.parse(JSON.stringify(DEF));
 let UI={view:'follow',sport:'all',q:'',past:false,day:null,open:null};
@@ -408,6 +412,7 @@ async function flush(){
 function merge(src){if(!src)return;['follows','custom','marks','settings','removed'].forEach(k=>{if(src[k]!==undefined)S[k]=k==='settings'?{lead:src[k].lead??DEF.settings.lead,spoiler:src[k].spoiler??DEF.settings.spoiler}:src[k]});
   const rm=new Set(S.removed||[]);for(const f of DEF.follows){if(!rm.has(f.id)&&!S.follows.some(x=>x.id===f.id))S.follows.push(f)}}
 try{merge(JSON.parse(localStorage.getItem('ziye-state')||'null'))}catch(e){}
+try{if(!localStorage.getItem('gameon-spoil-v2')){S.settings.spoiler=false;localStorage.setItem('gameon-spoil-v2','1')}}catch(e){}
 saveNote('关注、提醒、已看等设置保存在这台设备的浏览器里。');
 
 // ---------- render ----------
@@ -459,6 +464,8 @@ function renderNext(now){
       <div class="stub"><div class="d">${p.m}/${p.d} ${WD[p.w]}</div><div class="num t">${hm(n.start)}</div>${live?'<span class="live">进行中</span>':''}</div></div>`;
 }
 
+const shortRes=m=>String(m.result||'').replace(/（[^）]*）/g,'').replace(/\s+/g,' ').trim();
+const spoilHide=m=>{const mk=S.marks[m.id]||{};return S.settings.spoiler&&!mk.watched&&!mk.reveal};
 function renderWeek(now){
   const base=dayStart(now);
   const e=bjParts(base+6*DAY), b0=bjParts(base);
@@ -471,7 +478,9 @@ function renderWeek(now){
     const shown=all.filter(m=>TOP.has(m.id)).sort((a,b)=>sk(a)-sk(b));
     const chips=shown.map(m=>{
       const done=isOver(m,now), why=TOP.get(m.id);
-      return `<button class="chip r ${done?'d':''}" data-go="${m.id}" style="--c:${col(m.sport)}" title="${esc(m.sub+' · '+m.title)}">${ic(m.sport)}<span class="ct">${m.known?hm(m.start):m.result?'完赛':done?'已结束':'待定'}</span><span class="cn">${esc(/vs/.test(m.title)?m.title:(m.sub||'').split(' · ')[0].replace(/（.*?）/g,'')+' '+m.title)}</span>${why?`<span class="cw">${esc(why)}</span>`:''}</button>`;
+      const nm=/vs/.test(m.title)?m.title:(m.sub||'').split(' · ')[0].replace(/（.*?）/g,'')+' '+m.title;
+      const res=m.result&&!spoilHide(m);
+      return `<button class="chip r ${done?'d':''} ${m.result?'res':''}" data-go="${m.id}" style="--c:${col(m.sport)}" title="${esc(m.sub+' · '+(m.result||m.title))}">${ic(m.sport)}<span class="ct">${m.result?'完赛':m.known?hm(m.start):done?'已结束':'待定'}</span><span class="cn">${esc(res?shortRes(m):nm)}</span>${why?`<span class="cw">${esc(why)}</span>`:''}</button>`;
     }).join('');
     const more='';
     h+=`<div class="wr ${UI.day===k?'sel':''}"><button class="wl" data-day="${k}" aria-pressed="${UI.day===k}"><b>${p.m}/${p.d}</b><span>${i===0?'今天':'周'+WD[p.w]}${hl?` <i class="hol">${hl}</i>`:''}</span></button><div class="wc">${chips||`<span class="wk-none">${all.length?'无推荐 · 当天共 '+all.length+' 场':'无比赛'}</span>`}${more}</div></div>`;
@@ -543,10 +552,11 @@ function row(m,now){
       </div><div class="ch">观看：${chs}</div></div>`;
   }
   const p=bjParts(m.start);
-  const tt=m.result&&!m.known?'完赛':!m.known?(over?'已结束':'待定'):m.tbdTeams?'对阵待定':'';
+  const tt=m.result?'完赛':!m.known?(over?'已结束':'待定'):m.tbdTeams?'对阵待定':'';
   return `<div class="tk row ${m.squad?'cn':''} ${over&&!live?'dim':''}" id="m-${m.id}" data-open="${m.id}" style="--c:${col(m.sport)}" role="button" tabindex="0" aria-expanded="${open}">
     <div class="tmain">
       <div class="l1">${ic(m.sport)}<span class="title">${esc(m.title)}</span></div>
+      ${m.result&&!open?(spoilHide(m)?'<div class="resl hid">已完赛 · 点开看比分</div>':`<div class="resl">${esc(m.result)}</div>`):''}
       <div class="l2">${m.squad?`<span class="squad">${esc(m.squad)}</span>`:''}${why?`<span class="rec">推荐·${esc(why)}</span>`:''}${m.verify==='pending'?'<span class="warn">待复核</span>':''}${m.f.length?'<span class="star">★</span>':''}<span class="s">${esc(m.sub||SPORT[m.sport])}</span></div>
       ${more}
     </div>
@@ -701,7 +711,7 @@ function stampOf(d){
   return !isNaN(r)&&(isNaN(u)||r>u)?'赛程更新于 '+fmtStamp(d.review.at)+'（Claude 复核）':'赛程更新于 '+fmtStamp(d.updatedAt);
 }
 function showSync(extra){$('sync').textContent=extra||stampOf(LIVE)||'赛程数据：内置版本'}
-const BUILD='2026-10-01-2300';
+const BUILD='2026-10-01-2315';
 // 页面自动更新：发现新版本就重新加载一次（避免手机主屏幕 app 一直显示旧版）
 async function checkVersion(){
   try{
