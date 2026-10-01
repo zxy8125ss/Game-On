@@ -52,21 +52,33 @@ const RULES = `
 ${JSON.stringify(windowed)}
 `;
 
+// 依次尝试的模型：先用仓库变量 GEMINI_MODEL 指定的，再按顺序退到免费额度通常可用的型号
+const MODELS = [...new Set([MODEL, 'gemini-3.5-flash', 'gemini-3-flash-preview', 'gemini-2.5-flash', 'gemini-2.5-flash-lite'].filter(Boolean))];
+
 async function callGemini() {
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent`;
   const body = { contents: [{ role: 'user', parts: [{ text: RULES }] }], tools: [{ google_search: {} }], generationConfig: { temperature: 0.2 } };
-  for (let attempt = 1; attempt <= 3; attempt++) {
-    const r = await fetch(url, { method: 'POST', headers: { 'content-type': 'application/json', 'x-goog-api-key': KEY }, body: JSON.stringify(body) });
-    if (r.ok) {
-      const j = await r.json();
-      return (j.candidates?.[0]?.content?.parts || []).map(p => p.text || '').join('');
+  const tried = [];
+  for (const model of MODELS) {
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`;
+    for (let attempt = 1; attempt <= 2; attempt++) {
+      const r = await fetch(url, { method: 'POST', headers: { 'content-type': 'application/json', 'x-goog-api-key': KEY }, body: JSON.stringify(body) });
+      if (r.ok) {
+        const j = await r.json();
+        const text = (j.candidates?.[0]?.content?.parts || []).map(p => p.text || '').join('');
+        if (text.trim()) { console.log(`使用模型：${model}`); return text; }
+        console.error(`${model} 返回为空：${JSON.stringify(j).slice(0, 300)}`);
+        break;
+      }
+      const t = await r.text();
+      const msg = (() => { try { return JSON.parse(t).error?.message || t; } catch { return t; } })();
+      console.error(`${model} 请求失败（${r.status}）：${String(msg).slice(0, 200)}`);
+      tried.push(`${model}: ${r.status}`);
+      // 额度为 0 / 模型不可用 / 参数不支持：直接换下一个模型；服务器临时错误：等一下重试一次
+      if (r.status >= 500 && attempt === 1) { await new Promise(res => setTimeout(res, 20000)); continue; }
+      break;
     }
-    const t = await r.text();
-    console.error(`Gemini 请求失败（第 ${attempt} 次）：${r.status} ${t.slice(0, 300)}`);
-    if (r.status < 500 && r.status !== 429) break;
-    await new Promise(res => setTimeout(res, 15000 * attempt));
   }
-  throw new Error('Gemini 请求失败');
+  throw new Error('所有模型都不可用：' + tried.join('；') + '。请到 https://aistudio.google.com/rate-limit 查看你的免费额度，或在仓库变量 GEMINI_MODEL 指定一个有额度的模型。');
 }
 
 function parseJson(text) {
