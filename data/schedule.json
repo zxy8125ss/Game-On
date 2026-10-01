@@ -1,6 +1,6 @@
 {
- "updatedAt": "2026-10-01T16:02:11+08:00",
- "note": "自动更新 6/10 项成功",
+ "updatedAt": "2026-10-01T16:09:15+08:00",
+ "note": "自动更新 9/9 项成功",
  "matches": [
   {
    "id": "lpl26-ig-we",
@@ -257,6 +257,19 @@
    "channels": [
     "咪咕视频"
    ]
+  },
+  {
+   "id": "ten-china-open-yuanyue-r64",
+   "sport": "tennis",
+   "sub": "中国网球公开赛 · 女单第1轮",
+   "title": "袁悦 vs 米拉·安德烈娃",
+   "teams": [
+    "袁悦",
+    "米拉·安德烈娃"
+   ],
+   "bj": "2026-10-02 11:00",
+   "dur": 120,
+   "note": "钻石球场第1场"
   },
   {
    "id": "cn-a-ple",
@@ -558,6 +571,48 @@
    ]
   },
   {
+   "id": "bl-2026-40",
+   "src": "bl",
+   "sport": "football",
+   "sub": "德甲第5轮",
+   "title": "美因茨 vs 勒沃库森",
+   "teams": [
+    "美因茨",
+    "勒沃库森"
+   ],
+   "bj": "2026-10-09 08:00",
+   "dur": 115,
+   "note": "MEWA ARENA"
+  },
+  {
+   "id": "bl-2026-41",
+   "src": "bl",
+   "sport": "football",
+   "sub": "德甲第5轮",
+   "title": "奥格斯堡 vs 拜仁",
+   "teams": [
+    "奥格斯堡",
+    "拜仁"
+   ],
+   "bj": "2026-10-09 08:00",
+   "dur": 115,
+   "note": "WWK ARENA"
+  },
+  {
+   "id": "bl-2026-45",
+   "src": "bl",
+   "sport": "football",
+   "sub": "德甲第5轮",
+   "title": "多特蒙德 vs 云达不莱梅",
+   "teams": [
+    "多特蒙德",
+    "云达不莱梅"
+   ],
+   "bj": "2026-10-09 08:00",
+   "dur": 115,
+   "note": "SIGNAL IDUNA PARK"
+  },
+  {
    "id": "f1-2026-17-s",
    "src": "f1",
    "sport": "f1",
@@ -569,7 +624,8 @@
    "note": "滨海湾街道赛道"
   },
   {
-   "id": "epl6-ars-lee",
+   "id": "epl-2026-51",
+   "src": "epl",
    "sport": "football",
    "sub": "英超第6轮",
    "title": "阿森纳 vs 利兹联",
@@ -578,7 +634,8 @@
     "利兹联"
    ],
    "bj": "2026-10-10 19:30",
-   "dur": 115
+   "dur": 115,
+   "note": "Emirates Stadium"
   },
   {
    "id": "f1-2026-17-q",
@@ -592,7 +649,36 @@
    "note": "滨海湾街道赛道"
   },
   {
-   "id": "epl6-mun-tot",
+   "id": "epl-2026-53",
+   "src": "epl",
+   "sport": "football",
+   "sub": "英超第6轮",
+   "title": "切尔西 vs 伯恩茅斯",
+   "teams": [
+    "切尔西",
+    "伯恩茅斯"
+   ],
+   "bj": "2026-10-10 22:00",
+   "dur": 115,
+   "note": "Stamford Bridge"
+  },
+  {
+   "id": "liga-2026-71",
+   "src": "liga",
+   "sport": "football",
+   "sub": "西甲第8轮",
+   "title": "阿拉维斯 vs 马德里竞技",
+   "teams": [
+    "阿拉维斯",
+    "马德里竞技"
+   ],
+   "bj": "2026-10-10 22:15",
+   "dur": 115,
+   "note": "Mendizorroza"
+  },
+  {
+   "id": "epl-2026-59",
+   "src": "epl",
    "sport": "football",
    "sub": "英超第6轮",
    "title": "曼联 vs 热刺",
@@ -601,7 +687,36 @@
     "热刺"
    ],
    "bj": "2026-10-11 00:30",
-   "dur": 115
+   "dur": 115,
+   "note": "Old Trafford"
+  },
+  {
+   "id": "liga-2026-74",
+   "src": "liga",
+   "sport": "football",
+   "sub": "西甲第8轮",
+   "title": "巴塞罗那 vs 赫塔费",
+   "teams": [
+    "巴塞罗那",
+    "赫塔费"
+   ],
+   "bj": "2026-10-11 00:30",
+   "dur": 115,
+   "note": "Spotify Camp Nou"
+  },
+  {
+   "id": "liga-2026-79",
+   "src": "liga",
+   "sport": "football",
+   "sub": "西甲第8轮",
+   "title": "皇家马德里 vs 比利亚雷亚尔",
+   "teams": [
+    "皇家马德里",
+    "比利亚雷亚尔"
+   ],
+   "bj": "2026-10-11 03:00",
+   "dur": 115,
+   "note": "Bernabéu"
   },
   {
    "id": "f1-2026-17-r",
@@ -615,7 +730,8 @@
    "note": "滨海湾街道赛道"
   },
   {
-   "id": "epl6-liv-mci",
+   "id": "epl-2026-58",
+   "src": "epl",
    "sport": "football",
    "sub": "英超第6轮",
    "title": "利物浦 vs 曼城",
@@ -625,7 +741,7 @@
    ],
    "bj": "2026-10-11 23:30",
    "dur": 115,
-   "note": "安菲尔德"
+   "note": "Anfield"
   },
   {
    "id": "ucl-2049571",
@@ -652,6 +768,22 @@
    "teams": [
     "阿森纳",
     "里尔"
+   ],
+   "bj": "2026-10-14 03:00",
+   "dur": 115,
+   "channels": [
+    "咪咕视频"
+   ]
+  },
+  {
+   "id": "ucl-2049573",
+   "src": "ucl",
+   "sport": "football",
+   "sub": "欧冠 · League 组",
+   "title": "马竞 vs 曼联",
+   "teams": [
+    "马竞",
+    "曼联"
    ],
    "bj": "2026-10-14 03:00",
    "dur": 115,
@@ -724,6 +856,22 @@
    ]
   },
   {
+   "id": "ucl-2049580",
+   "src": "ucl",
+   "sport": "football",
+   "sub": "欧冠 · League 组",
+   "title": "曼城 vs 巴黎圣日耳曼",
+   "teams": [
+    "曼城",
+    "巴黎圣日耳曼"
+   ],
+   "bj": "2026-10-15 03:00",
+   "dur": 115,
+   "channels": [
+    "咪咕视频"
+   ]
+  },
+  {
    "id": "ucl-2049581",
    "src": "ucl",
    "sport": "football",
@@ -732,6 +880,22 @@
    "teams": [
     "罗马",
     "皇家马德里"
+   ],
+   "bj": "2026-10-15 03:00",
+   "dur": 115,
+   "channels": [
+    "咪咕视频"
+   ]
+  },
+  {
+   "id": "ucl-2049585",
+   "src": "ucl",
+   "sport": "football",
+   "sub": "欧冠 · League 组",
+   "title": "博德闪耀 vs 多特蒙德",
+   "teams": [
+    "博德闪耀",
+    "多特蒙德"
    ],
    "bj": "2026-10-15 03:00",
    "dur": 115,
@@ -762,6 +926,190 @@
    "bj": "2026-10-16 02:00",
    "dur": 300,
    "note": "LPL 四队直通瑞士轮，不打入围赛"
+  },
+  {
+   "id": "bl-2026-51",
+   "src": "bl",
+   "sport": "football",
+   "sub": "德甲第6轮",
+   "title": "柏林联合 vs 多特蒙德",
+   "teams": [
+    "柏林联合",
+    "多特蒙德"
+   ],
+   "bj": "2026-10-16 08:00",
+   "dur": 115,
+   "note": "An der Alten Försterei"
+  },
+  {
+   "id": "bl-2026-53",
+   "src": "bl",
+   "sport": "football",
+   "sub": "德甲第6轮",
+   "title": "勒沃库森 vs 弗赖堡",
+   "teams": [
+    "勒沃库森",
+    "弗赖堡"
+   ],
+   "bj": "2026-10-16 08:00",
+   "dur": 115,
+   "note": "BayArena"
+  },
+  {
+   "id": "bl-2026-54",
+   "src": "bl",
+   "sport": "football",
+   "sub": "德甲第6轮",
+   "title": "拜仁 vs 莱比锡",
+   "teams": [
+    "拜仁",
+    "莱比锡"
+   ],
+   "bj": "2026-10-16 08:00",
+   "dur": 115,
+   "note": "Allianz Arena"
+  },
+  {
+   "id": "epl-2026-64",
+   "src": "epl",
+   "sport": "football",
+   "sub": "英超第7轮",
+   "title": "埃弗顿 vs 切尔西",
+   "teams": [
+    "埃弗顿",
+    "切尔西"
+   ],
+   "bj": "2026-10-17 19:30",
+   "dur": 115,
+   "note": "Hill Dickinson Stadium"
+  },
+  {
+   "id": "liga-2026-84",
+   "src": "liga",
+   "sport": "football",
+   "sub": "西甲第9轮",
+   "title": "西班牙人 vs 马德里竞技",
+   "teams": [
+    "西班牙人",
+    "马德里竞技"
+   ],
+   "bj": "2026-10-17 20:00",
+   "dur": 115,
+   "note": "RCDE Stadium"
+  },
+  {
+   "id": "epl-2026-62",
+   "src": "epl",
+   "sport": "football",
+   "sub": "英超第7轮",
+   "title": "布伦特福德 vs 利物浦",
+   "teams": [
+    "布伦特福德",
+    "利物浦"
+   ],
+   "bj": "2026-10-17 22:00",
+   "dur": 115,
+   "note": "Gtech Community Stadium"
+  },
+  {
+   "id": "epl-2026-67",
+   "src": "epl",
+   "sport": "football",
+   "sub": "英超第7轮",
+   "title": "曼城 vs 伊普斯维奇",
+   "teams": [
+    "曼城",
+    "伊普斯维奇"
+   ],
+   "bj": "2026-10-17 22:00",
+   "dur": 115,
+   "note": "Etihad Stadium"
+  },
+  {
+   "id": "liga-2026-81",
+   "src": "liga",
+   "sport": "football",
+   "sub": "西甲第9轮",
+   "title": "皇家贝蒂斯 vs 巴塞罗那",
+   "teams": [
+    "皇家贝蒂斯",
+    "巴塞罗那"
+   ],
+   "bj": "2026-10-18 00:30",
+   "dur": 115,
+   "note": "Estadio La Cartuja"
+  },
+  {
+   "id": "epl-2026-66",
+   "src": "epl",
+   "sport": "football",
+   "sub": "英超第7轮",
+   "title": "利兹联 vs 曼联",
+   "teams": [
+    "利兹联",
+    "曼联"
+   ],
+   "bj": "2026-10-18 21:00",
+   "dur": 115,
+   "note": "Elland Road"
+  },
+  {
+   "id": "epl-2026-69",
+   "src": "epl",
+   "sport": "football",
+   "sub": "英超第7轮",
+   "title": "诺丁汉森林 vs 阿森纳",
+   "teams": [
+    "诺丁汉森林",
+    "阿森纳"
+   ],
+   "bj": "2026-10-18 23:30",
+   "dur": 115,
+   "note": "The City Ground"
+  },
+  {
+   "id": "liga-2026-88",
+   "src": "liga",
+   "sport": "football",
+   "sub": "西甲第9轮",
+   "title": "皇家马德里 vs 塞维利亚",
+   "teams": [
+    "皇家马德里",
+    "塞维利亚"
+   ],
+   "bj": "2026-10-19 03:00",
+   "dur": 115,
+   "note": "Bernabéu"
+  },
+  {
+   "id": "epl-2026-70",
+   "src": "epl",
+   "sport": "football",
+   "sub": "英超第7轮",
+   "title": "热刺 vs 考文垂",
+   "teams": [
+    "热刺",
+    "考文垂"
+   ],
+   "bj": "2026-10-20 03:00",
+   "dur": 115,
+   "note": "Tottenham Hotspur Stadium"
+  },
+  {
+   "id": "ucl-2049597",
+   "src": "ucl",
+   "sport": "football",
+   "sub": "欧冠 · League 组",
+   "title": "萨巴赫 vs 多特蒙德",
+   "teams": [
+    "萨巴赫",
+    "多特蒙德"
+   ],
+   "bj": "2026-10-21 00:45",
+   "dur": 115,
+   "channels": [
+    "咪咕视频"
+   ]
   },
   {
    "id": "ucl-2049589",
@@ -796,6 +1144,22 @@
    ]
   },
   {
+   "id": "ucl-2049591",
+   "src": "ucl",
+   "sport": "football",
+   "sub": "欧冠 · League 组",
+   "title": "曼城 vs 雅典AEK",
+   "teams": [
+    "曼城",
+    "雅典AEK"
+   ],
+   "bj": "2026-10-21 03:00",
+   "dur": 115,
+   "channels": [
+    "咪咕视频"
+   ]
+  },
+  {
    "id": "ucl-2049594",
    "src": "ucl",
    "sport": "football",
@@ -806,6 +1170,38 @@
     "博德闪耀"
    ],
    "bj": "2026-10-21 03:00",
+   "dur": 115,
+   "channels": [
+    "咪咕视频"
+   ]
+  },
+  {
+   "id": "ucl-2049596",
+   "src": "ucl",
+   "sport": "football",
+   "sub": "欧冠 · League 组",
+   "title": "斯图加特 vs 马竞",
+   "teams": [
+    "斯图加特",
+    "马竞"
+   ],
+   "bj": "2026-10-21 03:00",
+   "dur": 115,
+   "channels": [
+    "咪咕视频"
+   ]
+  },
+  {
+   "id": "ucl-2049606",
+   "src": "ucl",
+   "sport": "football",
+   "sub": "欧冠 · League 组",
+   "title": "科莫 vs 曼联",
+   "teams": [
+    "科莫",
+    "曼联"
+   ],
+   "bj": "2026-10-22 00:45",
    "dur": 115,
    "channels": [
     "咪咕视频"
@@ -860,6 +1256,48 @@
    ]
   },
   {
+   "id": "bl-2026-59",
+   "src": "bl",
+   "sport": "football",
+   "sub": "德甲第7轮",
+   "title": "弗赖堡 vs 拜仁",
+   "teams": [
+    "弗赖堡",
+    "拜仁"
+   ],
+   "bj": "2026-10-23 08:00",
+   "dur": 115,
+   "note": "Europa-Park Stadion"
+  },
+  {
+   "id": "bl-2026-60",
+   "src": "bl",
+   "sport": "football",
+   "sub": "德甲第7轮",
+   "title": "霍芬海姆 vs 勒沃库森",
+   "teams": [
+    "霍芬海姆",
+    "勒沃库森"
+   ],
+   "bj": "2026-10-23 08:00",
+   "dur": 115,
+   "note": "SNP Arena"
+  },
+  {
+   "id": "bl-2026-63",
+   "src": "bl",
+   "sport": "football",
+   "sub": "德甲第7轮",
+   "title": "多特蒙德 vs 法兰克福",
+   "teams": [
+    "多特蒙德",
+    "法兰克福"
+   ],
+   "bj": "2026-10-23 08:00",
+   "dur": 115,
+   "note": "SIGNAL IDUNA PARK"
+  },
+  {
    "id": "s16-sw-1",
    "sport": "lol",
    "sub": "S16 全球总决赛 · 瑞士轮（得州艾伦）",
@@ -874,6 +1312,48 @@
    "dur": 360,
    "tbdTeams": true,
    "note": "LPL：AL、BLG、TES、iG。每轮对阵抽签后公布"
+  },
+  {
+   "id": "epl-2026-72",
+   "src": "epl",
+   "sport": "football",
+   "sub": "英超第8轮",
+   "title": "阿斯顿维拉 vs 曼城",
+   "teams": [
+    "阿斯顿维拉",
+    "曼城"
+   ],
+   "bj": "2026-10-24 19:30",
+   "dur": 115,
+   "note": "Villa Park"
+  },
+  {
+   "id": "epl-2026-71",
+   "src": "epl",
+   "sport": "football",
+   "sub": "英超第8轮",
+   "title": "阿森纳 vs 埃弗顿",
+   "teams": [
+    "阿森纳",
+    "埃弗顿"
+   ],
+   "bj": "2026-10-24 22:00",
+   "dur": 115,
+   "note": "Emirates Stadium"
+  },
+  {
+   "id": "epl-2026-73",
+   "src": "epl",
+   "sport": "football",
+   "sub": "英超第8轮",
+   "title": "切尔西 vs 热刺",
+   "teams": [
+    "切尔西",
+    "热刺"
+   ],
+   "bj": "2026-10-25 00:30",
+   "dur": 115,
+   "note": "Stamford Bridge"
   },
   {
    "id": "s16-sw-2",
@@ -892,6 +1372,20 @@
    "note": "LPL：AL、BLG、TES、iG。每轮对阵抽签后公布"
   },
   {
+   "id": "liga-2026-93",
+   "src": "liga",
+   "sport": "football",
+   "sub": "西甲第10轮",
+   "title": "马德里竞技 vs 拉科鲁尼亚",
+   "teams": [
+    "马德里竞技",
+    "拉科鲁尼亚"
+   ],
+   "bj": "2026-10-25 03:00",
+   "dur": 115,
+   "note": "Riyadh Air Metropolitano"
+  },
+  {
    "id": "f1-2026-18-q",
    "src": "f1",
    "sport": "f1",
@@ -901,6 +1395,34 @@
    "bj": "2026-10-25 05:00",
    "dur": 60,
    "note": "美洲赛道"
+  },
+  {
+   "id": "epl-2026-78",
+   "src": "epl",
+   "sport": "football",
+   "sub": "英超第8轮",
+   "title": "利物浦 vs 布莱顿",
+   "teams": [
+    "利物浦",
+    "布莱顿"
+   ],
+   "bj": "2026-10-25 22:00",
+   "dur": 115,
+   "note": "Anfield"
+  },
+  {
+   "id": "epl-2026-79",
+   "src": "epl",
+   "sport": "football",
+   "sub": "英超第8轮",
+   "title": "曼联 vs 伯恩茅斯",
+   "teams": [
+    "曼联",
+    "伯恩茅斯"
+   ],
+   "bj": "2026-10-25 22:00",
+   "dur": 115,
+   "note": "Old Trafford"
   },
   {
    "id": "s16-sw-3",
@@ -919,19 +1441,6 @@
    "note": "LPL：AL、BLG、TES、iG。每轮对阵抽签后公布"
   },
   {
-   "id": "liga-bar-rma",
-   "sport": "football",
-   "sub": "西甲 · 国家德比",
-   "title": "巴塞罗那 vs 皇家马德里",
-   "teams": [
-    "巴塞罗那",
-    "皇家马德里"
-   ],
-   "bj": "2026-10-26 04:00",
-   "dur": 115,
-   "note": "本赛季首回合，诺坎普"
-  },
-  {
    "id": "f1-2026-18-r",
    "src": "f1",
    "sport": "f1",
@@ -941,6 +1450,20 @@
    "bj": "2026-10-26 04:00",
    "dur": 120,
    "note": "美洲赛道"
+  },
+  {
+   "id": "liga-2026-95",
+   "src": "liga",
+   "sport": "football",
+   "sub": "西甲第10轮",
+   "title": "巴塞罗那 vs 皇家马德里",
+   "teams": [
+    "巴塞罗那",
+    "皇家马德里"
+   ],
+   "bj": "2026-10-26 04:00",
+   "dur": 115,
+   "note": "Spotify Camp Nou"
   },
   {
    "id": "s16-sw-4",
@@ -989,6 +1512,34 @@
    "dur": 360,
    "tbdTeams": true,
    "note": "LPL：AL、BLG、TES、iG。每轮对阵抽签后公布"
+  },
+  {
+   "id": "bl-2026-71",
+   "src": "bl",
+   "sport": "football",
+   "sub": "德甲第8轮",
+   "title": "勒沃库森 vs 斯图加特",
+   "teams": [
+    "勒沃库森",
+    "斯图加特"
+   ],
+   "bj": "2026-10-30 08:00",
+   "dur": 115,
+   "note": "BayArena"
+  },
+  {
+   "id": "bl-2026-72",
+   "src": "bl",
+   "sport": "football",
+   "sub": "德甲第8轮",
+   "title": "拜仁 vs 多特蒙德",
+   "teams": [
+    "拜仁",
+    "多特蒙德"
+   ],
+   "bj": "2026-10-30 08:00",
+   "dur": 115,
+   "note": "Allianz Arena"
   },
   {
    "id": "s16-sw-7",
@@ -1165,13 +1716,12 @@
  "sources": [
   "F1 官方赛历：7 场",
   "欧国联 A 级：18 场",
-  "欧冠：13 场",
-  "英超：失败（403 https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard?dates=），保留旧数据",
-  "西甲：失败（403 https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard?dates=），保留旧数据",
-  "德甲：失败（403 https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/scoreboard?dates=），保留旧数据",
-  "中超：失败（403 https://site.api.espn.com/apis/site/v2/sports/soccer/chn.1/scoreboard?dates=），保留旧数据",
+  "欧冠：20 场",
+  "英超：15 场",
+  "西甲：8 场",
+  "德甲：11 场",
   "LoL 电竞：0 场",
-  "翻译新名称 12 个",
-  "官方页面整理：22 条改动"
+  "翻译新名称 18 个",
+  "官方页面整理：1 条改动"
  ]
 }
