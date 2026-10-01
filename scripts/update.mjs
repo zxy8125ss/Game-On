@@ -223,6 +223,11 @@ for (const c of pageChanges) if (c?.op === 'upsert' && valid(c.match)) {
   if (m.squad && m.sport !== 'football') delete m.squad;
   for (const k of Object.keys(m)) if (m[k] === '' || m[k] == null) delete m[k];
   const prev = byId.get(m.id) || {};
+  if (prev.by === 'claude') {                               // Claude 联网复核过的条目：只补空缺字段，不覆盖
+    const fill = Object.fromEntries(Object.entries(m).filter(([k]) => prev[k] == null));
+    if (Object.keys(fill).length) { byId.set(m.id, { ...prev, ...fill }); pu++; }
+    continue;
+  }
   if (prev.verify && m.bj) delete prev.verify;            // 官方页面给出了确切时间，视为已确认
   byId.set(m.id, { ...prev, ...m }); pu++;
 }

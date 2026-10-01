@@ -693,7 +693,7 @@ function tick(){const p=bjParts(Date.now());$('clock').textContent=pad(p.h)+':'+
 // ---------- shared schedule + manual refresh ----------
 function fmtStamp(iso){const t=Date.parse(iso);if(isNaN(t))return iso;const p=bjParts(t);return p.m+'/'+p.d+' '+pad(p.h)+':'+pad(p.mi)}
 function showSync(extra){
-  $('sync').textContent=extra||(LIVE&&LIVE.updatedAt?('赛程更新于 '+fmtStamp(LIVE.updatedAt)+(LIVE.note?' · '+LIVE.note:'')):'赛程数据：内置版本');
+  $('sync').textContent=extra||(LIVE&&LIVE.updatedAt?('赛程更新于 '+fmtStamp(LIVE.updatedAt)+(LIVE.review&&LIVE.review.at?' · Claude 复核 '+fmtStamp(LIVE.review.at):(LIVE.note?' · '+LIVE.note:''))):'赛程数据：内置版本');
 }
 async function loadSchedule(manual){
   try{
