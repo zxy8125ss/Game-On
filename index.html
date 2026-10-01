@@ -722,7 +722,7 @@ async function refreshNow(){
   const before=LIVE&&LIVE.updatedAt;
   try{
     showSync('正在触发更新…');
-    const r=await fetch('https://api.github.com/repos/zxy8125ss/Game-On/actions/workflows/update-schedule.yml/dispatches',{method:'POST',headers:{'Authorization':'Bearer '+tk,'Accept':'application/vnd.github+json'},body:JSON.stringify({ref:'main'})});
+    const r=await fetch('https://api.github.com/repos/zxy8125ss/Game-On/actions/workflows/update-schedule.yml/dispatches',{method:'POST',headers:{'Authorization':'Bearer '+tk,'Accept':'application/vnd.github+json','Content-Type':'application/json'},body:JSON.stringify({ref:'main'})});
     if(r.status!==204){showSync(r.status===401||r.status===403?'令牌无效或权限不足，已改为只读取数据':'触发失败（'+r.status+'），已改为只读取数据');busy=false;return loadSchedule(true)}
     const t0=Date.now();
     while(Date.now()-t0<5*60e3){
