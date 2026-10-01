@@ -5,6 +5,9 @@ on:
     # GitHub 使用 UTC：23:18 UTC = 北京时间 07:18；08:48 UTC = 北京时间 16:48
     - cron: '18 23 * * *'
     - cron: '48 8 * * *'
+    # 备用时段：GitHub 定时任务偶尔会漏跑，多排两次（北京时间 12:18、22:18）
+    - cron: '18 4 * * *'
+    - cron: '18 14 * * *'
   workflow_dispatch: {}   # 可在 Actions 页面手动点 "Run workflow" 立即更新
 
 permissions:
