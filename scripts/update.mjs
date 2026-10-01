@@ -6,7 +6,8 @@
 import fs from 'node:fs';
 
 const SCHEDULE = 'data/schedule.json', NAMES = 'data/names.json', SOURCES = 'data/sources.json';
-const KEY = process.env.GEMINI_API_KEY || '';
+const QUICK = process.env.QUICK === 'true';           // 网页刷新触发：只抓结构化接口，跳过 Gemini
+const KEY = QUICK ? '' : (process.env.GEMINI_API_KEY || '');
 const MODELS = [...new Set([process.env.GEMINI_MODEL, 'gemini-3.6-flash', 'gemini-3.5-flash-lite'].filter(Boolean))];
 const H = 3600e3, DAY = 24 * H, TZ = 8 * H;
 const now = Date.now();
@@ -152,7 +153,7 @@ async function gemini(parts, label) {
 
 // 2a. 翻译新出现的外文名
 const unknown = [...new Set([...AUTO.values()].flatMap(m => m._en || []).filter(n => n && !names[n]))];
-if (unknown.length) {
+if (unknown.length && KEY) {
   try {
     const out = await gemini([{ text: `把下面这些体育队伍、国家、大奖赛、赛道名称翻译成中国大陆体育媒体最常用的简体中文叫法（如 Manchester City→曼城，Bayern Munich→拜仁，Czechia→捷克，Bahrain Grand Prix→巴林大奖赛）。只输出一个 JSON 对象，键为原文，值为中文。\n${JSON.stringify(unknown)}` }], '翻译');
     let n = 0; for (const [k, v] of Object.entries(out || {})) if (typeof v === 'string' && v.trim() && unknown.includes(k)) { names[k] = v.trim(); n++; }

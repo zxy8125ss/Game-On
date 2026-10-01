@@ -8,7 +8,12 @@ on:
     # 备用时段：GitHub 定时任务偶尔会漏跑，多排两次（北京时间 12:18、22:18）
     - cron: '18 4 * * *'
     - cron: '18 14 * * *'
-  workflow_dispatch: {}   # 可在 Actions 页面手动点 "Run workflow" 立即更新
+  workflow_dispatch:      # 可在 Actions 页面手动点 "Run workflow" 立即更新；网页"刷新"按钮会带 quick=true
+    inputs:
+      quick:
+        description: '快速模式：只抓结构化接口，跳过 Gemini（约 20 秒）'
+        required: false
+        default: 'false'
 
 permissions:
   contents: write
@@ -30,6 +35,7 @@ jobs:
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
+          QUICK: ${{ inputs.quick }}
         run: node scripts/update.mjs
       - name: 提交更新
         run: |
