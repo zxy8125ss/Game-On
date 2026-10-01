@@ -1,0 +1,11 @@
+{
+ "说明": "非结构化官方来源。脚本每次抓取这些页面，交给 Gemini（不带搜索）整理出中国队和中国网球选手的比赛。until 之后自动停用。新增赛事时在 pages 里加一条即可。",
+ "pages": [
+  {"name": "中国足协 · 国家男足", "url": "https://www.thecfa.cn/nzgjd/index.html"},
+  {"name": "中国足协 · U23 男足", "url": "https://www.thecfa.cn/nzu23/index.html"},
+  {"name": "中国足协 · U20/U19 男足", "url": "https://www.thecfa.cn/nzu19/index.html"},
+  {"name": "中国足协 · U17 男足", "url": "https://www.thecfa.cn/nzu17/index.html"},
+  {"name": "WTA 中网 · 当日出场顺序", "url": "https://wtafiles.wtatennis.com/pdf/draws/2026/1020/OP.pdf", "until": "2026-10-11"},
+  {"name": "WTA 中网 · 女单签表", "url": "https://wtafiles.wtatennis.com/pdf/draws/2026/1020/MDS.pdf", "until": "2026-10-11"}
+ ]
+}

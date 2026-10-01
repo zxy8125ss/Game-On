@@ -23,7 +23,7 @@ jobs:
       - uses: actions/setup-node@v5
         with:
           node-version: '22'
-      - name: 调用 Gemini 核对赛程
+      - name: 抓取并整理赛程
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}

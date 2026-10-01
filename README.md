@@ -1,6 +1,10 @@
 # Game On · 北京时间赛程表
 
-网球、F1、电竞、足球的本周推荐与赛程，手机一屏看完。纯静态网页，部署在 GitHub Pages；赛程由 GitHub Actions 每天调用 Gemini（Google 搜索）核对后自动更新。
+网球、F1、电竞、足球的本周推荐与赛程，手机一屏看完。纯静态网页，部署在 GitHub Pages；赛程由 GitHub Actions 每天自动更新，全部用免费资源：
+
+- **结构化接口直接生成**：F1（Jolpica/Ergast）、UEFA 官方接口（欧国联 A 级、欧冠）、ESPN（英超/西甲/德甲焦点战、中超）、LoL 电竞官方接口
+- **官方网页交给 Gemini 整理**（不带搜索，免费额度即可）：中国足协各级国家队页面、WTA 签表与出场顺序 PDF，清单在 `data/sources.json`
+- **队名翻译**：Gemini 翻译后缓存在 `data/names.json`，可手动修改
 
 ## 目录
 
@@ -8,7 +12,9 @@
 |---|---|
 | `index.html` | 整个网页（样式、脚本都在里面） |
 | `data/schedule.json` | 赛程数据，网页每次打开时读取 |
-| `scripts/update.mjs` | 调用 Gemini 核对赛程、合并改动的脚本 |
+| `scripts/update.mjs` | 抓取各来源、合并赛程的脚本 |
+| `data/sources.json` | 交给 Gemini 整理的官方网页/PDF 清单 |
+| `data/names.json` | 外文队名 → 中文译名 |
 | `.github/workflows/update-schedule.yml` | 定时任务：每天北京时间 07:18、16:48 运行 |
 | `fonts/`、`icons/`、`manifest.webmanifest` | 字体、图标、添加到主屏幕用的配置 |
 
@@ -30,6 +36,7 @@
 
 ## 数据更新的安全措施
 
-- Gemini 只返回"改动清单"（新增/修改/删除），不整份覆盖。
-- 每条改动都会校验格式，不合格的跳过；单次最多删除 6 场；30 天前的旧场次自动清理。
-- 来源规则写在 `scripts/update.mjs` 的提示词里：官方 > 主流媒体 > 知名专业自媒体 > 聚合稿，来源不足的标"待复核"。要调整关注范围或规则，直接改这段文字即可。
+- 每个来源独立处理：某个接口失败只跳过它，旧数据保留，Actions 日志里会列出各来源结果。
+- Gemini 只整理你指定的官方页面内容，不凭记忆补充；输出逐条校验格式，只允许改 `cn-`（国足各级）和 `ten-`（网球）开头的条目。
+- 30 天前的旧场次自动清理；手动维护的条目（如亚运会）不会被自动来源覆盖。
+- 新赛事（如武网）需要在 `data/sources.json` 里加上它的 WTA 出场顺序 PDF 地址。
