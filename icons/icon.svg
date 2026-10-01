@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="112" fill="#3C8A5A"/>
+  <path d="M96 150h320a24 24 0 0 1 24 24v44a38 38 0 0 0 0 76v44a24 24 0 0 1-24 24H96a24 24 0 0 1-24-24v-44a38 38 0 0 0 0-76v-44a24 24 0 0 1 24-24z" fill="#FFFDF8"/>
+  <path d="M336 170v172" stroke="#3C8A5A" stroke-width="8" stroke-dasharray="14 12" stroke-linecap="round"/>
+  <text x="200" y="300" text-anchor="middle" font-family="Barlow Condensed, Arial Narrow, sans-serif" font-weight="700" font-size="150" fill="#22332A" letter-spacing="4">GO</text>
+  <circle cx="388" cy="256" r="26" fill="#3C8A5A"/>
+</svg>

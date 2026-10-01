@@ -1,0 +1,719 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>Game On</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="北京时间赛程表：网球、F1、电竞、足球，本周推荐与开赛提醒">
+<meta name="theme-color" content="#EEF3EA" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#131B16" media="(prefers-color-scheme: dark)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Game On">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icons/icon-180.png">
+<link rel="manifest" href="manifest.webmanifest">
+<style>
+@font-face{font-family:"Barlow Condensed";src:url(fonts/barlow-condensed-latin-600-normal.woff2) format("woff2");font-weight:600;font-display:swap}
+@font-face{font-family:"Barlow Condensed";src:url(fonts/barlow-condensed-latin-700-normal.woff2) format("woff2");font-weight:700 800;font-display:swap}
+/* Layout: 手机一屏式。顶栏 → 下一场小票 → 日期条 → 筛选 → 当天比赛（列表区内部滚动）。票根风，草地与纸张配色，叶绿强调 */
+:root{
+  padding-top:env(safe-area-inset-top,0px);
+  --bg:#EEF3EA; --surface:#FFFDF8; --sunk:#E3EBDF; --line:#D3DDCE; --fg:#22332A; --muted:#6A7A6E;
+  --lamp:#3C8A5A; --lamp-soft:#DDEEDB; --hero:#D6EBCF; --hol-bg:#FBE9D3; --hol-fg:#A9612A;
+  --tennis:#93A82A; --f1:#DE6A4F; --lol:#5A82C6; --football:#3B9A6F; --custom:#9878C2;
+  --live:#D6524A; --cn:#C8372D;
+  --f-body:-apple-system,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",system-ui,sans-serif;
+  --f-num:"Barlow Condensed","DIN Alternate","Arial Narrow",sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#131B16; --surface:#1C2620; --sunk:#17201A; --line:#2C3A31; --fg:#E5EDE3; --muted:#93A396;
+  --lamp:#7DC69A; --lamp-soft:#22392B; --hero:#22382B; --hol-bg:#3A2B1C; --hol-fg:#F0B47C;
+  --tennis:#C2D55A; --f1:#F08A70; --lol:#8FAEE8; --football:#6CCB9C; --custom:#C3A5EC;
+  --live:#F07A70; --cn:#E8665A; color-scheme:dark;
+}}
+:root[data-theme="dark"]{
+  --bg:#131B16; --surface:#1C2620; --sunk:#17201A; --line:#2C3A31; --fg:#E5EDE3; --muted:#93A396;
+  --lamp:#7DC69A; --lamp-soft:#22392B; --hero:#22382B; --hol-bg:#3A2B1C; --hol-fg:#F0B47C;
+  --tennis:#C2D55A; --f1:#F08A70; --lol:#8FAEE8; --football:#6CCB9C; --custom:#C3A5EC;
+  --live:#F07A70; --cn:#E8665A; color-scheme:dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+.ic{width:16px;height:16px;flex:0 0 auto;color:var(--c)}
+.chips .ic{width:14px;height:14px;margin-right:3px;vertical-align:-2px}
+.app,.tk,.tk *,.lh,.sync span,dialog p,.banner span{-webkit-user-select:text;user-select:text;-webkit-touch-callout:default}
+.ib,.seg button,.chips button,.dp,.lnk,.btn{-webkit-user-select:none;user-select:none}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:14px;line-height:1.45;margin:0}
+button,input,select{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:2px solid var(--lamp);outline-offset:2px}
+.num{font-family:var(--f-num);font-variant-numeric:tabular-nums}
+
+.app{max-width:440px;margin:0 auto;padding-inline:16px;display:flex;flex-direction:column;gap:10px;padding-block:10px calc(20px + env(safe-area-inset-bottom,0px))}
+
+/* top bar */
+.top{display:flex;align-items:center;gap:8px}
+.logo{font-family:var(--f-num);font-weight:700;font-size:24px;letter-spacing:.14em;margin:0;line-height:1;white-space:nowrap}
+.logo span{color:var(--lamp)}
+.clock{font-size:15px;font-weight:600;color:var(--muted);margin-left:auto}
+.ib{border:1px solid var(--line);background:var(--surface);border-radius:999px;height:30px;min-width:30px;padding:0 10px;font-size:12px;display:inline-flex;align-items:center;justify-content:center}
+.ib.primary{background:var(--lamp);border-color:var(--lamp);color:var(--surface);font-weight:700;font-size:16px;padding:0}
+.sync{display:flex;gap:8px;align-items:center;font-size:11px;color:var(--muted);margin-top:-4px;min-width:0}
+.sync span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
+.linkbtn{border:0;background:none;padding:0;color:var(--lamp);font-size:11px;font-weight:700;white-space:nowrap}
+.linkbtn:disabled{color:var(--muted)}
+
+/* ticket base */
+.tk{--stub:64px;position:relative;display:grid;grid-template-columns:minmax(0,1fr) var(--stub);background:var(--surface);border:1px solid var(--line);border-radius:12px}
+.tk::before,.tk::after{content:"";position:absolute;right:calc(var(--stub) - 7px);width:14px;height:14px;border-radius:50%;background:var(--bg);border:1px solid var(--line)}
+.tk::before{top:-8px;clip-path:inset(50% 0 0 0)}
+.tk::after{bottom:-8px;clip-path:inset(0 0 50% 0)}
+.tmain{padding:8px 10px 8px 12px;border-right:2px dashed var(--line);min-width:0}
+.stub{display:flex;flex-direction:column;align-items:center;justify-content:center;border-radius:0 11px 11px 0;background:color-mix(in srgb,var(--c,var(--lamp)) 13%,transparent);padding:4px 2px}
+.stub .t{font-size:20px;font-weight:700;line-height:1}
+.stub .d{font-family:var(--f-num);font-size:11px;font-weight:600;color:var(--muted);letter-spacing:.04em}
+.live{display:inline-block;font-size:10px;font-weight:700;color:#fff;background:var(--live);border-radius:3px;padding:0 4px;letter-spacing:.08em;margin-top:2px}
+
+/* next-up */
+.hero{background:var(--hero);--stub:76px}
+.go{width:100%;text-align:left;font:inherit;color:inherit;cursor:pointer;padding:0}
+.hero .stub{background:color-mix(in srgb,var(--lamp) 16%,transparent)}
+.hero .tmain{border-right-color:color-mix(in srgb,var(--lamp) 35%,transparent)}
+.eyebrow{font-family:var(--f-num);font-size:11px;font-weight:600;letter-spacing:.14em;color:var(--muted);text-transform:uppercase}
+.eyebrow b{color:var(--lamp);letter-spacing:.04em}
+.hero h2{font-size:16px;margin:1px 0 0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hero .sub{font-size:11px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hero .stub .t{font-size:24px}
+
+/* week board: 7 天一屏 */
+.week{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:8px 8px 6px}
+.wk-h{display:flex;align-items:baseline;gap:8px;font-size:11px;color:var(--muted);padding:0 2px 6px}
+.wk-h b{font-size:14px;color:var(--fg)}
+.wk-lg{margin-left:auto;display:flex;align-items:center;gap:4px}
+.wk-lg i{display:inline-block;width:10px;height:10px;border-radius:3px}
+.wk-lg i.r{background:color-mix(in srgb,var(--lamp) 30%,var(--surface));border-left:3px solid var(--lamp)}
+.wk-lg i.n{background:var(--sunk);margin-left:6px}
+.wr{display:grid;grid-template-columns:40px minmax(0,1fr);gap:6px;padding:5px 0;border-top:1px solid var(--line)}
+.wr:first-child{border-top:0}
+.wl{border:0;background:none;padding:2px 0;text-align:left;display:flex;flex-direction:column;line-height:1.1;color:var(--fg);border-radius:6px}
+.wl b{font-family:var(--f-num);font-size:16px}
+.wl span{font-size:10px;color:var(--muted)}
+.wl .hol{color:var(--hol-fg);font-weight:700}
+.wl[aria-pressed="true"] b{color:var(--lamp)}
+.wr.sel{background:color-mix(in srgb,var(--lamp) 7%,transparent);border-radius:8px}
+.wc{display:flex;flex-wrap:wrap;gap:4px;min-width:0;align-content:flex-start}
+.chip{display:inline-flex;align-items:center;gap:5px;max-width:100%;border:0;border-radius:6px;padding:3px 7px;background:var(--sunk);font-size:12px;line-height:1.35;color:var(--fg);text-align:left;min-width:0}
+.chip .ct{font-family:var(--f-num);font-weight:700;font-size:12px;color:var(--muted);flex:0 0 auto}
+.chip .cn{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.chip.r{font-weight:700}
+.chip.r .ct{color:var(--fg)}
+.chip.d{opacity:.45}
+.chip .cw{flex:0 0 auto;font-size:10px;font-weight:700;color:var(--surface);background:var(--fg);border-radius:3px;padding:0 4px;align-self:center}
+.chip.more{border-left-color:var(--line);color:var(--muted);font-weight:600}
+.wk-none{font-size:11px;color:var(--muted);padding:3px 0}
+/* date strip (unused) */
+.days{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;margin-inline:-16px;padding-inline:16px;padding-top:6px;padding-bottom:2px;margin-top:-6px}
+.days::-webkit-scrollbar{display:none}
+.dp{flex:0 0 auto;width:48px;border:1px solid var(--line);background:var(--surface);border-radius:12px;padding:5px 0 6px;display:flex;flex-direction:column;align-items:center;gap:1px;position:relative}
+.dp .w{font-size:10px;color:var(--muted)}
+.dp .n{font-family:var(--f-num);font-size:19px;font-weight:700;line-height:1}
+.dp .dots{display:flex;gap:2px;height:5px;margin-top:2px}
+.dp .dots i{width:5px;height:5px;border-radius:50%;background:var(--c)}
+.dp .h{position:absolute;top:-6px;right:-3px;font-size:9px;font-weight:700;color:var(--hol-fg);background:var(--hol-bg);border-radius:4px;padding:0 3px}
+.dp .pk{position:absolute;top:-6px;left:-3px;width:9px;height:9px;border-radius:50%;background:var(--cn);border:2px solid var(--bg)}
+.dp[aria-pressed="true"]{background:var(--fg);border-color:var(--fg)}
+.dp[aria-pressed="true"] .w,.dp[aria-pressed="true"] .n{color:var(--bg)}
+.dp.all{width:44px;justify-content:center}
+.dp.all .n{font-family:var(--f-body);font-size:13px}
+
+/* filters */
+.filters{display:flex;gap:6px;align-items:center;min-width:0}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;background:var(--surface);flex:0 0 auto}
+.seg button{border:0;background:transparent;padding:4px 9px;font-size:12px;color:var(--muted);white-space:nowrap}
+.seg button[aria-pressed="true"]{background:var(--lamp);color:var(--surface)}
+.chips{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;min-width:0;flex:1}
+.chips::-webkit-scrollbar{display:none}
+.chips button{flex:0 0 auto;border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:3px 9px;font-size:12px;color:var(--muted)}
+.chips button[aria-pressed="true"]{border-color:var(--fg);color:var(--fg);font-weight:700}
+.search{display:flex;gap:6px;align-items:center}
+.search input{flex:1;min-width:0;border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:5px 12px;font-size:13px}
+
+/* list */
+.list{display:flex;flex-direction:column;gap:8px;scroll-margin-top:8px}
+.lh{display:flex;align-items:baseline;gap:8px;font-size:12px;color:var(--muted);padding:2px 2px 0}
+.lh b{font-size:13px;color:var(--fg)}
+.lh .hol{color:var(--hol-fg);font-weight:600}
+.row{--stub:58px;flex:0 0 auto;text-align:left;font:inherit;color:inherit;cursor:pointer}
+.row .tmain{display:flex;flex-direction:column;gap:2px}
+.row .l1{display:flex;align-items:center;gap:6px;min-width:0}
+.row .title{font-size:14px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.row .l2{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--muted);min-width:0;white-space:nowrap;overflow:hidden}
+.row .l2 .s{overflow:hidden;text-overflow:ellipsis;min-width:0}
+.dot{display:none}
+.squad{flex:0 0 auto;font-size:10px;font-weight:700;color:var(--surface);background:var(--cn);border-radius:3px;padding:0 5px;line-height:16px}
+.rec{flex:0 0 auto;font-size:10px;font-weight:700;color:var(--surface);background:var(--fg);border-radius:3px;padding:0 5px;line-height:16px}
+.warn{flex:0 0 auto;font-size:10px;font-weight:700;color:var(--hol-fg);background:var(--hol-bg);border-radius:3px;padding:0 5px;line-height:16px}
+.star{flex:0 0 auto;color:var(--lamp);font-size:11px;font-weight:700}
+.row.cn{border-color:color-mix(in srgb,var(--cn) 45%,var(--line))}
+.row.dim{opacity:.55}
+.row.flash{box-shadow:0 0 0 2px var(--lamp)}
+.row .stub .t{font-size:18px}
+.row .stub .tt{font-size:11px;color:var(--muted);font-weight:600}
+.more{display:flex;flex-direction:column;gap:6px;padding-top:6px;margin-top:4px;border-top:1px solid var(--line);font-size:12px}
+.more .note{color:var(--muted)}
+.score{font-family:var(--f-num);font-size:16px;font-weight:600}
+.score.blur{filter:blur(6px);user-select:none}
+.acts{display:flex;flex-wrap:wrap;gap:5px;align-items:center}
+.lnk{font-size:11px;border:1px solid var(--line);border-radius:999px;padding:2px 8px;background:transparent;color:var(--muted);text-decoration:none;white-space:nowrap}
+.lnk[aria-pressed="true"]{color:var(--lamp);border-color:var(--lamp)}
+.reveal{border:0;background:none;color:var(--lamp);font-size:11px;padding:0;text-decoration:underline}
+.ch{font-size:11px;color:var(--muted)}
+.ch a{color:inherit}
+.conflict{font-size:11px;color:var(--live)}
+.empty{border:1px dashed var(--line);border-radius:12px;padding:18px;text-align:center;color:var(--muted);font-size:13px}
+.empty button{margin-top:8px}
+
+/* banner + dialogs */
+.banner{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:20;background:var(--fg);color:var(--bg);border-radius:12px;padding:10px 14px;display:flex;gap:10px;align-items:center;width:min(408px,calc(100% - 32px));box-shadow:0 10px 30px rgba(0,0,0,.3);font-size:13px}
+.banner button{background:var(--lamp);border:0;color:var(--surface);border-radius:6px;padding:4px 10px;font-weight:700;flex:0 0 auto}
+dialog{border:1px solid var(--line);border-radius:14px;background:var(--surface);color:var(--fg);padding:0;width:min(408px,calc(100% - 32px))}
+dialog::backdrop{background:rgba(5,8,18,.55)}
+.dlg{padding:16px;display:flex;flex-direction:column;gap:10px}
+.dlg h3{margin:0;font-size:16px}
+.field{display:flex;flex-direction:column;gap:4px;font-size:12px}
+.field input,.field select{border:1px solid var(--line);background:var(--bg);border-radius:8px;padding:6px 10px;width:100%}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.row-end{display:flex;justify-content:flex-end;gap:8px}
+.btn{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:5px 12px;font-size:13px}
+.btn.primary{background:var(--lamp);border-color:var(--lamp);color:var(--surface);font-weight:600}
+.flist{display:flex;flex-direction:column;gap:6px;max-height:240px;overflow:auto}
+.fitem{display:flex;justify-content:space-between;gap:8px;align-items:center;border:1px solid var(--line);border-radius:8px;padding:5px 10px;font-size:13px}
+.fitem small{color:var(--muted);display:block;font-size:11px}
+.x{border:0;background:none;color:var(--muted);font-size:12px}
+.help{font-size:12px;color:var(--muted);margin:0}
+</style>
+</head>
+<body>
+
+<div class="app">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+ <defs>
+  <!-- 网球：球体 + 两条对称缝线 -->
+  <symbol id="i-tennis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+   <circle cx="12" cy="12" r="9"/>
+   <path d="M5.2 6.2c3.6 3.2 3.6 8.4 0 11.6"/>
+   <path d="M18.8 6.2c-3.6 3.2-3.6 8.4 0 11.6"/>
+  </symbol>
+  <!-- 足球：外圈 + 中心五边形 + 放射线 + 边缘色块 -->
+  <symbol id="i-football" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+   <circle cx="12" cy="12" r="9"/>
+   <polygon points="12.00,8.60 15.23,10.95 14.00,14.75 10.00,14.75 8.77,10.95" fill="currentColor"/>
+   <path d="M12.00 8.60L12.00 5.40M15.23 10.95L18.28 9.96M14.00 14.75L15.88 17.34M10.00 14.75L8.12 17.34M8.77 10.95L5.72 9.96"/>
+   <polygon points="15.08,3.54 19.09,6.46 17.04,7.14 15.07,5.71" fill="currentColor" stroke="none"/><polygon points="20.99,12.31 19.46,17.03 18.18,15.29 18.93,12.97" fill="currentColor" stroke="none"/><polygon points="14.48,20.65 9.52,20.65 10.78,18.89 13.22,18.89" fill="currentColor" stroke="none"/><polygon points="4.54,17.03 3.01,12.31 5.07,12.97 5.82,15.29" fill="currentColor" stroke="none"/><polygon points="4.91,6.46 8.92,3.54 8.93,5.71 6.96,7.14" fill="currentColor" stroke="none"/>
+  </symbol>
+  <!-- F1：方程式赛车侧影 -->
+  <symbol id="i-f1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+   <path d="M1.8 15.8h2.4M9.6 15.8h5M20.6 13.2V9.4M19 9.4h3.2"/>
+   <path d="M3 14.8l4.2-1.6 2.6-1.2h2.4l1.2-1.8h1.8l1 1.8h4.4v2.4"/>
+   <circle cx="7.2" cy="15.8" r="2.4"/>
+   <circle cx="17.2" cy="15.8" r="2.4"/>
+  </symbol>
+  <!-- 电竞：手柄 -->
+  <symbol id="i-lol" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+   <path d="M7 7.5h10a4.5 4.5 0 0 1 4.4 5.4l-.8 3.8a2.4 2.4 0 0 1-4.1 1.2L14.6 16H9.4l-1.9 1.9a2.4 2.4 0 0 1-4.1-1.2l-.8-3.8A4.5 4.5 0 0 1 7 7.5z"/>
+   <path d="M8 10.4v3.6M6.2 12.2h3.6"/>
+   <circle cx="15.6" cy="11" r="1" fill="currentColor" stroke="none"/><circle cx="17.6" cy="13.2" r="1" fill="currentColor" stroke="none"/>
+  </symbol>
+  <!-- 其他：日历 -->
+  <symbol id="i-custom" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+   <rect x="4" y="5" width="16" height="15" rx="2.5"/><path d="M4 10h16M8.5 3v4M15.5 3v4"/>
+  </symbol>
+ </defs>
+</svg>
+
+  <div class="top">
+    <h1 class="logo">GAME <span>ON</span></h1>
+    <span class="num clock" id="clock">--:--</span>
+    <button class="ib" id="b-follow">关注</button>
+    <button class="ib" id="b-settings">设置</button>
+    <button class="ib primary" id="b-add" aria-label="添加比赛">＋</button>
+  </div>
+  <div class="sync"><span id="sync">赛程数据：内置版本</span><button class="linkbtn" id="b-refresh">刷新</button></div>
+
+  <section id="next"></section>
+
+  <section class="week" aria-label="本周推荐">
+    <div class="wk-h"><b>本周推荐</b><span id="wk-range"></span><span class="wk-lg">点日期看当天全部</span></div>
+    <div id="wk"></div>
+  </section>
+
+  <div class="filters" id="filters">
+    <div class="seg" id="seg-view" role="group" aria-label="范围"><button data-v="follow">关注</button><button data-v="all">全部</button></div>
+    <div class="chips" id="seg-sport" role="group" aria-label="项目">
+      <button data-s="all">全部</button><button data-s="cnfb">国足</button><button data-s="tennis"><svg class="ic" style="--c:var(--tennis)"><use href="#i-tennis"/></svg>网球</button><button data-s="f1"><svg class="ic" style="--c:var(--f1)"><use href="#i-f1"/></svg>F1</button><button data-s="lol"><svg class="ic" style="--c:var(--lol)"><use href="#i-lol"/></svg>电竞</button><button data-s="football"><svg class="ic" style="--c:var(--football)"><use href="#i-football"/></svg>足球</button>
+    </div>
+    <button class="ib" id="b-search" aria-label="搜索">搜</button>
+  </div>
+  <div class="search" id="searchbar" hidden><input id="q" type="search" placeholder="搜选手、战队、赛事（全部日期）" aria-label="搜索"><button class="ib" id="b-search-x">取消</button></div>
+
+  <section class="list" id="list" aria-live="polite"></section>
+</div>
+
+<div class="banner" id="banner" hidden><span id="bannertext"></span><button id="bannerok">知道了</button></div>
+
+<dialog id="d-add"><form class="dlg" id="f-add">
+  <h3 id="add-title">添加比赛</h3>
+  <div class="two">
+    <label class="field">项目<select id="a-sport"><option value="tennis">网球</option><option value="f1">F1</option><option value="lol">电竞</option><option value="football">足球</option><option value="custom">其他</option></select></label>
+    <label class="field">赛事<input id="a-sub" placeholder="如 武网 · 女单次轮"></label>
+  </div>
+  <label class="field">对阵 / 标题<input id="a-title" required placeholder="如 郑钦文 vs 莱巴金娜"></label>
+  <label class="field">参赛方（逗号分隔，用于关注匹配）<input id="a-teams" placeholder="郑钦文, 莱巴金娜"></label>
+  <div class="two">
+    <label class="field">日期（北京时间）<input id="a-date" type="date" required></label>
+    <label class="field">开赛时间（不填=待定）<input id="a-time" type="time"></label>
+  </div>
+  <div class="two">
+    <label class="field">时长（分钟）<input id="a-dur" type="number" min="15" step="15" value="120"></label>
+    <label class="field">转播平台<input id="a-ch" placeholder="咪咕视频, 央视体育"></label>
+  </div>
+  <label class="field">备注<input id="a-note"></label>
+  <div class="row-end"><button type="button" class="btn" data-close>取消</button><button class="btn primary">保存</button></div>
+</form></dialog>
+
+<dialog id="d-follow"><form class="dlg" id="f-follow">
+  <h3>我关注的</h3>
+  <p class="help">两个字以内的别名只匹配参赛方全名，三个字以上也匹配标题。也可以整项关注，例如 F1。</p>
+  <div class="flist" id="flist"></div>
+  <div class="two">
+    <label class="field">名称<input id="fl-name" placeholder="如 莱巴金娜"></label>
+    <label class="field">或整项关注<select id="fl-sport"><option value="">—</option><option value="tennis">网球</option><option value="f1">F1</option><option value="lol">电竞</option><option value="football">足球</option></select></label>
+  </div>
+  <label class="field">别名（逗号分隔）<input id="fl-alias" placeholder="Rybakina, 莱巴"></label>
+  <div class="row-end"><button type="button" class="btn" data-close>完成</button><button class="btn primary">添加</button></div>
+</form></dialog>
+
+<dialog id="d-settings"><form class="dlg" id="f-settings">
+  <h3>设置</h3>
+  <label class="field">开赛前提醒（分钟，0 = 关闭）<input id="s-lead" type="number" min="0" max="120" step="5"></label>
+  <label class="field" style="flex-direction:row;gap:8px;align-items:center"><input type="checkbox" id="s-spoil" style="width:auto"> 防剧透：没看过的比赛隐藏比分</label>
+  <label class="field" style="flex-direction:row;gap:8px;align-items:center"><input type="checkbox" id="s-past" style="width:auto"> 列表里显示已结束的比赛</label>
+  <p class="help">赛程每天 07:18、16:48 由 Claude 核对后自动更新，点"刷新"读取最新数据；"待复核"表示目前只有非官方来源。转播平台以赛前公告为准。开赛提醒只在本页打开时生效，要可靠提醒请用"加到日历"（导入手机日历，开赛前 15 分钟提醒）。</p>
+  <p class="help" id="savestate"></p>
+  <div class="row-end"><button type="button" class="btn" data-close>取消</button><button class="btn primary">保存</button></div>
+</form></dialog>
+
+<script>
+(()=>{
+const H=3600e3, M=60e3, DAY=24*H, TZ=8*H;
+const SPORT={tennis:'网球',f1:'F1',lol:'电竞',football:'足球',custom:'其他'};
+const WD='日一二三四五六';
+const HOLI=new Set(['2026-10-01','2026-10-02','2026-10-03','2026-10-04','2026-10-05','2026-10-06','2026-10-07']);
+const MAKEUP=new Set(['2026-09-20','2026-10-10']);
+const CH={
+  tennis:[['央视体育','https://tv.cctv.com/'],['咪咕视频','https://www.miguvideo.com/']],
+  f1:[['央视体育','https://tv.cctv.com/'],['咪咕视频','https://www.miguvideo.com/']],
+  lol:[['哔哩哔哩','https://live.bilibili.com/'],['虎牙','https://www.huya.com/'],['斗鱼','https://www.douyu.com/']],
+  football:[['咪咕视频','https://www.miguvideo.com/'],['腾讯体育','https://sports.qq.com/']],
+};
+const SEED=[{"id": "lpl26-ig-we", "sport": "lol", "sub": "LPL 季后赛 · 败者组", "title": "iG vs WE", "teams": ["iG", "WE"], "date": "2026-09-06", "dur": 240, "result": "iG 3:1 WE"}, {"id": "us26-zheng-ryb", "sport": "tennis", "sub": "美网 · 女单1/4决赛", "title": "郑钦文 vs 莱巴金娜", "teams": ["郑钦文", "莱巴金娜"], "date": "2026-09-10", "dur": 150, "result": "郑钦文 1:2 莱巴金娜（6-3 1-6 4-6）", "note": "郑钦文止步八强"}, {"id": "cn-a-mdv", "sport": "football", "squad": "国家队", "sub": "重庆国际足球邀请赛（友谊赛）", "title": "中国 vs 马尔代夫", "teams": ["中国", "马尔代夫"], "bj": "2026-09-24 19:35", "dur": 115, "result": "中国 3:0 马尔代夫", "note": "重庆龙兴足球场"}, {"id": "cn-u23-tha", "sport": "football", "squad": "U23 亚运队", "sub": "亚运会男足 · 1/4决赛", "title": "中国U23 vs 泰国U23", "teams": ["中国U23", "泰国U23"], "date": "2026-09-26", "dur": 115, "result": "中国U23 3:0 泰国U23"}, {"id": "cn-a-nzl", "sport": "football", "squad": "国家队", "sub": "重庆国际足球邀请赛（友谊赛）", "title": "中国 vs 新西兰", "teams": ["中国", "新西兰"], "bj": "2026-09-27 19:35", "dur": 115, "result": "中国 0:3 新西兰", "note": "重庆龙兴足球场"}, {"id": "cn-u16-vie", "sport": "football", "squad": "U16", "sub": "和平杯沈阳国际青年足球锦标赛", "title": "中国U16 vs 越南U16", "teams": ["中国U16", "越南U16"], "date": "2026-09-27", "dur": 90, "result": "中国U16 1:0 越南U16"}, {"id": "cn-u23-kor", "sport": "football", "squad": "U23 亚运队", "sub": "亚运会男足 · 半决赛", "title": "中国U23 vs 韩国U23", "teams": ["中国U23", "韩国U23"], "bj": "2026-09-30 14:00", "dur": 115, "result": "中国U23 1:2 韩国U23", "note": "王钰栋破门"}, {"id": "cn26-zheng-shi", "sport": "tennis", "sub": "中网 WTA1000 · 女单首轮", "title": "郑钦文 vs 施晗", "teams": ["郑钦文", "施晗"], "bj": "2026-10-01 11:00", "dur": 150, "note": "钻石球场 11:00 开打的第一场（WTA 官方出场顺序）；郑钦文持外卡，施晗为资格赛选手。央视 5、5+ 当天节目单以亚运会为主，未列这场", "channels": ["咪咕视频"]}, {"id": "ag-ten-ws-sf", "sport": "tennis", "sub": "亚运会网球 · 女单半决赛", "title": "张帅 vs 普京采娃 · 王曦雨 vs 埃亚拉", "teams": ["张帅", "普京采娃", "王曦雨", "埃亚拉"], "date": "2026-10-01", "dur": 300, "note": "当天 09:00 起；埃亚拉为 1 号种子，1/4 决赛 7-5 6-0 胜葛蓝乔安娜"}, {"id": "ag-ten-ms-qf", "sport": "tennis", "sub": "亚运会网球 · 男单1/4决赛", "title": "吴易昺 vs 纳加尔", "teams": ["吴易昺", "纳加尔"], "date": "2026-10-01", "dur": 150, "note": "男单1/4决赛"}, {"id": "unl-a2-ger-srb", "sport": "football", "sub": "欧国联 A 级 · 第3轮 · A2 组", "title": "德国 vs 塞尔维亚", "teams": ["德国", "塞尔维亚"], "bj": "2026-10-02 02:45", "dur": 115, "note": "UEFA 官方开球时间 20:45（欧洲中部时间）", "channels": ["咪咕视频"]}, {"id": "unl-a2-gre-ned", "sport": "football", "sub": "欧国联 A 级 · 第3轮 · A2 组", "title": "希腊 vs 荷兰", "teams": ["希腊", "荷兰"], "bj": "2026-10-02 02:45", "dur": 115, "note": "UEFA 官方开球时间 20:45（欧洲中部时间）", "channels": ["咪咕视频"]}, {"id": "unl-a4-den-por", "sport": "football", "sub": "欧国联 A 级 · 第3轮 · A4 组", "title": "丹麦 vs 葡萄牙", "teams": ["丹麦", "葡萄牙"], "bj": "2026-10-02 02:45", "dur": 115, "note": "UEFA 官方开球时间 20:45（欧洲中部时间）", "channels": ["咪咕视频"]}, {"id": "unl-a4-wal-nor", "sport": "football", "sub": "欧国联 A 级 · 第3轮 · A4 组", "title": "威尔士 vs 挪威", "teams": ["威尔士", "挪威"], "bj": "2026-10-02 02:45", "dur": 115, "note": "UEFA 官方开球时间 20:45（欧洲中部时间）", "channels": ["咪咕视频"]}, {"id": "cn-a-ple", "sport": "football", "squad": "国家队", "sub": "重庆国际足球邀请赛（友谊赛）", "title": "中国 vs 巴勒斯坦", "teams": ["中国", "巴勒斯坦"], "bj": "2026-10-02 19:35", "dur": 115, "note": "重庆龙兴足球场 · CCTV5 直播", "channels": ["CCTV5", "央视频", "咪咕视频"]}, {"id": "ag-ten-ws-f", "sport": "tennis", "sub": "亚运会网球 · 女单决赛", "title": "女单决赛", "teams": ["张帅", "王曦雨"], "date": "2026-10-02", "dur": 150, "tbdTeams": true, "note": "同日：男单半决赛、男双决赛、女双/混双半决赛"}, {"id": "unl-a1-bel-tur", "sport": "football", "sub": "欧国联 A 级 · 第3轮 · A1 组", "title": "比利时 vs 土耳其", "teams": ["比利时", "土耳其"], "bj": "2026-10-03 02:45", "dur": 115, "note": "UEFA 官方开球时间 20:45（欧洲中部时间）", "channels": ["咪咕视频"]}, {"id": "unl-a1-fra-ita", "sport": "football", "sub": "欧国联 A 级 · 第3轮 · A1 组", "title": "法国 vs 意大利", "teams": ["法国", "意大利"], "bj": "2026-10-03 02:45", "dur": 115, "note": "UEFA 官方开球时间 20:45（欧洲中部时间）", "channels": ["咪咕视频"]}, {"id": "cn-u23-uzb", "sport": "football", "squad": "U23 亚运队", "sub": "亚运会男足 · 铜牌战", "title": "中国U23 vs 乌兹别克斯坦U23", "teams": ["中国U23", "乌兹别克斯坦U23"], "bj": "2026-10-03 14:00", "dur": 115, "note": "丰田体育场 · CCTV5 直播；开球时间待亚运会官方确认", "channels": ["CCTV5", "央视频", "咪咕视频"], "verify": "pending"}, {"id": "f1-bhr-q", "sport": "f1", "sub": "巴林大奖赛（移师马来西亚雪邦）", "title": "排位赛", "teams": [], "bj": "2026-10-03 16:00", "dur": 60}, {"id": "ag-ten-d3", "sport": "tennis", "sub": "亚运会网球 · 决赛日", "title": "男单 / 女双 / 混双决赛", "teams": ["吴易昺"], "date": "2026-10-03", "dur": 300, "tbdTeams": true, "note": "中国队混双两对组合晋级八强，进程以当日赛果为准"}, {"id": "ag-mfb-final", "sport": "football", "sub": "亚运会男足 · 金牌赛", "title": "韩国U23 vs 日本U23", "teams": ["韩国U23", "日本U23"], "date": "2026-10-03", "dur": 115, "verify": "pending", "note": "决赛日期 10/3 经亚奥理事会确认；对阵与开球时间目前只见自媒体报道，待官方确认"}, {"id": "unl-a3-cro-eng", "sport": "football", "sub": "欧国联 A 级 · 第3轮 · A3 组", "title": "克罗地亚 vs 英格兰", "teams": ["克罗地亚", "英格兰"], "bj": "2026-10-04 00:00", "dur": 115, "note": "UEFA 官方开球时间 18:00（欧洲中部时间）", "channels": ["咪咕视频"]}, {"id": "unl-a3-esp-cze", "sport": "football", "sub": "欧国联 A 级 · 第3轮 · A3 组", "title": "西班牙 vs 捷克", "teams": ["西班牙", "捷克"], "bj": "2026-10-04 02:45", "dur": 115, "note": "UEFA 官方开球时间 20:45（欧洲中部时间）", "channels": ["咪咕视频"]}, {"id": "f1-bhr-r", "sport": "f1", "sub": "巴林大奖赛（移师马来西亚雪邦）", "title": "正赛", "teams": [], "bj": "2026-10-04 15:00", "dur": 120}, {"id": "unl-a2-gre-ger", "sport": "football", "sub": "欧国联 A 级 · 第4轮 · A2 组", "title": "希腊 vs 德国", "teams": ["希腊", "德国"], "bj": "2026-10-05 02:45", "dur": 115, "note": "UEFA 官方开球时间 20:45（欧洲中部时间）", "channels": ["咪咕视频"]}, {"id": "unl-a2-ned-srb", "sport": "football", "sub": "欧国联 A 级 · 第4轮 · A2 组", "title": "荷兰 vs 塞尔维亚", "teams": ["荷兰", "塞尔维亚"], "bj": "2026-10-05 02:45", "dur": 115, "note": "UEFA 官方开球时间 20:45（欧洲中部时间）", "channels": ["咪咕视频"]}, {"id": "unl-a4-por-nor", "sport": "football", "sub": "欧国联 A 级 · 第4轮 · A4 组", "title": "葡萄牙 vs 挪威", "teams": ["葡萄牙", "挪威"], "bj": "2026-10-05 02:45", "dur": 115, "note": "UEFA 官方开球时间 20:45（欧洲中部时间）", "channels": ["咪咕视频"]}, {"id": "unl-a4-wal-den", "sport": "football", "sub": "欧国联 A 级 · 第4轮 · A4 组", "title": "威尔士 vs 丹麦", "teams": ["威尔士", "丹麦"], "bj": "2026-10-05 02:45", "dur": 115, "note": "UEFA 官方开球时间 20:45（欧洲中部时间）", "channels": ["咪咕视频"]}, {"id": "unl-a1-fra-bel", "sport": "football", "sub": "欧国联 A 级 · 第4轮 · A1 组", "title": "法国 vs 比利时", "teams": ["法国", "比利时"], "bj": "2026-10-06 02:45", "dur": 115, "note": "UEFA 官方开球时间 20:45（欧洲中部时间）", "channels": ["咪咕视频"]}, {"id": "unl-a1-ita-tur", "sport": "football", "sub": "欧国联 A 级 · 第4轮 · A1 组", "title": "意大利 vs 土耳其", "teams": ["意大利", "土耳其"], "bj": "2026-10-06 02:45", "dur": 115, "note": "UEFA 官方开球时间 20:45（欧洲中部时间）", "channels": ["咪咕视频"]}, {"id": "cn-a-tjk", "sport": "football", "squad": "国家队", "sub": "重庆国际足球邀请赛（友谊赛）", "title": "中国 vs 塔吉克斯坦", "teams": ["中国", "塔吉克斯坦"], "bj": "2026-10-06 19:35", "dur": 115, "note": "重庆龙兴足球场 · 邀请赛最后一场", "channels": ["CCTV5", "央视频", "咪咕视频"]}, {"id": "unl-a3-cro-esp", "sport": "football", "sub": "欧国联 A 级 · 第4轮 · A3 组", "title": "克罗地亚 vs 西班牙", "teams": ["克罗地亚", "西班牙"], "bj": "2026-10-07 02:45", "dur": 115, "note": "UEFA 官方开球时间 20:45（欧洲中部时间）", "channels": ["咪咕视频"]}, {"id": "unl-a3-eng-cze", "sport": "football", "sub": "欧国联 A 级 · 第4轮 · A3 组", "title": "英格兰 vs 捷克", "teams": ["英格兰", "捷克"], "bj": "2026-10-07 02:45", "dur": 115, "note": "UEFA 官方开球时间 20:45（欧洲中部时间）", "channels": ["咪咕视频"]}, {"id": "f1-sgp-s", "sport": "f1", "sub": "新加坡大奖赛", "title": "冲刺赛", "teams": [], "bj": "2026-10-10 17:00", "dur": 45}, {"id": "epl6-ars-lee", "sport": "football", "sub": "英超第6轮", "title": "阿森纳 vs 利兹联", "teams": ["阿森纳", "利兹联"], "bj": "2026-10-10 19:30", "dur": 115}, {"id": "f1-sgp-q", "sport": "f1", "sub": "新加坡大奖赛", "title": "排位赛", "teams": [], "bj": "2026-10-10 21:00", "dur": 60}, {"id": "epl6-mun-tot", "sport": "football", "sub": "英超第6轮", "title": "曼联 vs 热刺", "teams": ["曼联", "热刺"], "bj": "2026-10-11 00:30", "dur": 115}, {"id": "f1-sgp-r", "sport": "f1", "sub": "新加坡大奖赛", "title": "正赛", "teams": [], "bj": "2026-10-11 20:00", "dur": 120}, {"id": "epl6-liv-mci", "sport": "football", "sub": "英超第6轮", "title": "利物浦 vs 曼城", "teams": ["利物浦", "曼城"], "bj": "2026-10-11 23:30", "dur": 115, "note": "安菲尔德"}, {"id": "s16-pi-1", "sport": "lol", "sub": "S16 全球总决赛 · 入围赛（洛杉矶）", "title": "入围赛 首日", "teams": [], "bj": "2026-10-16 02:00", "dur": 300, "note": "LPL 四队直通瑞士轮，不打入围赛"}, {"id": "cn-u17-gulf", "sport": "football", "squad": "U17", "sub": "U17 海湾杯（10/16–11/4）", "title": "中国U17 · 海湾杯首战", "teams": ["中国U17"], "date": "2026-10-16", "dur": 115, "tbdTeams": true, "note": "10 队参赛，分组与赛程待公布"}, {"id": "s16-sw-1", "sport": "lol", "sub": "S16 全球总决赛 · 瑞士轮（得州艾伦）", "title": "瑞士轮 第1比赛日", "teams": ["AL", "BLG", "TES", "iG"], "bj": "2026-10-24 01:00", "dur": 360, "tbdTeams": true, "note": "LPL：AL、BLG、TES、iG。每轮对阵抽签后公布"}, {"id": "s16-sw-2", "sport": "lol", "sub": "S16 全球总决赛 · 瑞士轮（得州艾伦）", "title": "瑞士轮 第2比赛日", "teams": ["AL", "BLG", "TES", "iG"], "bj": "2026-10-25 01:00", "dur": 360, "tbdTeams": true, "note": "LPL：AL、BLG、TES、iG。每轮对阵抽签后公布"}, {"id": "f1-usa-q", "sport": "f1", "sub": "美国大奖赛（奥斯汀）", "title": "排位赛", "teams": [], "bj": "2026-10-25 05:00", "dur": 60}, {"id": "s16-sw-3", "sport": "lol", "sub": "S16 全球总决赛 · 瑞士轮（得州艾伦）", "title": "瑞士轮 第3比赛日", "teams": ["AL", "BLG", "TES", "iG"], "bj": "2026-10-26 01:00", "dur": 360, "tbdTeams": true, "note": "LPL：AL、BLG、TES、iG。每轮对阵抽签后公布"}, {"id": "f1-usa-r", "sport": "f1", "sub": "美国大奖赛（奥斯汀）", "title": "正赛", "teams": [], "bj": "2026-10-26 04:00", "dur": 120}, {"id": "liga-bar-rma", "sport": "football", "sub": "西甲 · 国家德比", "title": "巴塞罗那 vs 皇家马德里", "teams": ["巴塞罗那", "皇家马德里"], "bj": "2026-10-26 04:00", "dur": 115, "note": "本赛季首回合，诺坎普"}, {"id": "s16-sw-4", "sport": "lol", "sub": "S16 全球总决赛 · 瑞士轮（得州艾伦）", "title": "瑞士轮 第4比赛日", "teams": ["AL", "BLG", "TES", "iG"], "bj": "2026-10-27 01:00", "dur": 360, "tbdTeams": true, "note": "LPL：AL、BLG、TES、iG。每轮对阵抽签后公布"}, {"id": "s16-sw-5", "sport": "lol", "sub": "S16 全球总决赛 · 瑞士轮（得州艾伦）", "title": "瑞士轮 第5比赛日", "teams": ["AL", "BLG", "TES", "iG"], "bj": "2026-10-29 04:00", "dur": 360, "tbdTeams": true, "note": "LPL：AL、BLG、TES、iG。每轮对阵抽签后公布"}, {"id": "s16-sw-6", "sport": "lol", "sub": "S16 全球总决赛 · 瑞士轮（得州艾伦）", "title": "瑞士轮 第6比赛日", "teams": ["AL", "BLG", "TES", "iG"], "bj": "2026-10-30 04:00", "dur": 360, "tbdTeams": true, "note": "LPL：AL、BLG、TES、iG。每轮对阵抽签后公布"}, {"id": "s16-sw-7", "sport": "lol", "sub": "S16 全球总决赛 · 瑞士轮（得州艾伦）", "title": "瑞士轮 第7比赛日", "teams": ["AL", "BLG", "TES", "iG"], "bj": "2026-10-31 04:00", "dur": 360, "tbdTeams": true, "note": "LPL：AL、BLG、TES、iG。每轮对阵抽签后公布"}, {"id": "s16-sw-8", "sport": "lol", "sub": "S16 全球总决赛 · 瑞士轮（得州艾伦）", "title": "瑞士轮 第8比赛日", "teams": ["AL", "BLG", "TES", "iG"], "bj": "2026-11-01 01:00", "dur": 360, "tbdTeams": true, "note": "LPL：AL、BLG、TES、iG。每轮对阵抽签后公布"}, {"id": "bl8-bay-bvb", "sport": "football", "sub": "德甲第8轮 · 德国国家德比", "title": "拜仁 vs 多特蒙德", "teams": ["拜仁", "多特蒙德"], "bj": "2026-11-01 01:30", "dur": 115}, {"id": "f1-mex-q", "sport": "f1", "sub": "墨西哥城大奖赛", "title": "排位赛", "teams": [], "bj": "2026-11-01 05:00", "dur": 60}, {"id": "f1-mex-r", "sport": "f1", "sub": "墨西哥城大奖赛", "title": "正赛", "teams": [], "bj": "2026-11-02 04:00", "dur": 120}, {"id": "s16-qf-1", "sport": "lol", "sub": "S16 全球总决赛 · 八强赛（得州艾伦）", "title": "八强赛 第1场", "teams": ["AL", "BLG", "TES", "iG"], "bj": "2026-11-04 06:00", "dur": 300, "tbdTeams": true, "note": "对阵待瑞士轮结束后确定"}, {"id": "s16-qf-2", "sport": "lol", "sub": "S16 全球总决赛 · 八强赛（得州艾伦）", "title": "八强赛 第2场", "teams": ["AL", "BLG", "TES", "iG"], "bj": "2026-11-05 06:00", "dur": 300, "tbdTeams": true, "note": "对阵待瑞士轮结束后确定"}, {"id": "s16-qf-3", "sport": "lol", "sub": "S16 全球总决赛 · 八强赛（得州艾伦）", "title": "八强赛 第3场", "teams": ["AL", "BLG", "TES", "iG"], "bj": "2026-11-06 06:00", "dur": 300, "tbdTeams": true, "note": "对阵待瑞士轮结束后确定"}, {"id": "s16-qf-4", "sport": "lol", "sub": "S16 全球总决赛 · 八强赛（得州艾伦）", "title": "八强赛 第4场", "teams": ["AL", "BLG", "TES", "iG"], "bj": "2026-11-07 06:00", "dur": 300, "tbdTeams": true, "note": "对阵待瑞士轮结束后确定"}, {"id": "s16-sf-1", "sport": "lol", "sub": "S16 全球总决赛 · 半决赛", "title": "半决赛 第1场", "teams": ["AL", "BLG", "TES", "iG"], "bj": "2026-11-08 06:00", "dur": 300, "tbdTeams": true}, {"id": "s16-sf-2", "sport": "lol", "sub": "S16 全球总决赛 · 半决赛", "title": "半决赛 第2场", "teams": ["AL", "BLG", "TES", "iG"], "bj": "2026-11-09 06:00", "dur": 300, "tbdTeams": true}, {"id": "s16-final", "sport": "lol", "sub": "S16 全球总决赛 · 决赛（纽约巴克莱中心）", "title": "总决赛", "teams": ["AL", "BLG", "TES", "iG"], "bj": "2026-11-15 02:00", "dur": 300, "tbdTeams": true}];
+
+let LIVE=null;
+const DEF={
+  follows:[
+    {id:'fz',name:'郑钦文',aliases:['郑钦文','Zheng Qinwen','Queen Wen']},
+    {id:'fl',name:'LPL',aliases:['AL','BLG','TES','iG','LPL']},
+    {id:'ff1',name:'F1',sport:'f1',aliases:[]},
+    {id:'fnt',name:'国足',aliases:['中国','国足','中国男足']},
+    {id:'fag',name:'亚运会',aliases:['亚运会']},
+    {id:'fmc',name:'曼城',aliases:['曼城','Man City']},
+    {id:'fbar',name:'巴萨',aliases:['巴塞罗那','巴萨','Barcelona']},
+  ],
+  custom:[], marks:{}, removed:[],
+  settings:{lead:15,spoiler:true},
+};
+let S=JSON.parse(JSON.stringify(DEF));
+let UI={view:'follow',sport:'all',q:'',past:false,day:null,open:null};
+try{const u=JSON.parse(localStorage.getItem('ziye-ui')||'{}');UI.view=u.view||UI.view;UI.sport=u.sport||UI.sport;UI.past=!!u.past}catch(e){}
+
+// ---------- time (always Beijing) ----------
+const bjParts=ms=>{const d=new Date(ms+TZ);return{y:d.getUTCFullYear(),m:d.getUTCMonth()+1,d:d.getUTCDate(),h:d.getUTCHours(),mi:d.getUTCMinutes(),s:d.getUTCSeconds(),w:d.getUTCDay()}};
+const pad=n=>String(n).padStart(2,'0');
+const dkey=ms=>{const p=bjParts(ms);return p.y+'-'+pad(p.m)+'-'+pad(p.d)};
+const parseBJ=(date,time='00:00')=>{const[y,m,d]=date.split('-').map(Number);const[h,mi]=time.split(':').map(Number);return Date.UTC(y,m-1,d,h,mi)-TZ};
+const hm=ms=>{const p=bjParts(ms);return pad(p.h)+':'+pad(p.mi)};
+const dayStart=ms=>Math.floor((ms+TZ)/DAY)*DAY-TZ;
+const holLabel=key=>HOLI.has(key)?'假':MAKEUP.has(key)?'班':null;
+const overlap=(a,b,c,d)=>Math.max(0,Math.min(b,d)-Math.max(a,c));
+
+// ---------- data ----------
+function allMatches(){
+  return [...((LIVE&&Array.isArray(LIVE.matches))?LIVE.matches:SEED),...S.custom].map(x=>{
+    const known=!!x.bj;
+    const start=known?parseBJ(...x.bj.split(' ')):parseBJ(x.date||x.bj);
+    return {...x,known,start,end:start+(x.dur||120)*M};
+  }).sort((a,b)=>a.start-b.start);
+}
+const low=s=>String(s||'').toLowerCase();
+function followHits(m){
+  const hits=[];
+  for(const f of S.follows){
+    if(f.sport&&f.sport===m.sport){hits.push(f);continue}
+    if(m.squad&&(f.name==='国足'||(f.aliases||[]).includes('国足'))){hits.push(f);continue}
+    const teams=(m.teams||[]).map(low);
+    const hay=low(m.title+' '+(m.sub||'')+' '+(m.note||''));
+    if((f.aliases||[]).concat(f.name).some(a=>{a=low(a).trim();if(!a)return false;if(teams.includes(a))return true;return [...a].length>=3&&hay.includes(a)}))hits.push(f);
+  }
+  return hits;
+}
+const remindOn=m=>{const r=(S.marks[m.id]||{}).remind;return r===undefined?followHits(m).length>0:r};
+const isOver=(m,now)=>m.known?m.end<now:m.start+DAY<now;
+// 唯一的状态判断：未确认的场次不推断"进行中"，避免与"待复核"矛盾
+const isLive=(m,now)=>m.known&&m.verify!=='pending'&&m.start<=now&&m.end>now;
+const hidden=m=>!!(S.marks[m.id]&&S.marks[m.id].hidden);
+function recScore(x){
+  // 推荐规则（按用户确认）：中国队 > 决赛/奖牌战/半决赛 > 关注 > F1 正赛、S16 关键场；欧国联不推荐
+  const t=(x.sub||'')+' '+(x.title||''); let sc=0; const why=[];
+  if(/欧国联/.test(t))return {sc:-99,why:''};
+  const cn=!!x.squad||(/亚运会/.test(t)&&x.sport==='tennis');
+  if(cn){sc+=5;why.push(x.squad?(x.squad==='国家队'?'国家队':x.squad.replace(' 亚运队','')):'中国选手')}
+  if(/金牌|铜牌|奖牌|决赛/.test(t)&&!/半决赛|1\/4决赛|八强/.test(t)){sc+=5;why.unshift(/铜牌/.test(t)?'奖牌战':/金牌/.test(t)?'金牌战':'决赛')}
+  else if(/半决赛/.test(t)){sc+=3;why.unshift('半决赛')}
+  const named=(x.f||[]).some(f=>!f.sport), sportOnly=(x.f||[]).some(f=>f.sport);
+  if(named){sc+=4;why.push('关注')}else if(sportOnly){sc+=2}
+  if(x.sport==='f1'&&/正赛/.test(x.title)){sc+=4;why.push('F1 正赛')}
+  if(/S16/.test(t)&&/八强|半决赛|总决赛/.test(t)){sc+=4;why.push('S16')}
+  if(x.verify==='pending')sc-=1;
+  return {sc,why:why[0]||''};
+}
+
+// ---------- persistence ----------
+let dbRef=null, saveT=null, saving=false, dirty=false;
+const saveNote=t=>{document.getElementById('savestate').textContent=t};
+function persist(){
+  try{localStorage.setItem('ziye-state',JSON.stringify(S))}catch(e){}
+  if(!dbRef)return;
+  clearTimeout(saveT); saveT=setTimeout(flush,700);
+}
+async function flush(){
+  if(saving){dirty=true;return}
+  saving=true;
+  try{await dbRef.set(JSON.parse(JSON.stringify(S)));saveNote('关注、提醒等设置已同步到你的账号。')}
+  catch(e){saveNote('同步失败（'+(e&&e.code||'未知')+'），改动暂存在本机。')}
+  saving=false; if(dirty){dirty=false;flush()}
+}
+function merge(src){if(!src)return;['follows','custom','marks','settings','removed'].forEach(k=>{if(src[k]!==undefined)S[k]=k==='settings'?{lead:src[k].lead??DEF.settings.lead,spoiler:src[k].spoiler??DEF.settings.spoiler}:src[k]});
+  const rm=new Set(S.removed||[]);for(const f of DEF.follows){if(!rm.has(f.id)&&!S.follows.some(x=>x.id===f.id))S.follows.push(f)}}
+try{merge(JSON.parse(localStorage.getItem('ziye-state')||'null'))}catch(e){}
+saveNote('关注、提醒、已看等设置保存在这台设备的浏览器里。');
+
+// ---------- render ----------
+const $=id=>document.getElementById(id);
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const col=s=>'var(--'+(SPORT[s]?s:'custom')+')';
+const ic=s=>`<svg class="ic" style="--c:${col(s)}" aria-label="${SPORT[s]||'其他'}" role="img"><use href="#i-${SPORT[s]&&s!=='custom'?s:'custom'}"/></svg>`;
+let ALL=[], TOP=new Map(), SC=new Map();
+
+function passFilters(m,now){
+  if(hidden(m))return false;
+  if(UI.sport==='cnfb'){if(!m.squad)return false}else if(UI.sport!=='all'&&m.sport!==UI.sport)return false;
+  if(UI.view==='follow'&&!m.f.length)return false;
+  return true;
+}
+
+function render(){
+  const now=Date.now(); ALL=allMatches();
+  for(const m of ALL){m.f=followHits(m)}
+  const fol=ALL.filter(m=>m.f.length&&m.known&&m.end>now);
+  for(const a of fol){a.clash=fol.filter(b=>b!==a&&overlap(a.start,a.end,b.start,b.end)>0)}
+  // 推荐：未来 7 天看点最高的 8 场
+  const base=dayStart(now);
+  SC=new Map(ALL.map(x=>[x.id,recScore(x)]));
+  TOP=new Map();
+  for(let i=0;i<7;i++){
+    const ds=base+i*DAY;
+    ALL.filter(x=>!hidden(x)&&x.start>=ds&&x.start<ds+DAY&&SC.get(x.id).sc>=4)
+      .sort((a,b)=>SC.get(b.id).sc-SC.get(a.id).sc||a.start-b.start).slice(0,3)
+      .forEach(x=>TOP.set(x.id,SC.get(x.id).why));
+  }
+  if(!UI.day)UI.day=dkey(now);
+  document.querySelectorAll('#seg-view button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.v===UI.view));
+  document.querySelectorAll('#seg-sport button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.s===UI.sport));
+  renderNext(now); renderWeek(now); renderList(now);
+  try{localStorage.setItem('ziye-ui',JSON.stringify({view:UI.view,sport:UI.sport,past:UI.past}))}catch(e){}
+}
+
+function renderNext(now){
+  const n=ALL.find(m=>m.f.length&&m.known&&m.end>now&&!hidden(m));
+  if(!n){$('next').innerHTML='<div class="tk hero"><div class="tmain"><div class="eyebrow">下一场关注</div><h2>暂无</h2><div class="sub">在「关注」里加选手、战队或整个项目</div></div><div class="stub"><div class="num t">--:--</div></div></div>';return}
+  const live=isLive(n,now), pend=n.verify==='pending', diff=n.start-now, d=Math.floor(diff/DAY), h=Math.floor(diff%DAY/H), mi=Math.ceil(diff%H/M);
+  const cd=pend&&diff<=0?'原定已开赛 · 待确认':live?'按赛程进行中':(d?d+'天'+h+'时后':h?h+'时'+mi+'分后':mi+'分钟后')+(pend?' · 待确认':'');
+  const p=bjParts(n.start);
+  $('next').innerHTML=`<div class="tk hero go" data-go="${n.id}" role="button" tabindex="0" style="--c:${col(n.sport)}"><div class="tmain">
+      <div class="eyebrow" style="display:flex;align-items:center;gap:5px">${ic(n.sport)}下一场关注 · <b>${cd}</b></div>
+      <h2>${esc(n.title)}</h2>
+      <div class="sub">${n.squad?esc(n.squad)+' · ':''}${esc(n.sub)}</div></div>
+      <div class="stub"><div class="d">${p.m}/${p.d} ${WD[p.w]}</div><div class="num t">${hm(n.start)}</div>${live?'<span class="live">进行中</span>':''}</div></div>`;
+}
+
+function renderWeek(now){
+  const base=dayStart(now);
+  const e=bjParts(base+6*DAY), b0=bjParts(base);
+  $('wk-range').textContent=`${b0.m}/${b0.d}–${e.m}/${e.d} · 每天最多 3 场`;
+  let h='';
+  for(let i=0;i<7;i++){
+    const ds=base+i*DAY, k=dkey(ds), p=bjParts(ds), hl=holLabel(k);
+    const sk=m=>m.known?m.start:m.start+DAY-1;
+    const all=ALL.filter(m=>!hidden(m)&&m.start>=ds&&m.start<ds+DAY);
+    const shown=all.filter(m=>TOP.has(m.id)).sort((a,b)=>sk(a)-sk(b));
+    const chips=shown.map(m=>{
+      const done=isOver(m,now), why=TOP.get(m.id);
+      return `<button class="chip r ${done?'d':''}" data-go="${m.id}" style="--c:${col(m.sport)}" title="${esc(m.sub+' · '+m.title)}">${ic(m.sport)}<span class="ct">${m.known?hm(m.start):'待定'}</span><span class="cn">${esc(/vs/.test(m.title)?m.title:(m.sub||'').split(' · ')[0].replace(/（.*?）/g,'')+' '+m.title)}</span>${why?`<span class="cw">${esc(why)}</span>`:''}</button>`;
+    }).join('');
+    const more='';
+    h+=`<div class="wr ${UI.day===k?'sel':''}"><button class="wl" data-day="${k}" aria-pressed="${UI.day===k}"><b>${p.m}/${p.d}</b><span>${i===0?'今天':'周'+WD[p.w]}${hl?` <i class="hol">${hl}</i>`:''}</span></button><div class="wc">${chips||`<span class="wk-none">${all.length?'无推荐 · 当天共 '+all.length+' 场':'无比赛'}</span>`}${more}</div></div>`;
+  }
+  $('wk').innerHTML=h;
+}
+
+function renderDays(now){
+  const base=dayStart(now);
+  let h=`<button class="dp all" data-day="all" aria-pressed="${UI.day==='all'}"><span class="n">全部</span></button>`;
+  for(let i=0;i<14;i++){
+    const ds=base+i*DAY, k=dkey(ds), p=bjParts(ds), hl=holLabel(k);
+    const ms=ALL.filter(m=>m.start>=ds&&m.start<ds+DAY&&passFilters(m,now));
+    const sports=[...new Set(ms.map(m=>m.sport))].slice(0,4);
+    const pk=ms.some(m=>TOP.has(m.id));
+    h+=`<button class="dp" data-day="${k}" aria-pressed="${UI.day===k}">${pk?'<i class="pk" title="有推荐"></i>':''}${hl==='班'?`<span class="h">班</span>`:''}<span class="w">${i===0?'今天':'周'+WD[p.w]}</span><span class="n">${p.d}</span><span class="dots">${sports.map(s=>`<i style="--c:${col(s)}"></i>`).join('')}</span></button>`;
+  }
+  /* unused */
+}
+
+function renderList(now){
+  const q=low(UI.q).trim();
+  let list, grouped=false, head='';
+  if(q){
+    const fx=S.follows.filter(f=>low(f.name).includes(q)||(f.aliases||[]).some(a=>low(a).includes(q)));
+    list=ALL.filter(m=>!hidden(m)&&(low(m.title+m.sub+(m.teams||[]).join(' ')+(m.note||'')).includes(q)||fx.some(f=>m.f.includes(f))));
+    grouped=true; head=`<div class="lh"><b>搜索结果</b><span>全部日期 · ${list.length} 场</span></div>`;
+  }else if(UI.day==='all'){
+    list=ALL.filter(m=>passFilters(m,now)&&(UI.past||!isOver(m,now)));
+    grouped=true; head=`<div class="lh"><b>全部日期</b><span>${list.length} 场</span><button class="linkbtn" data-day="${dkey(now)}" style="margin-left:auto">回到今天</button></div>`;
+  }else{
+    const ds=parseBJ(UI.day);
+    list=ALL.filter(m=>m.start>=ds&&m.start<ds+DAY&&passFilters(m,now)&&(UI.past||!isOver(m,now)||dkey(now)===UI.day));
+    const p=bjParts(ds), hl=holLabel(UI.day);
+    head=`<div class="lh"><b>${p.m}月${p.d}日 周${WD[p.w]}</b>${hl?`<span class="hol">${hl==='假'?'国庆假期':'调休上班'}</span>`:''}<span>${list.length} 场</span><button class="linkbtn" data-day="all" style="margin-left:auto">看全部日期</button></div>`;
+  }
+  if(!list.length){
+    const other=UI.view==='follow'?'<br><button class="btn" data-v="all">看全部比赛</button>':'';
+    $('list').innerHTML=head+`<div class="empty">${q?'没有找到相关比赛。':'这天没有符合筛选的比赛。'}${q?'':other}</div>`;return;
+  }
+  const sk=m=>m.known?m.start:m.start+DAY-1; list=[...list].sort((a,b)=>sk(a)-sk(b));
+  let h=head, last='';
+  for(const m of list){
+    if(grouped){const k=dkey(m.start);if(k!==last){last=k;const p=bjParts(m.start);h+=`<div class="lh"><b>${p.m}/${p.d} 周${WD[p.w]}</b></div>`}}
+    h+=row(m,now);
+  }
+  $('list').innerHTML=h;
+}
+
+function row(m,now){
+  const mk=S.marks[m.id]||{}, over=isOver(m,now), live=isLive(m,now), open=UI.open===m.id;
+  const why=TOP.get(m.id);
+  const chs=(m.channels&&m.channels.length?m.channels.map(c=>[c,null]):CH[m.sport]||[]).map(([n,u])=>u?`<a href="${u}" target="_blank" rel="noopener">${esc(n)}</a>`:esc(n)).join(' · ');
+  let more='';
+  if(open){
+    let res='';
+    if(m.result){
+      const hide=S.settings.spoiler&&!mk.watched&&!mk.reveal;
+      res=hide?`<div><span class="score blur">${esc(m.result)}</span> <button class="reveal" data-reveal="${m.id}">显示比分</button></div>`:`<div class="score">${esc(m.result)}</div>`;
+    }
+    const clash=!over&&(m.clash||[]).length?`<div class="conflict">与 ${m.clash.map(c=>esc(c.title)).join('、')} 同时段</div>`:'';
+    more=`<div class="more">${m.note?`<div class="note">${esc(m.note)}</div>`:''}${res}${clash}
+      <div class="acts">
+        ${over||!m.known?'':`<button class="lnk" data-remind="${m.id}" aria-pressed="${remindOn(m)}">${remindOn(m)?'已开提醒':'开赛提醒'}</button>`}
+        <button class="lnk" data-watched="${m.id}" aria-pressed="${!!mk.watched}">${mk.watched?'已看':'标记已看'}</button>
+        ${over?'':`<button class="lnk" data-ics="${m.id}">加到日历</button>`}
+        <button class="lnk" data-copy="${m.id}">复制信息</button>
+        ${m.custom?`<button class="lnk" data-edit="${m.id}">编辑</button><button class="lnk" data-del="${m.id}">删除</button>`:`<button class="lnk" data-hide="${m.id}">隐藏</button>`}
+      </div><div class="ch">观看：${chs}</div></div>`;
+  }
+  const p=bjParts(m.start);
+  const tt=!m.known?'待定':m.tbdTeams?'对阵待定':'';
+  return `<div class="tk row ${m.squad?'cn':''} ${over&&!live?'dim':''}" id="m-${m.id}" data-open="${m.id}" style="--c:${col(m.sport)}" role="button" tabindex="0" aria-expanded="${open}">
+    <div class="tmain">
+      <div class="l1">${ic(m.sport)}<span class="title">${esc(m.title)}</span></div>
+      <div class="l2">${m.squad?`<span class="squad">${esc(m.squad)}</span>`:''}${why?`<span class="rec">推荐·${esc(why)}</span>`:''}${m.verify==='pending'?'<span class="warn">待复核</span>':''}${m.f.length?'<span class="star">★</span>':''}<span class="s">${esc(m.sub||SPORT[m.sport])}</span></div>
+      ${more}
+    </div>
+    <div class="stub">${UI.day==='all'||UI.q?`<div class="d">${p.m}/${p.d}</div>`:''}<div class="num t">${m.known?hm(m.start):'--:--'}</div>${tt?`<div class="tt">${tt}</div>`:''}${live?'<span class="live">进行中</span>':''}</div>
+  </div>`;
+}
+
+function icsFor(m){
+  const z=ms=>new Date(ms).toISOString().replace(/[-:]/g,'').replace(/\.\d{3}/,'');
+  const dd=ms=>dkey(ms).replace(/-/g,'');
+  const escI=t=>String(t||'').replace(/\\/g,'\\\\').replace(/;/g,'\\;').replace(/,/g,'\\,').replace(/\n/g,'\\n');
+  const watch=(m.channels&&m.channels.length?m.channels.join('、'):(CH[m.sport]||[]).map(c=>c[0]).join('、'));
+  const lines=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Game On//CN','CALSCALE:GREGORIAN','BEGIN:VEVENT',
+    'UID:'+m.id+'@game-on','DTSTAMP:'+z(Date.now()),
+    ...(m.known?['DTSTART:'+z(m.start),'DTEND:'+z(m.end)]:['DTSTART;VALUE=DATE:'+dd(m.start),'DTEND;VALUE=DATE:'+dd(m.start+DAY)]),
+    'SUMMARY:'+escI((m.sub?m.sub+' · ':'')+m.title),
+    'DESCRIPTION:'+escI([m.note,'观看：'+watch].filter(Boolean).join('\n')),
+    ...(m.known?['BEGIN:VALARM','ACTION:DISPLAY','DESCRIPTION:'+escI(m.title+' 即将开赛'),'TRIGGER:-PT'+(+S.settings.lead||15)+'M','END:VALARM']:[]),
+    'END:VEVENT','END:VCALENDAR'];
+  return lines.join('\r\n');
+}
+function downloadIcs(m){
+  const blob=new Blob([icsFor(m)],{type:'text/calendar;charset=utf-8'});
+  const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=(m.title||'match').replace(/[\\/:*?"<>|]/g,'')+'.ics';
+  document.body.appendChild(a); a.click(); setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},1500);
+}
+function gcal(m){
+  const z=ms=>new Date(ms).toISOString().replace(/[-:]/g,'').replace(/\.\d{3}/,'');
+  const dd=ms=>dkey(ms).replace(/-/g,'');
+  const dates=m.known?z(m.start)+'/'+z(m.end):dd(m.start)+'/'+dd(m.start+DAY);
+  const details=[m.sub,m.note,'观看：'+(m.channels&&m.channels.length?m.channels.join('、'):(CH[m.sport]||[]).map(c=>c[0]).join('、'))].filter(Boolean).join('\n');
+  return 'https://calendar.google.com/calendar/render?action=TEMPLATE&text='+encodeURIComponent((m.sub?m.sub+' · ':'')+m.title)+'&dates='+dates+'&details='+encodeURIComponent(details);
+}
+
+// ---------- events ----------
+const mark=(id,patch)=>{S.marks[id]={...(S.marks[id]||{}),...patch};persist();render()};
+function goTo(id){
+  const m=ALL.find(x=>x.id===id); if(!m)return;
+  UI.q='';$('q').value='';$('searchbar').hidden=true;$('filters').hidden=false;
+  UI.day=dkey(m.start); UI.open=id;
+  if(!passFilters(m,Date.now())){UI.view='all';UI.sport='all'}
+  render();
+  const el=$('m-'+id); if(el){el.scrollIntoView({block:'center',behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});el.classList.add('flash');setTimeout(()=>el.classList.remove('flash'),1400)}
+}
+document.addEventListener('click',e=>{
+  const t=e.target.closest('button,a,[data-open],[data-go]'); if(!t)return;
+  if(t.tagName!=='BUTTON'&&t.tagName!=='A'){if(e.detail>1)return;const sel=window.getSelection&&String(window.getSelection());if(sel&&sel.trim())return}
+  unlockAudio();
+  if(t.tagName==='A')return;
+  const d=t.dataset;
+  if(d.v){UI.view=d.v;render()}
+  else if(d.s){UI.sport=d.s;render()}
+  else if(d.day){UI.day=d.day;UI.open=null;render();$('list').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'})}
+  else if(d.go)goTo(d.go);
+  else if(d.ics){const m=ALL.find(x=>x.id===d.ics);if(m)downloadIcs(m)}
+  else if(d.copy){
+    const m=ALL.find(x=>x.id===d.copy); if(!m)return;
+    const p=bjParts(m.start);
+    const txt=[m.title,(m.sub||'')+(m.squad?'（'+m.squad+'）':''),'北京时间 '+p.m+'月'+p.d+'日 周'+WD[p.w]+' '+(m.known?hm(m.start):'时间待定'),m.note||'','观看：'+(m.channels&&m.channels.length?m.channels.join('、'):(CH[m.sport]||[]).map(c=>c[0]).join('、'))].filter(Boolean).join('\n');
+    const done=()=>{t.textContent='已复制';setTimeout(()=>{t.textContent='复制信息'},1500)};
+    const fallback=()=>{const ta=document.createElement('textarea');ta.value=txt;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();try{document.execCommand('copy');done()}catch(_){t.textContent='请长按文字复制'}ta.remove()};
+    try{navigator.clipboard.writeText(txt).then(done,fallback)}catch(_){fallback()}
+  }
+  else if(d.remind){const m=ALL.find(x=>x.id===d.remind);if(m)mark(m.id,{remind:!remindOn(m)})}
+  else if(d.watched){mark(d.watched,{watched:!(S.marks[d.watched]||{}).watched})}
+  else if(d.reveal){S.marks[d.reveal]={...(S.marks[d.reveal]||{}),reveal:true};render()}
+  else if(d.hide){UI.open=null;mark(d.hide,{hidden:true})}
+  else if(d.del){S.custom=S.custom.filter(c=>c.id!==d.del);persist();render()}
+  else if(d.edit)openAdd(S.custom.find(c=>c.id===d.edit));
+  else if(t.hasAttribute('data-close'))t.closest('dialog').close();
+  else if(d.unf){S.removed=[...new Set([...(S.removed||[]),d.unf])];S.follows=S.follows.filter(f=>f.id!==d.unf);persist();renderFollows();render()}
+  else if(d.open){UI.open=UI.open===d.open?null:d.open;render()}
+});
+document.addEventListener('keydown',e=>{const d=e.target.dataset;if((e.key==='Enter'||e.key===' ')&&d&&(d.open||d.go)&&e.target.tagName==='DIV'){e.preventDefault();e.target.click()}});
+$('b-search').onclick=()=>{$('filters').hidden=true;$('searchbar').hidden=false;$('q').focus()};
+$('b-search-x').onclick=()=>{UI.q='';$('q').value='';$('searchbar').hidden=true;$('filters').hidden=false;render()};
+$('q').addEventListener('input',e=>{UI.q=e.target.value;render()});
+
+let editing=null;
+function openAdd(c){
+  editing=c||null;
+  $('add-title').textContent=c?'编辑比赛':'添加比赛';
+  $('a-sport').value=c?.sport||'tennis'; $('a-sub').value=c?.sub||''; $('a-title').value=c?.title||'';
+  $('a-teams').value=(c?.teams||[]).join(', ');
+  $('a-date').value=c?(c.bj?c.bj.split(' ')[0]:c.date):(UI.day&&UI.day!=='all'?UI.day:dkey(Date.now())); $('a-time').value=c?.bj?c.bj.split(' ')[1]:'';
+  $('a-dur').value=c?.dur||120; $('a-ch').value=(c?.channels||[]).join(', '); $('a-note').value=c?.note||'';
+  $('d-add').showModal();
+}
+$('b-add').onclick=()=>openAdd();
+const splitList=s=>s.split(/[,，、]/).map(x=>x.trim()).filter(Boolean);
+$('f-add').addEventListener('submit',e=>{
+  e.preventDefault();
+  const date=$('a-date').value, time=$('a-time').value;
+  const c={id:editing?.id||('c'+Date.now().toString(36)),custom:true,sport:$('a-sport').value,sub:$('a-sub').value.trim(),title:$('a-title').value.trim(),
+    teams:splitList($('a-teams').value),dur:Math.max(15,+$('a-dur').value||120),channels:splitList($('a-ch').value),note:$('a-note').value.trim()};
+  if(time)c.bj=date+' '+time; else c.date=date;
+  S.custom=S.custom.filter(x=>x.id!==c.id).concat(c);
+  persist(); $('d-add').close(); render(); goTo(c.id);
+});
+
+function renderFollows(){
+  $('flist').innerHTML=S.follows.map(f=>`<div class="fitem"><div><b>${esc(f.name)}</b><small>${f.sport?'整项关注 · '+SPORT[f.sport]:esc((f.aliases||[]).join('、'))}</small></div><button type="button" class="x" data-unf="${f.id}">移除</button></div>`).join('')||'<p class="help">还没有关注对象。</p>';
+}
+$('b-follow').onclick=()=>{renderFollows();$('d-follow').showModal()};
+$('f-follow').addEventListener('submit',e=>{
+  e.preventDefault();
+  const name=$('fl-name').value.trim(), sport=$('fl-sport').value;
+  if(!name&&!sport)return;
+  S.follows.push({id:'f'+Date.now().toString(36),name:name||SPORT[sport],sport:sport||undefined,aliases:splitList($('fl-alias').value).concat(name?[name]:[])});
+  $('fl-name').value='';$('fl-alias').value='';$('fl-sport').value='';
+  persist(); renderFollows(); render();
+});
+
+$('b-settings').onclick=()=>{const s=S.settings;$('s-lead').value=s.lead;$('s-spoil').checked=s.spoiler;$('s-past').checked=UI.past;$('d-settings').showModal()};
+$('f-settings').addEventListener('submit',e=>{
+  e.preventDefault();
+  S.settings={lead:Math.max(0,+$('s-lead').value||0),spoiler:$('s-spoil').checked};
+  UI.past=$('s-past').checked;
+  persist(); $('d-settings').close(); render();
+});
+
+// ---------- reminders (page open only; once per match) ----------
+let actx=null; const fired=new Set();
+function unlockAudio(){if(actx)return;try{actx=new (window.AudioContext||window.webkitAudioContext)()}catch(e){}}
+function chime(){
+  if(!actx)return;
+  try{const t=actx.currentTime;[[659.3,0],[987.8,.18]].forEach(([f,d])=>{const o=actx.createOscillator(),g=actx.createGain();o.frequency.value=f;o.type='sine';g.gain.setValueAtTime(0,t+d);g.gain.linearRampToValueAtTime(.18,t+d+.02);g.gain.exponentialRampToValueAtTime(.001,t+d+.9);o.connect(g).connect(actx.destination);o.start(t+d);o.stop(t+d+1)})}catch(e){}
+}
+function checkReminders(){
+  const now=Date.now(), lead=(+S.settings.lead||0)*M;
+  for(const m of allMatches()){
+    if(!m.known||fired.has(m.id)||(S.marks[m.id]||{}).notified)continue;
+    if(!lead||!remindOn(m)||hidden(m))continue;
+    if(now>=m.start-lead&&now<m.start){
+      fired.add(m.id);
+      S.marks[m.id]={...(S.marks[m.id]||{}),notified:true}; persist();
+      $('bannertext').textContent=`${m.title} ${Math.max(1,Math.ceil((m.start-now)/M))} 分钟后开赛（${hm(m.start)}）`;
+      $('banner').hidden=false; chime();
+    }
+  }
+}
+$('bannerok').onclick=()=>{$('banner').hidden=true};
+
+function tick(){const p=bjParts(Date.now());$('clock').textContent=pad(p.h)+':'+pad(p.mi)}
+
+// ---------- shared schedule + manual refresh ----------
+function fmtStamp(iso){const t=Date.parse(iso);if(isNaN(t))return iso;const p=bjParts(t);return p.m+'/'+p.d+' '+pad(p.h)+':'+pad(p.mi)}
+function showSync(extra){
+  $('sync').textContent=extra||(LIVE&&LIVE.updatedAt?('赛程更新于 '+fmtStamp(LIVE.updatedAt)+(LIVE.note?' · '+LIVE.note:'')):'赛程数据：内置版本');
+}
+async function loadSchedule(manual){
+  try{
+    const r=await fetch('data/schedule.json?t='+Date.now(),{cache:'no-store'});
+    if(!r.ok)throw new Error(r.status);
+    const d=await r.json();
+    if(d&&Array.isArray(d.matches)){LIVE=d;showSync(manual?'已刷新 · 赛程更新于 '+fmtStamp(d.updatedAt):null);render()}
+  }catch(e){if(manual)showSync('刷新失败，请检查网络后再试')}
+}
+$('b-refresh').onclick=()=>{showSync('正在刷新…');loadSchedule(true)};
+loadSchedule(false);
+setInterval(()=>loadSchedule(false),10*60e3);
+document.addEventListener('visibilitychange',()=>{if(!document.hidden)loadSchedule(false)});
+tick(); setInterval(tick,5000);
+showSync(); render();
+let lastMin=-1;
+setInterval(()=>{const m=Math.floor(Date.now()/M);const sel=window.getSelection&&String(window.getSelection()).trim();if(m!==lastMin&&!sel){lastMin=m;render()}checkReminders()},15000);
+checkReminders();
+})();
+</script>
+
+</body>
+</html>
