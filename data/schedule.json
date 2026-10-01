@@ -1,1 +1,1333 @@
-{"updatedAt": "2026-10-01T11:25:00+08:00", "note": "补入欧国联 A 级与亚运男足决赛", "matches": [{"id": "lpl26-ig-we", "sport": "lol", "sub": "LPL 季后赛 · 败者组", "title": "iG vs WE", "teams": ["iG", "WE"], "date": "2026-09-06", "dur": 240, "result": "iG 3:1 WE"}, {"id": "us26-zheng-ryb", "sport": "tennis", "sub": "美网 · 女单1/4决赛", "title": "郑钦文 vs 莱巴金娜", "teams": ["郑钦文", "莱巴金娜"], "date": "2026-09-10", "dur": 150, "result": "郑钦文 1:2 莱巴金娜（6-3 1-6 4-6）", "note": "郑钦文止步八强"}, {"id": "cn-a-mdv", "sport": "football", "squad": "国家队", "sub": "重庆国际足球邀请赛（友谊赛）", "title": "中国 vs 马尔代夫", "teams": ["中国", "马尔代夫"], "bj": "2026-09-24 19:35", "dur": 115, "result": "中国 3:0 马尔代夫", "note": "重庆龙兴足球场"}, {"id": "cn-u23-tha", "sport": "football", "squad": "U23 亚运队", "sub": "亚运会男足 · 1/4决赛", "title": "中国U23 vs 泰国U23", "teams": ["中国U23", "泰国U23"], "date": "2026-09-26", "dur": 115, "result": "中国U23 3:0 泰国U23"}, {"id": "cn-a-nzl", "sport": "football", "squad": "国家队", "sub": "重庆国际足球邀请赛（友谊赛）", "title": "中国 vs 新西兰", "teams": ["中国", "新西兰"], "bj": "2026-09-27 19:35", "dur": 115, "result": "中国 0:3 新西兰", "note": "重庆龙兴足球场"}, {"id": "cn-u16-vie", "sport": "football", "squad": "U16", "sub": "和平杯沈阳国际青年足球锦标赛", "title": "中国U16 vs 越南U16", "teams": ["中国U16", "越南U16"], "date": "2026-09-27", "dur": 90, "result": "中国U16 1:0 越南U16"}, {"id": "cn-u23-kor", "sport": "football", "squad": "U23 亚运队", "sub": "亚运会男足 · 半决赛", "title": "中国U23 vs 韩国U23", "teams": ["中国U23", "韩国U23"], "bj": "2026-09-30 14:00", "dur": 115, "result": "中国U23 1:2 韩国U23", "note": "王钰栋破门"}, {"id": "cn26-zheng-shi", "sport": "tennis", "sub": "中网 WTA1000 · 女单首轮", "title": "郑钦文 vs 施晗", "teams": ["郑钦文", "施晗"], "bj": "2026-10-01 11:00", "dur": 150, "note": "钻石球场 11:00 开打的第一场（WTA 官方出场顺序）；郑钦文持外卡，施晗为资格赛选手。央视 5、5+ 当天节目单以亚运会为主，未列这场", "channels": ["咪咕视频"]}, {"id": "ag-ten-ws-sf", "sport": "tennis", "sub": "亚运会网球 · 女单半决赛", "title": "张帅 vs 普京采娃 · 王曦雨 vs 埃亚拉", "teams": ["张帅", "普京采娃", "王曦雨", "埃亚拉"], "date": "2026-10-01", "dur": 300, "note": "当天 09:00 起；埃亚拉为 1 号种子，1/4 决赛 7-5 6-0 胜葛蓝乔安娜"}, {"id": "ag-ten-ms-qf", "sport": "tennis", "sub": "亚运会网球 · 男单1/4决赛", "title": "吴易昺 vs 纳加尔", "teams": ["吴易昺", "纳加尔"], "date": "2026-10-01", "dur": 150, "note": "男单1/4决赛"}, {"id": "unl-a2-ger-srb", "sport": "football", "sub": "欧国联 A 级 · 第3轮 · A2 组", "title": "德国 vs 塞尔维亚", "teams": ["德国", "塞尔维亚"], "bj": "2026-10-02 02:45", "dur": 115, "note": "UEFA 官方开球时间 20:45（欧洲中部时间）", "channels": ["咪咕视频"]}, {"id": "unl-a2-gre-ned", "sport": "football", "sub": "欧国联 A 级 · 第3轮 · A2 组", "title": "希腊 vs 荷兰", "teams": ["希腊", "荷兰"], "bj": "2026-10-02 02:45", "dur": 115, "note": "UEFA 官方开球时间 20:45（欧洲中部时间）", "channels": ["咪咕视频"]}, {"id": "unl-a4-den-por", "sport": "football", "sub": "欧国联 A 级 · 第3轮 · A4 组", "title": "丹麦 vs 葡萄牙", "teams": ["丹麦", "葡萄牙"], "bj": "2026-10-02 02:45", "dur": 115, "note": "UEFA 官方开球时间 20:45（欧洲中部时间）", "channels": ["咪咕视频"]}, {"id": "unl-a4-wal-nor", "sport": "football", "sub": "欧国联 A 级 · 第3轮 · A4 组", "title": "威尔士 vs 挪威", "teams": ["威尔士", "挪威"], "bj": "2026-10-02 02:45", "dur": 115, "note": "UEFA 官方开球时间 20:45（欧洲中部时间）", "channels": ["咪咕视频"]}, {"id": "cn-a-ple", "sport": "football", "squad": "国家队", "sub": "重庆国际足球邀请赛（友谊赛）", "title": "中国 vs 巴勒斯坦", "teams": ["中国", "巴勒斯坦"], "bj": "2026-10-02 19:35", "dur": 115, "note": "重庆龙兴足球场 · CCTV5 直播", "channels": ["CCTV5", "央视频", "咪咕视频"]}, {"id": "ag-ten-ws-f", "sport": "tennis", "sub": "亚运会网球 · 女单决赛", "title": "女单决赛", "teams": ["张帅", "王曦雨"], "date": "2026-10-02", "dur": 150, "tbdTeams": true, "note": "同日：男单半决赛、男双决赛、女双/混双半决赛"}, {"id": "unl-a1-bel-tur", "sport": "football", "sub": "欧国联 A 级 · 第3轮 · A1 组", "title": "比利时 vs 土耳其", "teams": ["比利时", "土耳其"], "bj": "2026-10-03 02:45", "dur": 115, "note": "UEFA 官方开球时间 20:45（欧洲中部时间）", "channels": ["咪咕视频"]}, {"id": "unl-a1-fra-ita", "sport": "football", "sub": "欧国联 A 级 · 第3轮 · A1 组", "title": "法国 vs 意大利", "teams": ["法国", "意大利"], "bj": "2026-10-03 02:45", "dur": 115, "note": "UEFA 官方开球时间 20:45（欧洲中部时间）", "channels": ["咪咕视频"]}, {"id": "cn-u23-uzb", "sport": "football", "squad": "U23 亚运队", "sub": "亚运会男足 · 铜牌战", "title": "中国U23 vs 乌兹别克斯坦U23", "teams": ["中国U23", "乌兹别克斯坦U23"], "bj": "2026-10-03 14:00", "dur": 115, "note": "丰田体育场 · CCTV5 直播；开球时间待亚运会官方确认", "channels": ["CCTV5", "央视频", "咪咕视频"], "verify": "pending"}, {"id": "f1-bhr-q", "sport": "f1", "sub": "巴林大奖赛（移师马来西亚雪邦）", "title": "排位赛", "teams": [], "bj": "2026-10-03 16:00", "dur": 60}, {"id": "ag-ten-d3", "sport": "tennis", "sub": "亚运会网球 · 决赛日", "title": "男单 / 女双 / 混双决赛", "teams": ["吴易昺"], "date": "2026-10-03", "dur": 300, "tbdTeams": true, "note": "中国队混双两对组合晋级八强，进程以当日赛果为准"}, {"id": "ag-mfb-final", "sport": "football", "sub": "亚运会男足 · 金牌赛", "title": "韩国U23 vs 日本U23", "teams": ["韩国U23", "日本U23"], "date": "2026-10-03", "dur": 115, "verify": "pending", "note": "决赛日期 10/3 经亚奥理事会确认；对阵与开球时间目前只见自媒体报道，待官方确认"}, {"id": "unl-a3-cro-eng", "sport": "football", "sub": "欧国联 A 级 · 第3轮 · A3 组", "title": "克罗地亚 vs 英格兰", "teams": ["克罗地亚", "英格兰"], "bj": "2026-10-04 00:00", "dur": 115, "note": "UEFA 官方开球时间 18:00（欧洲中部时间）", "channels": ["咪咕视频"]}, {"id": "unl-a3-esp-cze", "sport": "football", "sub": "欧国联 A 级 · 第3轮 · A3 组", "title": "西班牙 vs 捷克", "teams": ["西班牙", "捷克"], "bj": "2026-10-04 02:45", "dur": 115, "note": "UEFA 官方开球时间 20:45（欧洲中部时间）", "channels": ["咪咕视频"]}, {"id": "f1-bhr-r", "sport": "f1", "sub": "巴林大奖赛（移师马来西亚雪邦）", "title": "正赛", "teams": [], "bj": "2026-10-04 15:00", "dur": 120}, {"id": "unl-a2-gre-ger", "sport": "football", "sub": "欧国联 A 级 · 第4轮 · A2 组", "title": "希腊 vs 德国", "teams": ["希腊", "德国"], "bj": "2026-10-05 02:45", "dur": 115, "note": "UEFA 官方开球时间 20:45（欧洲中部时间）", "channels": ["咪咕视频"]}, {"id": "unl-a2-ned-srb", "sport": "football", "sub": "欧国联 A 级 · 第4轮 · A2 组", "title": "荷兰 vs 塞尔维亚", "teams": ["荷兰", "塞尔维亚"], "bj": "2026-10-05 02:45", "dur": 115, "note": "UEFA 官方开球时间 20:45（欧洲中部时间）", "channels": ["咪咕视频"]}, {"id": "unl-a4-por-nor", "sport": "football", "sub": "欧国联 A 级 · 第4轮 · A4 组", "title": "葡萄牙 vs 挪威", "teams": ["葡萄牙", "挪威"], "bj": "2026-10-05 02:45", "dur": 115, "note": "UEFA 官方开球时间 20:45（欧洲中部时间）", "channels": ["咪咕视频"]}, {"id": "unl-a4-wal-den", "sport": "football", "sub": "欧国联 A 级 · 第4轮 · A4 组", "title": "威尔士 vs 丹麦", "teams": ["威尔士", "丹麦"], "bj": "2026-10-05 02:45", "dur": 115, "note": "UEFA 官方开球时间 20:45（欧洲中部时间）", "channels": ["咪咕视频"]}, {"id": "unl-a1-fra-bel", "sport": "football", "sub": "欧国联 A 级 · 第4轮 · A1 组", "title": "法国 vs 比利时", "teams": ["法国", "比利时"], "bj": "2026-10-06 02:45", "dur": 115, "note": "UEFA 官方开球时间 20:45（欧洲中部时间）", "channels": ["咪咕视频"]}, {"id": "unl-a1-ita-tur", "sport": "football", "sub": "欧国联 A 级 · 第4轮 · A1 组", "title": "意大利 vs 土耳其", "teams": ["意大利", "土耳其"], "bj": "2026-10-06 02:45", "dur": 115, "note": "UEFA 官方开球时间 20:45（欧洲中部时间）", "channels": ["咪咕视频"]}, {"id": "cn-a-tjk", "sport": "football", "squad": "国家队", "sub": "重庆国际足球邀请赛（友谊赛）", "title": "中国 vs 塔吉克斯坦", "teams": ["中国", "塔吉克斯坦"], "bj": "2026-10-06 19:35", "dur": 115, "note": "重庆龙兴足球场 · 邀请赛最后一场", "channels": ["CCTV5", "央视频", "咪咕视频"]}, {"id": "unl-a3-cro-esp", "sport": "football", "sub": "欧国联 A 级 · 第4轮 · A3 组", "title": "克罗地亚 vs 西班牙", "teams": ["克罗地亚", "西班牙"], "bj": "2026-10-07 02:45", "dur": 115, "note": "UEFA 官方开球时间 20:45（欧洲中部时间）", "channels": ["咪咕视频"]}, {"id": "unl-a3-eng-cze", "sport": "football", "sub": "欧国联 A 级 · 第4轮 · A3 组", "title": "英格兰 vs 捷克", "teams": ["英格兰", "捷克"], "bj": "2026-10-07 02:45", "dur": 115, "note": "UEFA 官方开球时间 20:45（欧洲中部时间）", "channels": ["咪咕视频"]}, {"id": "f1-sgp-s", "sport": "f1", "sub": "新加坡大奖赛", "title": "冲刺赛", "teams": [], "bj": "2026-10-10 17:00", "dur": 45}, {"id": "epl6-ars-lee", "sport": "football", "sub": "英超第6轮", "title": "阿森纳 vs 利兹联", "teams": ["阿森纳", "利兹联"], "bj": "2026-10-10 19:30", "dur": 115}, {"id": "f1-sgp-q", "sport": "f1", "sub": "新加坡大奖赛", "title": "排位赛", "teams": [], "bj": "2026-10-10 21:00", "dur": 60}, {"id": "epl6-mun-tot", "sport": "football", "sub": "英超第6轮", "title": "曼联 vs 热刺", "teams": ["曼联", "热刺"], "bj": "2026-10-11 00:30", "dur": 115}, {"id": "f1-sgp-r", "sport": "f1", "sub": "新加坡大奖赛", "title": "正赛", "teams": [], "bj": "2026-10-11 20:00", "dur": 120}, {"id": "epl6-liv-mci", "sport": "football", "sub": "英超第6轮", "title": "利物浦 vs 曼城", "teams": ["利物浦", "曼城"], "bj": "2026-10-11 23:30", "dur": 115, "note": "安菲尔德"}, {"id": "s16-pi-1", "sport": "lol", "sub": "S16 全球总决赛 · 入围赛（洛杉矶）", "title": "入围赛 首日", "teams": [], "bj": "2026-10-16 02:00", "dur": 300, "note": "LPL 四队直通瑞士轮，不打入围赛"}, {"id": "cn-u17-gulf", "sport": "football", "squad": "U17", "sub": "U17 海湾杯（10/16–11/4）", "title": "中国U17 · 海湾杯首战", "teams": ["中国U17"], "date": "2026-10-16", "dur": 115, "tbdTeams": true, "note": "10 队参赛，分组与赛程待公布"}, {"id": "s16-sw-1", "sport": "lol", "sub": "S16 全球总决赛 · 瑞士轮（得州艾伦）", "title": "瑞士轮 第1比赛日", "teams": ["AL", "BLG", "TES", "iG"], "bj": "2026-10-24 01:00", "dur": 360, "tbdTeams": true, "note": "LPL：AL、BLG、TES、iG。每轮对阵抽签后公布"}, {"id": "s16-sw-2", "sport": "lol", "sub": "S16 全球总决赛 · 瑞士轮（得州艾伦）", "title": "瑞士轮 第2比赛日", "teams": ["AL", "BLG", "TES", "iG"], "bj": "2026-10-25 01:00", "dur": 360, "tbdTeams": true, "note": "LPL：AL、BLG、TES、iG。每轮对阵抽签后公布"}, {"id": "f1-usa-q", "sport": "f1", "sub": "美国大奖赛（奥斯汀）", "title": "排位赛", "teams": [], "bj": "2026-10-25 05:00", "dur": 60}, {"id": "s16-sw-3", "sport": "lol", "sub": "S16 全球总决赛 · 瑞士轮（得州艾伦）", "title": "瑞士轮 第3比赛日", "teams": ["AL", "BLG", "TES", "iG"], "bj": "2026-10-26 01:00", "dur": 360, "tbdTeams": true, "note": "LPL：AL、BLG、TES、iG。每轮对阵抽签后公布"}, {"id": "f1-usa-r", "sport": "f1", "sub": "美国大奖赛（奥斯汀）", "title": "正赛", "teams": [], "bj": "2026-10-26 04:00", "dur": 120}, {"id": "liga-bar-rma", "sport": "football", "sub": "西甲 · 国家德比", "title": "巴塞罗那 vs 皇家马德里", "teams": ["巴塞罗那", "皇家马德里"], "bj": "2026-10-26 04:00", "dur": 115, "note": "本赛季首回合，诺坎普"}, {"id": "s16-sw-4", "sport": "lol", "sub": "S16 全球总决赛 · 瑞士轮（得州艾伦）", "title": "瑞士轮 第4比赛日", "teams": ["AL", "BLG", "TES", "iG"], "bj": "2026-10-27 01:00", "dur": 360, "tbdTeams": true, "note": "LPL：AL、BLG、TES、iG。每轮对阵抽签后公布"}, {"id": "s16-sw-5", "sport": "lol", "sub": "S16 全球总决赛 · 瑞士轮（得州艾伦）", "title": "瑞士轮 第5比赛日", "teams": ["AL", "BLG", "TES", "iG"], "bj": "2026-10-29 04:00", "dur": 360, "tbdTeams": true, "note": "LPL：AL、BLG、TES、iG。每轮对阵抽签后公布"}, {"id": "s16-sw-6", "sport": "lol", "sub": "S16 全球总决赛 · 瑞士轮（得州艾伦）", "title": "瑞士轮 第6比赛日", "teams": ["AL", "BLG", "TES", "iG"], "bj": "2026-10-30 04:00", "dur": 360, "tbdTeams": true, "note": "LPL：AL、BLG、TES、iG。每轮对阵抽签后公布"}, {"id": "s16-sw-7", "sport": "lol", "sub": "S16 全球总决赛 · 瑞士轮（得州艾伦）", "title": "瑞士轮 第7比赛日", "teams": ["AL", "BLG", "TES", "iG"], "bj": "2026-10-31 04:00", "dur": 360, "tbdTeams": true, "note": "LPL：AL、BLG、TES、iG。每轮对阵抽签后公布"}, {"id": "s16-sw-8", "sport": "lol", "sub": "S16 全球总决赛 · 瑞士轮（得州艾伦）", "title": "瑞士轮 第8比赛日", "teams": ["AL", "BLG", "TES", "iG"], "bj": "2026-11-01 01:00", "dur": 360, "tbdTeams": true, "note": "LPL：AL、BLG、TES、iG。每轮对阵抽签后公布"}, {"id": "bl8-bay-bvb", "sport": "football", "sub": "德甲第8轮 · 德国国家德比", "title": "拜仁 vs 多特蒙德", "teams": ["拜仁", "多特蒙德"], "bj": "2026-11-01 01:30", "dur": 115}, {"id": "f1-mex-q", "sport": "f1", "sub": "墨西哥城大奖赛", "title": "排位赛", "teams": [], "bj": "2026-11-01 05:00", "dur": 60}, {"id": "f1-mex-r", "sport": "f1", "sub": "墨西哥城大奖赛", "title": "正赛", "teams": [], "bj": "2026-11-02 04:00", "dur": 120}, {"id": "s16-qf-1", "sport": "lol", "sub": "S16 全球总决赛 · 八强赛（得州艾伦）", "title": "八强赛 第1场", "teams": ["AL", "BLG", "TES", "iG"], "bj": "2026-11-04 06:00", "dur": 300, "tbdTeams": true, "note": "对阵待瑞士轮结束后确定"}, {"id": "s16-qf-2", "sport": "lol", "sub": "S16 全球总决赛 · 八强赛（得州艾伦）", "title": "八强赛 第2场", "teams": ["AL", "BLG", "TES", "iG"], "bj": "2026-11-05 06:00", "dur": 300, "tbdTeams": true, "note": "对阵待瑞士轮结束后确定"}, {"id": "s16-qf-3", "sport": "lol", "sub": "S16 全球总决赛 · 八强赛（得州艾伦）", "title": "八强赛 第3场", "teams": ["AL", "BLG", "TES", "iG"], "bj": "2026-11-06 06:00", "dur": 300, "tbdTeams": true, "note": "对阵待瑞士轮结束后确定"}, {"id": "s16-qf-4", "sport": "lol", "sub": "S16 全球总决赛 · 八强赛（得州艾伦）", "title": "八强赛 第4场", "teams": ["AL", "BLG", "TES", "iG"], "bj": "2026-11-07 06:00", "dur": 300, "tbdTeams": true, "note": "对阵待瑞士轮结束后确定"}, {"id": "s16-sf-1", "sport": "lol", "sub": "S16 全球总决赛 · 半决赛", "title": "半决赛 第1场", "teams": ["AL", "BLG", "TES", "iG"], "bj": "2026-11-08 06:00", "dur": 300, "tbdTeams": true}, {"id": "s16-sf-2", "sport": "lol", "sub": "S16 全球总决赛 · 半决赛", "title": "半决赛 第2场", "teams": ["AL", "BLG", "TES", "iG"], "bj": "2026-11-09 06:00", "dur": 300, "tbdTeams": true}, {"id": "s16-final", "sport": "lol", "sub": "S16 全球总决赛 · 决赛（纽约巴克莱中心）", "title": "总决赛", "teams": ["AL", "BLG", "TES", "iG"], "bj": "2026-11-15 02:00", "dur": 300, "tbdTeams": true}]}
+{
+ "updatedAt": "2026-10-01T16:02:11+08:00",
+ "note": "自动更新 6/10 项成功",
+ "matches": [
+  {
+   "id": "lpl26-ig-we",
+   "sport": "lol",
+   "sub": "LPL 季后赛 · 败者组",
+   "title": "iG vs WE",
+   "teams": [
+    "iG",
+    "WE"
+   ],
+   "date": "2026-09-06",
+   "dur": 240,
+   "result": "iG 3:1 WE"
+  },
+  {
+   "id": "us26-zheng-ryb",
+   "sport": "tennis",
+   "sub": "美网 · 女单1/4决赛",
+   "title": "郑钦文 vs 莱巴金娜",
+   "teams": [
+    "郑钦文",
+    "莱巴金娜"
+   ],
+   "date": "2026-09-10",
+   "dur": 150,
+   "result": "郑钦文 1:2 莱巴金娜（6-3 1-6 4-6）",
+   "note": "郑钦文止步八强"
+  },
+  {
+   "id": "cn-a-mdv",
+   "sport": "football",
+   "squad": "国家队",
+   "sub": "重庆国际足球邀请赛（友谊赛）",
+   "title": "中国 vs 马尔代夫",
+   "teams": [
+    "中国",
+    "马尔代夫"
+   ],
+   "bj": "2026-09-24 19:35",
+   "dur": 115,
+   "result": "中国 3:0 马尔代夫",
+   "note": "重庆龙兴足球场"
+  },
+  {
+   "id": "cn-u23-tha",
+   "sport": "football",
+   "squad": "U23 亚运队",
+   "sub": "亚运会男足 · 1/4决赛",
+   "title": "中国U23 vs 泰国U23",
+   "teams": [
+    "中国U23",
+    "泰国U23"
+   ],
+   "date": "2026-09-26",
+   "dur": 115,
+   "result": "中国U23 3:0 泰国U23"
+  },
+  {
+   "id": "cn-u16-vie",
+   "sport": "football",
+   "squad": "U16",
+   "sub": "和平杯沈阳国际青年足球锦标赛",
+   "title": "中国U16 vs 越南U16",
+   "teams": [
+    "中国U16",
+    "越南U16"
+   ],
+   "date": "2026-09-27",
+   "dur": 90,
+   "result": "中国U16 1:0 越南U16"
+  },
+  {
+   "id": "cn-a-nzl",
+   "sport": "football",
+   "squad": "国家队",
+   "sub": "重庆国际足球邀请赛（友谊赛）",
+   "title": "中国 vs 新西兰",
+   "teams": [
+    "中国",
+    "新西兰"
+   ],
+   "bj": "2026-09-27 19:35",
+   "dur": 115,
+   "result": "中国 0:3 新西兰",
+   "note": "重庆龙兴足球场"
+  },
+  {
+   "id": "unl-2047999",
+   "src": "unl",
+   "sport": "football",
+   "sub": "欧国联 A 级 · A3 组",
+   "title": "西班牙 vs 克罗地亚",
+   "teams": [
+    "西班牙",
+    "克罗地亚"
+   ],
+   "bj": "2026-09-30 02:45",
+   "dur": 115,
+   "channels": [
+    "咪咕视频"
+   ],
+   "result": "西班牙 4:1 克罗地亚"
+  },
+  {
+   "id": "unl-2048000",
+   "src": "unl",
+   "sport": "football",
+   "sub": "欧国联 A 级 · A3 组",
+   "title": "捷克 vs 英格兰",
+   "teams": [
+    "捷克",
+    "英格兰"
+   ],
+   "bj": "2026-09-30 02:45",
+   "dur": 115,
+   "channels": [
+    "咪咕视频"
+   ],
+   "result": "捷克 0:2 英格兰"
+  },
+  {
+   "id": "cn-u23-kor",
+   "sport": "football",
+   "squad": "U23 亚运队",
+   "sub": "亚运会男足 · 半决赛",
+   "title": "中国U23 vs 韩国U23",
+   "teams": [
+    "中国U23",
+    "韩国U23"
+   ],
+   "bj": "2026-09-30 14:00",
+   "dur": 115,
+   "result": "中国U23 1:2 韩国U23",
+   "note": "王钰栋破门"
+  },
+  {
+   "id": "ag-ten-ws-sf",
+   "sport": "tennis",
+   "sub": "亚运会网球 · 女单半决赛",
+   "title": "张帅 vs 普京采娃 · 王曦雨 vs 埃亚拉",
+   "teams": [
+    "张帅",
+    "普京采娃",
+    "王曦雨",
+    "埃亚拉"
+   ],
+   "date": "2026-10-01",
+   "dur": 300,
+   "note": "当天 09:00 起；埃亚拉为 1 号种子，1/4 决赛 7-5 6-0 胜葛蓝乔安娜"
+  },
+  {
+   "id": "ag-ten-ms-qf",
+   "sport": "tennis",
+   "sub": "亚运会网球 · 男单1/4决赛",
+   "title": "吴易昺 vs 纳加尔",
+   "teams": [
+    "吴易昺",
+    "纳加尔"
+   ],
+   "date": "2026-10-01",
+   "dur": 150,
+   "note": "男单1/4决赛"
+  },
+  {
+   "id": "cn26-zheng-shi",
+   "sport": "tennis",
+   "sub": "中网 WTA1000 · 女单首轮",
+   "title": "郑钦文 vs 施晗",
+   "teams": [
+    "郑钦文",
+    "施晗"
+   ],
+   "bj": "2026-10-01 11:00",
+   "dur": 150,
+   "note": "钻石球场 11:00 开打的第一场（WTA 官方出场顺序）；郑钦文持外卡，施晗为资格赛选手。央视 5、5+ 当天节目单以亚运会为主，未列这场",
+   "channels": [
+    "咪咕视频"
+   ]
+  },
+  {
+   "id": "ag-ten-ws-f",
+   "sport": "tennis",
+   "sub": "亚运会网球 · 女单决赛",
+   "title": "女单决赛",
+   "teams": [
+    "张帅",
+    "王曦雨"
+   ],
+   "date": "2026-10-02",
+   "dur": 150,
+   "tbdTeams": true,
+   "note": "同日：男单半决赛、男双决赛、女双/混双半决赛"
+  },
+  {
+   "id": "ten-wta-zhang-zheng-2026-10-02",
+   "sport": "tennis",
+   "sub": "中网 · 女单第2轮",
+   "title": "郑钦文 vs 安娜·卡林斯卡娅",
+   "teams": [
+    "郑钦文",
+    "安娜·卡林斯卡娅"
+   ],
+   "date": "2026-10-02",
+   "dur": 150,
+   "note": "中国网球公开赛女单第2轮"
+  },
+  {
+   "id": "ten-wta-wang-xinyu-2026-10-02",
+   "sport": "tennis",
+   "sub": "中网 · 女单第2轮",
+   "title": "王欣瑜 vs 玛丽·鲍兹科娃",
+   "teams": [
+    "王欣瑜",
+    "玛丽·鲍兹科娃"
+   ],
+   "date": "2026-10-02",
+   "dur": 150,
+   "note": "中网女单第2轮"
+  },
+  {
+   "id": "ten-wta-zhu-lin-2026-10-02",
+   "sport": "tennis",
+   "sub": "中网 · 女单第2轮",
+   "title": "朱琳 vs 伊ga·斯维亚特克",
+   "teams": [
+    "朱琳",
+    "伊ga·斯维亚特克"
+   ],
+   "date": "2026-10-02",
+   "dur": 150,
+   "note": "中网女单第2轮"
+  },
+  {
+   "id": "ten-wta-gao-xinyu-2026-10-02",
+   "sport": "tennis",
+   "sub": "中网 · 女单第2轮",
+   "title": "高馨宇 vs 潘娜·乌德瓦尔迪",
+   "teams": [
+    "高馨宇",
+    "潘娜·乌德瓦尔迪"
+   ],
+   "date": "2026-10-02",
+   "dur": 150,
+   "note": "中网女单第2轮"
+  },
+  {
+   "id": "ten-wta-lin-yujun-2026-10-02",
+   "sport": "tennis",
+   "sub": "中网 · 女单第2轮",
+   "title": "林玉珺 vs 斯托姆·亨特",
+   "teams": [
+    "林玉珺",
+    "斯托姆·亨特"
+   ],
+   "date": "2026-10-02",
+   "dur": 150,
+   "note": "中网女单第2轮"
+  },
+  {
+   "id": "ten-wta-qu-yihan-2026-10-02",
+   "sport": "tennis",
+   "sub": "中网 · 女单第2轮",
+   "title": "屈轶涵 vs 伊瓦·约维奇",
+   "teams": [
+    "屈轶涵",
+    "伊瓦·约维奇"
+   ],
+   "date": "2026-10-02",
+   "dur": 150,
+   "note": "中网女单第2轮"
+  },
+  {
+   "id": "ten-wta-shao-yushan-2026-10-02",
+   "sport": "tennis",
+   "sub": "中网 · 女单第2轮",
+   "title": "邵羽珊 vs 阿纳斯塔西娅·扎哈罗娃",
+   "teams": [
+    "邵羽珊",
+    "阿纳斯塔西娅·扎哈罗娃"
+   ],
+   "date": "2026-10-02",
+   "dur": 150,
+   "note": "中网女单第2轮"
+  },
+  {
+   "id": "ten-wta-sun-xinran-2026-10-02",
+   "sport": "tennis",
+   "sub": "中网 · 女单第2轮",
+   "title": "孙昕然 vs 克里斯蒂娜·布克沙",
+   "teams": [
+    "孙昕然",
+    "克里斯蒂娜·布克沙"
+   ],
+   "date": "2026-10-02",
+   "dur": 150,
+   "note": "中网女单第2轮"
+  },
+  {
+   "id": "ten-wta-shi-han-2026-10-02",
+   "sport": "tennis",
+   "sub": "中网 · 女单第2轮",
+   "title": "施晗 vs 安娜·卡林斯卡娅",
+   "teams": [
+    "施晗",
+    "安娜·卡林斯卡娅"
+   ],
+   "date": "2026-10-02",
+   "dur": 150,
+   "note": "资格赛晋级后对阵"
+  },
+  {
+   "id": "ten-wta-bai-zhuoxuan-2026-10-02",
+   "sport": "tennis",
+   "sub": "中网 · 女单第2轮",
+   "title": "白卓璇 vs 琳达·弗鲁维尔托娃",
+   "teams": [
+    "白卓璇",
+    "琳达·弗鲁维尔托娃"
+   ],
+   "date": "2026-10-02",
+   "dur": 150,
+   "note": "中网女单第2轮"
+  },
+  {
+   "id": "ten-wta-yuanyue-2026-10-02",
+   "sport": "tennis",
+   "sub": "中网 · 女单第2轮",
+   "title": "袁悦 vs 米拉·安德烈耶娃",
+   "teams": [
+    "袁悦",
+    "米拉·安德烈耶娃"
+   ],
+   "date": "2026-10-02",
+   "dur": 150,
+   "note": "中网女单第2轮"
+  },
+  {
+   "id": "unl-2047950",
+   "src": "unl",
+   "sport": "football",
+   "sub": "欧国联 A 级 · A4 组",
+   "title": "威尔士 vs 挪威",
+   "teams": [
+    "威尔士",
+    "挪威"
+   ],
+   "bj": "2026-10-02 02:45",
+   "dur": 115,
+   "channels": [
+    "咪咕视频"
+   ]
+  },
+  {
+   "id": "unl-2047951",
+   "src": "unl",
+   "sport": "football",
+   "sub": "欧国联 A 级 · A2 组",
+   "title": "希腊 vs 荷兰",
+   "teams": [
+    "希腊",
+    "荷兰"
+   ],
+   "bj": "2026-10-02 02:45",
+   "dur": 115,
+   "channels": [
+    "咪咕视频"
+   ]
+  },
+  {
+   "id": "unl-2047954",
+   "src": "unl",
+   "sport": "football",
+   "sub": "欧国联 A 级 · A2 组",
+   "title": "德国 vs 塞尔维亚",
+   "teams": [
+    "德国",
+    "塞尔维亚"
+   ],
+   "bj": "2026-10-02 02:45",
+   "dur": 115,
+   "channels": [
+    "咪咕视频"
+   ]
+  },
+  {
+   "id": "unl-2047957",
+   "src": "unl",
+   "sport": "football",
+   "sub": "欧国联 A 级 · A4 组",
+   "title": "丹麦 vs 葡萄牙",
+   "teams": [
+    "丹麦",
+    "葡萄牙"
+   ],
+   "bj": "2026-10-02 02:45",
+   "dur": 115,
+   "channels": [
+    "咪咕视频"
+   ]
+  },
+  {
+   "id": "ten-wta-yuan-2026-10-02",
+   "sport": "tennis",
+   "sub": "中网 · 女单第2轮",
+   "title": "袁悦 vs 米拉·安德烈耶娃",
+   "teams": [
+    "袁悦",
+    "米拉·安德烈耶娃"
+   ],
+   "bj": "2026-10-02 11:00",
+   "dur": 150,
+   "note": "Diamond Court 开赛 11:00 AM"
+  },
+  {
+   "id": "cn-a-ple",
+   "sport": "football",
+   "squad": "国家队",
+   "sub": "重庆国际足球邀请赛（友谊赛）",
+   "title": "中国 vs 巴勒斯坦",
+   "teams": [
+    "中国",
+    "巴勒斯坦"
+   ],
+   "bj": "2026-10-02 19:35",
+   "dur": 115,
+   "note": "重庆龙兴足球场 · CCTV5 直播",
+   "channels": [
+    "CCTV5",
+    "央视频",
+    "咪咕视频"
+   ]
+  },
+  {
+   "id": "ag-ten-d3",
+   "sport": "tennis",
+   "sub": "亚运会网球 · 决赛日",
+   "title": "男单 / 女双 / 混双决赛",
+   "teams": [
+    "吴易昺"
+   ],
+   "date": "2026-10-03",
+   "dur": 300,
+   "tbdTeams": true,
+   "note": "中国队混双两对组合晋级八强，进程以当日赛果为准"
+  },
+  {
+   "id": "ag-mfb-final",
+   "sport": "football",
+   "sub": "亚运会男足 · 金牌赛",
+   "title": "韩国U23 vs 日本U23",
+   "teams": [
+    "韩国U23",
+    "日本U23"
+   ],
+   "date": "2026-10-03",
+   "dur": 115,
+   "verify": "pending",
+   "note": "决赛日期 10/3 经亚奥理事会确认；对阵与开球时间目前只见自媒体报道，待官方确认"
+  },
+  {
+   "id": "unl-2047960",
+   "src": "unl",
+   "sport": "football",
+   "sub": "欧国联 A 级 · A1 组",
+   "title": "法国 vs 意大利",
+   "teams": [
+    "法国",
+    "意大利"
+   ],
+   "bj": "2026-10-03 02:45",
+   "dur": 115,
+   "channels": [
+    "咪咕视频"
+   ]
+  },
+  {
+   "id": "unl-2047961",
+   "src": "unl",
+   "sport": "football",
+   "sub": "欧国联 A 级 · A1 组",
+   "title": "比利时 vs 土耳其",
+   "teams": [
+    "比利时",
+    "土耳其"
+   ],
+   "bj": "2026-10-03 02:45",
+   "dur": 115,
+   "channels": [
+    "咪咕视频"
+   ]
+  },
+  {
+   "id": "cn-u23-uzb",
+   "sport": "football",
+   "squad": "U23 亚运队",
+   "sub": "亚运会男足 · 铜牌战",
+   "title": "中国U23 vs 乌兹别克斯坦U23",
+   "teams": [
+    "中国U23",
+    "乌兹别克斯坦U23"
+   ],
+   "bj": "2026-10-03 14:00",
+   "dur": 115,
+   "note": "丰田体育场 · CCTV5 直播；开球时间待亚运会官方确认",
+   "channels": [
+    "CCTV5",
+    "央视频",
+    "咪咕视频"
+   ],
+   "verify": "pending"
+  },
+  {
+   "id": "f1-2026-16-q",
+   "src": "f1",
+   "sport": "f1",
+   "sub": "巴林大奖赛（移师马来西亚）（移师马来西亚）（第16站）",
+   "title": "排位赛",
+   "teams": [],
+   "bj": "2026-10-03 16:00",
+   "dur": 60,
+   "note": "雪邦赛道"
+  },
+  {
+   "id": "unl-2047968",
+   "src": "unl",
+   "sport": "football",
+   "sub": "欧国联 A 级 · A3 组",
+   "title": "克罗地亚 vs 英格兰",
+   "teams": [
+    "克罗地亚",
+    "英格兰"
+   ],
+   "bj": "2026-10-04 00:00",
+   "dur": 115,
+   "channels": [
+    "咪咕视频"
+   ]
+  },
+  {
+   "id": "unl-2047971",
+   "src": "unl",
+   "sport": "football",
+   "sub": "欧国联 A 级 · A3 组",
+   "title": "西班牙 vs 捷克",
+   "teams": [
+    "西班牙",
+    "捷克"
+   ],
+   "bj": "2026-10-04 02:45",
+   "dur": 115,
+   "channels": [
+    "咪咕视频"
+   ]
+  },
+  {
+   "id": "f1-2026-16-r",
+   "src": "f1",
+   "sport": "f1",
+   "sub": "巴林大奖赛（移师马来西亚）（移师马来西亚）（第16站）",
+   "title": "正赛",
+   "teams": [],
+   "bj": "2026-10-04 15:00",
+   "dur": 120,
+   "note": "雪邦赛道"
+  },
+  {
+   "id": "unl-2047924",
+   "src": "unl",
+   "sport": "football",
+   "sub": "欧国联 A 级 · A4 组",
+   "title": "葡萄牙 vs 挪威",
+   "teams": [
+    "葡萄牙",
+    "挪威"
+   ],
+   "bj": "2026-10-05 02:45",
+   "dur": 115,
+   "channels": [
+    "咪咕视频"
+   ]
+  },
+  {
+   "id": "unl-2047925",
+   "src": "unl",
+   "sport": "football",
+   "sub": "欧国联 A 级 · A2 组",
+   "title": "荷兰 vs 塞尔维亚",
+   "teams": [
+    "荷兰",
+    "塞尔维亚"
+   ],
+   "bj": "2026-10-05 02:45",
+   "dur": 115,
+   "channels": [
+    "咪咕视频"
+   ]
+  },
+  {
+   "id": "unl-2047926",
+   "src": "unl",
+   "sport": "football",
+   "sub": "欧国联 A 级 · A2 组",
+   "title": "希腊 vs 德国",
+   "teams": [
+    "希腊",
+    "德国"
+   ],
+   "bj": "2026-10-05 02:45",
+   "dur": 115,
+   "channels": [
+    "咪咕视频"
+   ]
+  },
+  {
+   "id": "unl-2047930",
+   "src": "unl",
+   "sport": "football",
+   "sub": "欧国联 A 级 · A4 组",
+   "title": "威尔士 vs 丹麦",
+   "teams": [
+    "威尔士",
+    "丹麦"
+   ],
+   "bj": "2026-10-05 02:45",
+   "dur": 115,
+   "channels": [
+    "咪咕视频"
+   ]
+  },
+  {
+   "id": "unl-2047937",
+   "src": "unl",
+   "sport": "football",
+   "sub": "欧国联 A 级 · A1 组",
+   "title": "法国 vs 比利时",
+   "teams": [
+    "法国",
+    "比利时"
+   ],
+   "bj": "2026-10-06 02:45",
+   "dur": 115,
+   "channels": [
+    "咪咕视频"
+   ]
+  },
+  {
+   "id": "unl-2047938",
+   "src": "unl",
+   "sport": "football",
+   "sub": "欧国联 A 级 · A1 组",
+   "title": "意大利 vs 土耳其",
+   "teams": [
+    "意大利",
+    "土耳其"
+   ],
+   "bj": "2026-10-06 02:45",
+   "dur": 115,
+   "channels": [
+    "咪咕视频"
+   ]
+  },
+  {
+   "id": "cn-a-tjk",
+   "sport": "football",
+   "squad": "国家队",
+   "sub": "重庆国际足球邀请赛（友谊赛）",
+   "title": "中国 vs 塔吉克斯坦",
+   "teams": [
+    "中国",
+    "塔吉克斯坦"
+   ],
+   "bj": "2026-10-06 19:35",
+   "dur": 115,
+   "note": "重庆龙兴足球场 · 邀请赛最后一场",
+   "channels": [
+    "CCTV5",
+    "央视频",
+    "咪咕视频"
+   ]
+  },
+  {
+   "id": "unl-2047946",
+   "src": "unl",
+   "sport": "football",
+   "sub": "欧国联 A 级 · A3 组",
+   "title": "克罗地亚 vs 西班牙",
+   "teams": [
+    "克罗地亚",
+    "西班牙"
+   ],
+   "bj": "2026-10-07 02:45",
+   "dur": 115,
+   "channels": [
+    "咪咕视频"
+   ]
+  },
+  {
+   "id": "unl-2047947",
+   "src": "unl",
+   "sport": "football",
+   "sub": "欧国联 A 级 · A3 组",
+   "title": "英格兰 vs 捷克",
+   "teams": [
+    "英格兰",
+    "捷克"
+   ],
+   "bj": "2026-10-07 02:45",
+   "dur": 115,
+   "channels": [
+    "咪咕视频"
+   ]
+  },
+  {
+   "id": "f1-2026-17-s",
+   "src": "f1",
+   "sport": "f1",
+   "sub": "新加坡大奖赛（第17站）",
+   "title": "冲刺赛",
+   "teams": [],
+   "bj": "2026-10-10 17:00",
+   "dur": 45,
+   "note": "滨海湾街道赛道"
+  },
+  {
+   "id": "epl6-ars-lee",
+   "sport": "football",
+   "sub": "英超第6轮",
+   "title": "阿森纳 vs 利兹联",
+   "teams": [
+    "阿森纳",
+    "利兹联"
+   ],
+   "bj": "2026-10-10 19:30",
+   "dur": 115
+  },
+  {
+   "id": "f1-2026-17-q",
+   "src": "f1",
+   "sport": "f1",
+   "sub": "新加坡大奖赛（第17站）",
+   "title": "排位赛",
+   "teams": [],
+   "bj": "2026-10-10 21:00",
+   "dur": 60,
+   "note": "滨海湾街道赛道"
+  },
+  {
+   "id": "epl6-mun-tot",
+   "sport": "football",
+   "sub": "英超第6轮",
+   "title": "曼联 vs 热刺",
+   "teams": [
+    "曼联",
+    "热刺"
+   ],
+   "bj": "2026-10-11 00:30",
+   "dur": 115
+  },
+  {
+   "id": "f1-2026-17-r",
+   "src": "f1",
+   "sport": "f1",
+   "sub": "新加坡大奖赛（第17站）",
+   "title": "正赛",
+   "teams": [],
+   "bj": "2026-10-11 20:00",
+   "dur": 120,
+   "note": "滨海湾街道赛道"
+  },
+  {
+   "id": "epl6-liv-mci",
+   "sport": "football",
+   "sub": "英超第6轮",
+   "title": "利物浦 vs 曼城",
+   "teams": [
+    "利物浦",
+    "曼城"
+   ],
+   "bj": "2026-10-11 23:30",
+   "dur": 115,
+   "note": "安菲尔德"
+  },
+  {
+   "id": "ucl-2049571",
+   "src": "ucl",
+   "sport": "football",
+   "sub": "欧冠 · League 组",
+   "title": "国际米兰 vs 布鲁日",
+   "teams": [
+    "国际米兰",
+    "布鲁日"
+   ],
+   "bj": "2026-10-14 03:00",
+   "dur": 115,
+   "channels": [
+    "咪咕视频"
+   ]
+  },
+  {
+   "id": "ucl-2049572",
+   "src": "ucl",
+   "sport": "football",
+   "sub": "欧冠 · League 组",
+   "title": "阿森纳 vs 里尔",
+   "teams": [
+    "阿森纳",
+    "里尔"
+   ],
+   "bj": "2026-10-14 03:00",
+   "dur": 115,
+   "channels": [
+    "咪咕视频"
+   ]
+  },
+  {
+   "id": "ucl-2049575",
+   "src": "ucl",
+   "sport": "football",
+   "sub": "欧冠 · League 组",
+   "title": "比利亚雷亚尔 vs 那不勒斯",
+   "teams": [
+    "比利亚雷亚尔",
+    "那不勒斯"
+   ],
+   "bj": "2026-10-14 03:00",
+   "dur": 115,
+   "channels": [
+    "咪咕视频"
+   ]
+  },
+  {
+   "id": "ucl-2049576",
+   "src": "ucl",
+   "sport": "football",
+   "sub": "欧冠 · League 组",
+   "title": "加拉塔萨雷 vs 巴塞罗那",
+   "teams": [
+    "加拉塔萨雷",
+    "巴塞罗那"
+   ],
+   "bj": "2026-10-14 03:00",
+   "dur": 115,
+   "channels": [
+    "咪咕视频"
+   ]
+  },
+  {
+   "id": "ucl-2049578",
+   "src": "ucl",
+   "sport": "football",
+   "sub": "欧冠 · League 组",
+   "title": "维京 vs 拜仁慕尼黑",
+   "teams": [
+    "维京",
+    "拜仁慕尼黑"
+   ],
+   "bj": "2026-10-14 03:00",
+   "dur": 115,
+   "channels": [
+    "咪咕视频"
+   ]
+  },
+  {
+   "id": "ucl-2049588",
+   "src": "ucl",
+   "sport": "football",
+   "sub": "欧冠 · League 组",
+   "title": "林茨 vs 利物浦",
+   "teams": [
+    "林茨",
+    "利物浦"
+   ],
+   "bj": "2026-10-15 00:45",
+   "dur": 115,
+   "channels": [
+    "咪咕视频"
+   ]
+  },
+  {
+   "id": "ucl-2049581",
+   "src": "ucl",
+   "sport": "football",
+   "sub": "欧冠 · League 组",
+   "title": "罗马 vs 皇家马德里",
+   "teams": [
+    "罗马",
+    "皇家马德里"
+   ],
+   "bj": "2026-10-15 03:00",
+   "dur": 115,
+   "channels": [
+    "咪咕视频"
+   ]
+  },
+  {
+   "id": "cn-u17-gulf",
+   "sport": "football",
+   "squad": "U17",
+   "sub": "U17 海湾杯（10/16–11/4）",
+   "title": "中国U17 · 海湾杯首战",
+   "teams": [
+    "中国U17"
+   ],
+   "date": "2026-10-16",
+   "dur": 115,
+   "tbdTeams": true,
+   "note": "10 队参赛，分组与赛程待公布"
+  },
+  {
+   "id": "s16-pi-1",
+   "sport": "lol",
+   "sub": "S16 全球总决赛 · 入围赛（洛杉矶）",
+   "title": "入围赛 首日",
+   "teams": [],
+   "bj": "2026-10-16 02:00",
+   "dur": 300,
+   "note": "LPL 四队直通瑞士轮，不打入围赛"
+  },
+  {
+   "id": "ucl-2049589",
+   "src": "ucl",
+   "sport": "football",
+   "sub": "欧冠 · League 组",
+   "title": "巴黎圣日耳曼 vs 巴塞罗那",
+   "teams": [
+    "巴黎圣日耳曼",
+    "巴塞罗那"
+   ],
+   "bj": "2026-10-21 03:00",
+   "dur": 115,
+   "channels": [
+    "咪咕视频"
+   ]
+  },
+  {
+   "id": "ucl-2049590",
+   "src": "ucl",
+   "sport": "football",
+   "sub": "欧冠 · League 组",
+   "title": "利物浦 vs 比利亚雷亚尔",
+   "teams": [
+    "利物浦",
+    "比利亚雷亚尔"
+   ],
+   "bj": "2026-10-21 03:00",
+   "dur": 115,
+   "channels": [
+    "咪咕视频"
+   ]
+  },
+  {
+   "id": "ucl-2049594",
+   "src": "ucl",
+   "sport": "football",
+   "sub": "欧冠 · League 组",
+   "title": "那不勒斯 vs 博德闪耀",
+   "teams": [
+    "那不勒斯",
+    "博德闪耀"
+   ],
+   "bj": "2026-10-21 03:00",
+   "dur": 115,
+   "channels": [
+    "咪咕视频"
+   ]
+  },
+  {
+   "id": "ucl-2049598",
+   "src": "ucl",
+   "sport": "football",
+   "sub": "欧冠 · League 组",
+   "title": "拜仁慕尼黑 vs 阿森纳",
+   "teams": [
+    "拜仁慕尼黑",
+    "阿森纳"
+   ],
+   "bj": "2026-10-22 03:00",
+   "dur": 115,
+   "channels": [
+    "咪咕视频"
+   ]
+  },
+  {
+   "id": "ucl-2049599",
+   "src": "ucl",
+   "sport": "football",
+   "sub": "欧冠 · League 组",
+   "title": "皇家马德里 vs 莱比锡",
+   "teams": [
+    "皇家马德里",
+    "莱比锡"
+   ],
+   "bj": "2026-10-22 03:00",
+   "dur": 115,
+   "channels": [
+    "咪咕视频"
+   ]
+  },
+  {
+   "id": "ucl-2049600",
+   "src": "ucl",
+   "sport": "football",
+   "sub": "欧冠 · League 组",
+   "title": "国际米兰 vs 顿涅茨克矿工",
+   "teams": [
+    "国际米兰",
+    "顿涅茨克矿工"
+   ],
+   "bj": "2026-10-22 03:00",
+   "dur": 115,
+   "channels": [
+    "咪咕视频"
+   ]
+  },
+  {
+   "id": "s16-sw-1",
+   "sport": "lol",
+   "sub": "S16 全球总决赛 · 瑞士轮（得州艾伦）",
+   "title": "瑞士轮 第1比赛日",
+   "teams": [
+    "AL",
+    "BLG",
+    "TES",
+    "iG"
+   ],
+   "bj": "2026-10-24 01:00",
+   "dur": 360,
+   "tbdTeams": true,
+   "note": "LPL：AL、BLG、TES、iG。每轮对阵抽签后公布"
+  },
+  {
+   "id": "s16-sw-2",
+   "sport": "lol",
+   "sub": "S16 全球总决赛 · 瑞士轮（得州艾伦）",
+   "title": "瑞士轮 第2比赛日",
+   "teams": [
+    "AL",
+    "BLG",
+    "TES",
+    "iG"
+   ],
+   "bj": "2026-10-25 01:00",
+   "dur": 360,
+   "tbdTeams": true,
+   "note": "LPL：AL、BLG、TES、iG。每轮对阵抽签后公布"
+  },
+  {
+   "id": "f1-2026-18-q",
+   "src": "f1",
+   "sport": "f1",
+   "sub": "美国大奖赛（第18站）",
+   "title": "排位赛",
+   "teams": [],
+   "bj": "2026-10-25 05:00",
+   "dur": 60,
+   "note": "美洲赛道"
+  },
+  {
+   "id": "s16-sw-3",
+   "sport": "lol",
+   "sub": "S16 全球总决赛 · 瑞士轮（得州艾伦）",
+   "title": "瑞士轮 第3比赛日",
+   "teams": [
+    "AL",
+    "BLG",
+    "TES",
+    "iG"
+   ],
+   "bj": "2026-10-26 01:00",
+   "dur": 360,
+   "tbdTeams": true,
+   "note": "LPL：AL、BLG、TES、iG。每轮对阵抽签后公布"
+  },
+  {
+   "id": "liga-bar-rma",
+   "sport": "football",
+   "sub": "西甲 · 国家德比",
+   "title": "巴塞罗那 vs 皇家马德里",
+   "teams": [
+    "巴塞罗那",
+    "皇家马德里"
+   ],
+   "bj": "2026-10-26 04:00",
+   "dur": 115,
+   "note": "本赛季首回合，诺坎普"
+  },
+  {
+   "id": "f1-2026-18-r",
+   "src": "f1",
+   "sport": "f1",
+   "sub": "美国大奖赛（第18站）",
+   "title": "正赛",
+   "teams": [],
+   "bj": "2026-10-26 04:00",
+   "dur": 120,
+   "note": "美洲赛道"
+  },
+  {
+   "id": "s16-sw-4",
+   "sport": "lol",
+   "sub": "S16 全球总决赛 · 瑞士轮（得州艾伦）",
+   "title": "瑞士轮 第4比赛日",
+   "teams": [
+    "AL",
+    "BLG",
+    "TES",
+    "iG"
+   ],
+   "bj": "2026-10-27 01:00",
+   "dur": 360,
+   "tbdTeams": true,
+   "note": "LPL：AL、BLG、TES、iG。每轮对阵抽签后公布"
+  },
+  {
+   "id": "s16-sw-5",
+   "sport": "lol",
+   "sub": "S16 全球总决赛 · 瑞士轮（得州艾伦）",
+   "title": "瑞士轮 第5比赛日",
+   "teams": [
+    "AL",
+    "BLG",
+    "TES",
+    "iG"
+   ],
+   "bj": "2026-10-29 04:00",
+   "dur": 360,
+   "tbdTeams": true,
+   "note": "LPL：AL、BLG、TES、iG。每轮对阵抽签后公布"
+  },
+  {
+   "id": "s16-sw-6",
+   "sport": "lol",
+   "sub": "S16 全球总决赛 · 瑞士轮（得州艾伦）",
+   "title": "瑞士轮 第6比赛日",
+   "teams": [
+    "AL",
+    "BLG",
+    "TES",
+    "iG"
+   ],
+   "bj": "2026-10-30 04:00",
+   "dur": 360,
+   "tbdTeams": true,
+   "note": "LPL：AL、BLG、TES、iG。每轮对阵抽签后公布"
+  },
+  {
+   "id": "s16-sw-7",
+   "sport": "lol",
+   "sub": "S16 全球总决赛 · 瑞士轮（得州艾伦）",
+   "title": "瑞士轮 第7比赛日",
+   "teams": [
+    "AL",
+    "BLG",
+    "TES",
+    "iG"
+   ],
+   "bj": "2026-10-31 04:00",
+   "dur": 360,
+   "tbdTeams": true,
+   "note": "LPL：AL、BLG、TES、iG。每轮对阵抽签后公布"
+  },
+  {
+   "id": "s16-sw-8",
+   "sport": "lol",
+   "sub": "S16 全球总决赛 · 瑞士轮（得州艾伦）",
+   "title": "瑞士轮 第8比赛日",
+   "teams": [
+    "AL",
+    "BLG",
+    "TES",
+    "iG"
+   ],
+   "bj": "2026-11-01 01:00",
+   "dur": 360,
+   "tbdTeams": true,
+   "note": "LPL：AL、BLG、TES、iG。每轮对阵抽签后公布"
+  },
+  {
+   "id": "bl8-bay-bvb",
+   "sport": "football",
+   "sub": "德甲第8轮 · 德国国家德比",
+   "title": "拜仁 vs 多特蒙德",
+   "teams": [
+    "拜仁",
+    "多特蒙德"
+   ],
+   "bj": "2026-11-01 01:30",
+   "dur": 115
+  },
+  {
+   "id": "f1-mex-q",
+   "sport": "f1",
+   "sub": "墨西哥城大奖赛",
+   "title": "排位赛",
+   "teams": [],
+   "bj": "2026-11-01 05:00",
+   "dur": 60
+  },
+  {
+   "id": "f1-mex-r",
+   "sport": "f1",
+   "sub": "墨西哥城大奖赛",
+   "title": "正赛",
+   "teams": [],
+   "bj": "2026-11-02 04:00",
+   "dur": 120
+  },
+  {
+   "id": "s16-qf-1",
+   "sport": "lol",
+   "sub": "S16 全球总决赛 · 八强赛（得州艾伦）",
+   "title": "八强赛 第1场",
+   "teams": [
+    "AL",
+    "BLG",
+    "TES",
+    "iG"
+   ],
+   "bj": "2026-11-04 06:00",
+   "dur": 300,
+   "tbdTeams": true,
+   "note": "对阵待瑞士轮结束后确定"
+  },
+  {
+   "id": "s16-qf-2",
+   "sport": "lol",
+   "sub": "S16 全球总决赛 · 八强赛（得州艾伦）",
+   "title": "八强赛 第2场",
+   "teams": [
+    "AL",
+    "BLG",
+    "TES",
+    "iG"
+   ],
+   "bj": "2026-11-05 06:00",
+   "dur": 300,
+   "tbdTeams": true,
+   "note": "对阵待瑞士轮结束后确定"
+  },
+  {
+   "id": "s16-qf-3",
+   "sport": "lol",
+   "sub": "S16 全球总决赛 · 八强赛（得州艾伦）",
+   "title": "八强赛 第3场",
+   "teams": [
+    "AL",
+    "BLG",
+    "TES",
+    "iG"
+   ],
+   "bj": "2026-11-06 06:00",
+   "dur": 300,
+   "tbdTeams": true,
+   "note": "对阵待瑞士轮结束后确定"
+  },
+  {
+   "id": "s16-qf-4",
+   "sport": "lol",
+   "sub": "S16 全球总决赛 · 八强赛（得州艾伦）",
+   "title": "八强赛 第4场",
+   "teams": [
+    "AL",
+    "BLG",
+    "TES",
+    "iG"
+   ],
+   "bj": "2026-11-07 06:00",
+   "dur": 300,
+   "tbdTeams": true,
+   "note": "对阵待瑞士轮结束后确定"
+  },
+  {
+   "id": "s16-sf-1",
+   "sport": "lol",
+   "sub": "S16 全球总决赛 · 半决赛",
+   "title": "半决赛 第1场",
+   "teams": [
+    "AL",
+    "BLG",
+    "TES",
+    "iG"
+   ],
+   "bj": "2026-11-08 06:00",
+   "dur": 300,
+   "tbdTeams": true
+  },
+  {
+   "id": "s16-sf-2",
+   "sport": "lol",
+   "sub": "S16 全球总决赛 · 半决赛",
+   "title": "半决赛 第2场",
+   "teams": [
+    "AL",
+    "BLG",
+    "TES",
+    "iG"
+   ],
+   "bj": "2026-11-09 06:00",
+   "dur": 300,
+   "tbdTeams": true
+  },
+  {
+   "id": "s16-final",
+   "sport": "lol",
+   "sub": "S16 全球总决赛 · 决赛（纽约巴克莱中心）",
+   "title": "总决赛",
+   "teams": [
+    "AL",
+    "BLG",
+    "TES",
+    "iG"
+   ],
+   "bj": "2026-11-15 02:00",
+   "dur": 300,
+   "tbdTeams": true
+  }
+ ],
+ "sources": [
+  "F1 官方赛历：7 场",
+  "欧国联 A 级：18 场",
+  "欧冠：13 场",
+  "英超：失败（403 https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard?dates=），保留旧数据",
+  "西甲：失败（403 https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard?dates=），保留旧数据",
+  "德甲：失败（403 https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/scoreboard?dates=），保留旧数据",
+  "中超：失败（403 https://site.api.espn.com/apis/site/v2/sports/soccer/chn.1/scoreboard?dates=），保留旧数据",
+  "LoL 电竞：0 场",
+  "翻译新名称 12 个",
+  "官方页面整理：22 条改动"
+ ]
+}
