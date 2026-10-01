@@ -1,5 +1,5 @@
 // Game On 赛程自动更新（免费方案）
-// 1) 结构化来源直接生成赛程：F1（Jolpica/Ergast 公开接口）、UEFA 官方接口（欧国联 A 级、欧冠）、ESPN 公开接口（英超/西甲/德甲/中超）、LoL 电竞官方接口
+// 1) 结构化来源直接生成赛程：F1（Jolpica/Ergast 公开接口）、UEFA 官方接口（欧国联 A 级、欧冠）、fixturedownload.com（英超/西甲/德甲）、LoL 电竞官方接口
 // 2) 非结构化来源（足协网页、WTA 出场顺序 PDF 等，见 data/sources.json）交给 Gemini 整理——不带搜索，免费额度即可
 // 3) 外文队名由 Gemini 翻译成中文并缓存在 data/names.json
 // 任何一个来源失败都只跳过该来源、保留原数据，不会把整份赛程冲掉。
@@ -48,13 +48,19 @@ async function srcF1() {
     for (const [k, suf, title, dur] of sessions) {
       const s = k ? r[k] : { date: r.date, time: r.time };
       if (!s || !s.date || !s.time) continue;
-      add({ id: `${base}-${suf}`, src: 'f1', sport: 'f1', sub: `${zh(gp)}（第${r.round}站）`, title, teams: [], bj: bj(Date.parse(`${s.date}T${s.time}`)), dur, note: r.Circuit?.circuitName ? zh(r.Circuit.circuitName) : undefined, _en: [gp, r.Circuit?.circuitName] });
+      add({ id: `${base}-${suf}`, src: 'f1', sport: 'f1', sub: `${zh(gp)}（第${r.round}站）`, title, teams: [], bj: bj(Date.parse(`${s.date}T${s.time}`)), dur, note: r.Circuit?.circuitName ? zh(r.Circuit.circuitName) : undefined, _en: [gp, r.Circuit?.circuitName], _round: r.round });
     }
   }
 }
 
-const BIG_CLUBS = ['Manchester City', 'Liverpool', 'Arsenal', 'Manchester United', 'Chelsea', 'Tottenham', 'Barcelona', 'Real Madrid', 'Atlético Madrid', 'Atletico Madrid', 'Bayern', 'Borussia Dortmund', 'Bayer Leverkusen', 'Paris Saint-Germain', 'Inter', 'AC Milan', 'Juventus', 'Napoli'];
-const isBig = n => BIG_CLUBS.some(b => n && n.toLowerCase().includes(b.toLowerCase()));
+// 焦点球队：按名称精确匹配（避免 "Barcelona" 误中 "RCD Espanyol de Barcelona"）
+const BIG_CLUBS = new Set([
+  // 欧冠（UEFA 英文名）
+  'Man City', 'Manchester City', 'Liverpool', 'Arsenal', 'Man United', 'Manchester United', 'Chelsea', 'Tottenham', 'Barcelona', 'Real Madrid', 'Atleti', 'Atlético Madrid', 'Atletico Madrid', 'Bayern München', 'Bayern Munich', 'B. Dortmund', 'Borussia Dortmund', 'Leverkusen', 'Bayer Leverkusen', 'Paris', 'Paris Saint-Germain', 'Inter', 'Milan', 'AC Milan', 'Juventus', 'Napoli',
+  // fixturedownload 联赛简称
+  'Man Utd', 'Spurs', 'FC Barcelona', 'Atlético de Madrid', 'FC Bayern München', 'Bayer 04 Leverkusen',
+]);
+const isBig = n => BIG_CLUBS.has(String(n || '').trim());
 
 async function srcUefa(compId, key, label, keep) {
   const url = `https://match.uefa.com/v5/matches?competitionId=${compId}&fromDate=${isoDay(FROM)}&toDate=${isoDay(TO)}&order=ASC&offset=0&limit=300`;
@@ -72,17 +78,15 @@ async function srcUefa(compId, key, label, keep) {
   }
 }
 
-async function srcEspn(league, key, label, keep) {
-  for (let d = FROM; d <= Math.min(TO, now + 16 * DAY); d += DAY) {
-    const j = await getJSON(`https://site.api.espn.com/apis/site/v2/sports/soccer/${league}/scoreboard?dates=${ymd(d)}`);
-    for (const e of j.events || []) {
-      const c = e.competitions?.[0]; if (!c) continue;
-      const H_ = c.competitors?.find(x => x.homeAway === 'home'), A_ = c.competitors?.find(x => x.homeAway === 'away');
-      const home = H_?.team?.displayName, away = A_?.team?.displayName, t = Date.parse(e.date);
-      if (!home || !away || isNaN(t) || !keep(home, away)) continue;
-      const fin = e.status?.type?.completed;
-      add({ id: `${key}-${e.id}`, src: key, sport: 'football', sub: label, title: `${zh(home)} vs ${zh(away)}`, teams: [zh(home), zh(away)], bj: bj(t), dur: 115, ...(fin ? { result: `${zh(home)} ${H_.score}:${A_.score} ${zh(away)}` } : {}), _en: [home, away] });
-    }
+async function srcFixture(feed, key, label, keep) {
+  // fixturedownload.com 公开赛程 JSON（时间为 UTC，含已完赛比分）
+  const arr = await getJSON(`https://fixturedownload.com/feed/json/${feed}`);
+  if (!Array.isArray(arr) || !arr.length) throw new Error('赛程为空或格式变化');
+  for (const e of arr) {
+    const home = e.HomeTeam, away = e.AwayTeam, t = Date.parse(String(e.DateUtc || '').replace(' ', 'T'));
+    if (!home || !away || isNaN(t) || !keep(home, away)) continue;
+    const fin = e.HomeTeamScore != null && e.AwayTeamScore != null;
+    add({ id: `${key}-${feed.replace(/\D/g, '')}-${e.MatchNumber}`, src: key, sport: 'football', sub: `${label}第${e.RoundNumber}轮`, title: `${zh(home)} vs ${zh(away)}`, teams: [zh(home), zh(away)], bj: bj(t), dur: 115, ...(e.Location ? { note: e.Location } : {}), ...(fin ? { result: `${zh(home)} ${e.HomeTeamScore}:${e.AwayTeamScore} ${zh(away)}` } : {}), _en: [home, away] });
   }
 }
 
@@ -108,10 +112,9 @@ const SOURCES_STRUCT = [
   ['F1 官方赛历', 'f1', srcF1],
   ['欧国联 A 级', 'unl', () => srcUefa(2014, 'unl', '欧国联 A 级', NL_A)],
   ['欧冠', 'ucl', () => srcUefa(1, 'ucl', '欧冠', (h, a) => isBig(h) || isBig(a))],
-  ['英超', 'epl', () => srcEspn('eng.1', 'epl', '英超', (h, a) => isBig(h) || isBig(a))],
-  ['西甲', 'liga', () => srcEspn('esp.1', 'liga', '西甲', (h, a) => isBig(h) || isBig(a))],
-  ['德甲', 'bl', () => srcEspn('ger.1', 'bl', '德甲', (h, a) => isBig(h) || isBig(a))],
-  ['中超', 'csl', () => srcEspn('chn.1', 'csl', '中超', () => true)],
+  ['英超', 'epl', () => srcFixture('epl-2026', 'epl', '英超', (h, a) => isBig(h) || isBig(a))],
+  ['西甲', 'liga', () => srcFixture('la-liga-2026', 'liga', '西甲', (h, a) => isBig(h) || isBig(a))],
+  ['德甲', 'bl', () => srcFixture('bundesliga-2026', 'bl', '德甲', (h, a) => isBig(h) || isBig(a))],
   ['LoL 电竞', 'lol', srcLol],
 ];
 for (const [label, key, fn] of SOURCES_STRUCT) {
@@ -155,7 +158,7 @@ if (unknown.length) {
 }
 // 用译名重写标题
 for (const m of AUTO.values()) if (m._en) {
-  if (m.sport === 'f1') { m.sub = `${zh(m._en[0])}${m.sub.slice(m.sub.indexOf('（'))}`; if (m._en[1]) m.note = zh(m._en[1]); }
+  if (m.sport === 'f1') { m.sub = `${zh(m._en[0])}（第${m._round}站）`; if (m._en[1]) m.note = zh(m._en[1]); }
   else {
     const [h, a] = m._en; const oh = m.teams[0], oa = m.teams[1];
     m.title = `${zh(h)} vs ${zh(a)}`; m.teams = [zh(h), zh(a)];
@@ -187,8 +190,8 @@ if (pages.length && KEY) {
     const keep = doc.matches.filter(m => ALLOWED.test(m.id) && startOf(m) > now - 3 * DAY);
     const prompt = `你是体育赛程数据维护员。现在是北京时间 ${bj(now)}。下面是几份官方网页/PDF 的内容。只根据这些内容（不要凭记忆补充），整理出北京时间未来 21 天内的比赛，以及过去 2 天内结束比赛的赛果，范围：
 - 中国男足各级国家队（国家队、U23、U20、U19、U17、U16、U15）：必须写 squad 字段（国家队 / U23 亚运队 / U17 等），teams 中中国队写作 中国 / 中国U23 / 中国U17 等；
-- 郑钦文及其他中国网球选手在 WTA 赛事中的比赛（出场顺序 PDF 里的开赛时间是当地时间，北京举办的赛事即北京时间）。
-规则：只写资料里明确写出的信息；时间不明确就只填 date；比分只来自资料里的赛果。id 用小写字母、数字和连字符，必须以 cn-（国足各级）或 ten-（网球）开头；如果下面"已有条目"里已经有同一场比赛，必须沿用它的 id。
+- 中国网球选手（重点郑钦文、王曦雨）在 WTA 赛事中的单打比赛：只采用"出场顺序（Order of Play）"PDF 里列出的场次，双方选手都已写明才算；签表里尚未打的下一轮对手一律不写。出场顺序 PDF 的时间是当地时间（北京举办的赛事即北京时间）："Starts at"/"Not before" 写明时间的填 bj，"followed by" 的场次只填 date，并在 note 写"某球场第 N 场"。同一选手同一轮只写一条。外国选手名用中国大陆媒体常用译名，拿不准就保留英文原名。
+规则：只写资料里明确写出的信息；时间不明确就只填 date；比分只来自资料里的赛果。id 用小写字母、数字和连字符，必须以 cn-（国足各级）或 ten-（网球）开头，网球 id 写作 ten-赛事-选手拼音-轮次（如 ten-cn-wangxiyu-r2）；如果下面"已有条目"里已经有同一场比赛（同一选手同一轮），必须沿用它的 id，并补上 result。
 输出一个 JSON 对象：{"changes":[{"op":"upsert","match":{"id":"","sport":"football|tennis","squad":"","sub":"","title":"","teams":[],"bj":"YYYY-MM-DD HH:mm","date":"YYYY-MM-DD","dur":115,"result":"","note":""}}]}；没有改动就输出 {"changes":[]}。不需要的字段直接省略。
 已有条目：${JSON.stringify(keep)}`;
     try { const out = await gemini([{ text: prompt }, ...parts], '页面整理'); pageChanges = out?.changes || []; report.push(`官方页面整理：${pageChanges.length} 条改动`); }
@@ -197,7 +200,7 @@ if (pages.length && KEY) {
 }
 
 // ---------- 3. 合并 ----------
-const LEGACY = { f1: /^f1-(?!\d{4}-)/, unl: /^unl-[a-z]/, epl: /^epl\d/, liga: /^liga-/, bl: /^bl\d/ };
+const LEGACY = { f1: /^f1-(?!\d{4}-)/, unl: /^unl-[a-z]/, epl: /^epl\d/, liga: /^liga-[a-z]/, bl: /^bl\d/ };
 const byId = new Map(doc.matches.map(m => [m.id, m]));
 for (const key of OK_SRC) {
   for (const [id, m] of byId) {
@@ -206,7 +209,7 @@ for (const key of OK_SRC) {
     if ((m.src === key || legacy) && t >= FROM && t <= TO) byId.delete(id);   // 由新抓取结果替换
   }
 }
-for (const m of AUTO.values()) { delete m._en; Object.keys(m).forEach(k => m[k] === undefined && delete m[k]); byId.set(m.id, m); }
+for (const m of AUTO.values()) { delete m._en; delete m._round; Object.keys(m).forEach(k => m[k] === undefined && delete m[k]); byId.set(m.id, m); }
 
 const valid = m => m && /^[a-z0-9][a-z0-9-]{2,60}$/.test(m.id || '') && ALLOWED.test(m.id) && ['football', 'tennis'].includes(m.sport) && m.title &&
   (m.bj ? /^\d{4}-\d{2}-\d{2} \d{2}:\d{2}$/.test(m.bj) : /^\d{4}-\d{2}-\d{2}$/.test(m.date || '')) && !isNaN(startOf(m));

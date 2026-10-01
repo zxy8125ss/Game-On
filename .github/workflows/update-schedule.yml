@@ -30,11 +30,11 @@ jobs:
         run: node scripts/update.mjs
       - name: 提交更新
         run: |
-          if git diff --quiet -- data/schedule.json; then
+          if git diff --quiet -- data/schedule.json data/names.json; then
             echo "数据无变化"; exit 0
           fi
           git config user.name "game-on-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/schedule.json
+          git add data/schedule.json data/names.json
           git commit -m "更新赛程 $(TZ=Asia/Shanghai date '+%Y-%m-%d %H:%M')"
           git push
