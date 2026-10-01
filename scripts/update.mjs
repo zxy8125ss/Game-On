@@ -5,7 +5,7 @@ import fs from 'node:fs';
 
 const FILE = 'data/schedule.json';
 const KEY = process.env.GEMINI_API_KEY;
-const MODEL = process.env.GEMINI_MODEL || 'gemini-3.8-flash';
+const MODEL = process.env.GEMINI_MODEL || 'gemini-3.6-flash';
 const MAX_DELETES = 6;           // 单次运行最多删除场次数，防止一次错误输出冲掉数据
 const H = 3600e3, DAY = 24 * H, TZ = 8 * H;
 
@@ -53,7 +53,7 @@ ${JSON.stringify(windowed)}
 `;
 
 // 依次尝试的模型：先用仓库变量 GEMINI_MODEL 指定的，再按顺序退到免费额度通常可用的型号
-const MODELS = [...new Set([MODEL, 'gemini-3.5-flash-lite', 'gemini-3.5-flash', 'gemini-3.6-flash', 'gemini-3.7-flash', 'gemini-3-flash-preview'].filter(Boolean))];
+const MODELS = [...new Set([MODEL, 'gemini-3.6-flash', 'gemini-3.5-flash-lite'].filter(Boolean))];
 
 async function callGemini() {
   const body = { contents: [{ role: 'user', parts: [{ text: RULES }] }], tools: [{ google_search: {} }], generationConfig: { temperature: 0.2 } };

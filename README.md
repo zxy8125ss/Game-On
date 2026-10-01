@@ -19,7 +19,7 @@
 3. **填入 Key**：仓库 Settings → Secrets and variables → Actions → New repository secret，Name 填 `GEMINI_API_KEY`，Secret 粘贴刚才的 Key。
 4. **试运行**：仓库 Actions → 更新赛程 → Run workflow。成功后 `data/schedule.json` 会多一次"更新赛程"提交，网页标题下的更新时间随之变化。
 
-脚本会依次尝试 gemini-3.8-flash → 3.5-flash-lite → 3.5-flash → 3.6-flash → 3.7-flash → 3-flash-preview，用第一个有额度的。也可以在 Settings → Secrets and variables → Actions → Variables 新建 `GEMINI_MODEL` 指定优先使用的模型。你的各模型免费额度见 https://aistudio.google.com/rate-limit 。
+默认使用免费额度可用的 gemini-3.6-flash（失败时再试 3.5-flash-lite）。也可以在 Settings → Secrets and variables → Actions → Variables 新建 `GEMINI_MODEL` 指定优先使用的模型。你的各模型免费额度见 https://aistudio.google.com/rate-limit 。
 
 ## 日常使用
 
