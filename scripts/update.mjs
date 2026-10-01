@@ -53,7 +53,7 @@ ${JSON.stringify(windowed)}
 `;
 
 // 依次尝试的模型：先用仓库变量 GEMINI_MODEL 指定的，再按顺序退到免费额度通常可用的型号
-const MODELS = [...new Set([MODEL, 'gemini-3.5-flash', 'gemini-3-flash-preview', 'gemini-2.5-flash', 'gemini-2.5-flash-lite'].filter(Boolean))];
+const MODELS = [...new Set([MODEL, 'gemini-3.5-flash-lite', 'gemini-3.5-flash', 'gemini-3.6-flash', 'gemini-3.7-flash', 'gemini-3-flash-preview'].filter(Boolean))];
 
 async function callGemini() {
   const body = { contents: [{ role: 'user', parts: [{ text: RULES }] }], tools: [{ google_search: {} }], generationConfig: { temperature: 0.2 } };
@@ -78,6 +78,11 @@ async function callGemini() {
       break;
     }
   }
+  // 诊断：不带搜索再试一次，区分"整个 Key 没额度"和"免费额度不含搜索"
+  try {
+    const r = await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent', { method: 'POST', headers: { 'content-type': 'application/json', 'x-goog-api-key': KEY }, body: JSON.stringify({ contents: [{ parts: [{ text: '回复 OK' }] }] }) });
+    console.error(r.ok ? '诊断：不带 Google 搜索的请求可以成功 → 你的免费额度不包含"搜索增强"，需要在 AI Studio 开通结算（按量付费）才能用搜索。' : `诊断：不带搜索的请求也失败（${r.status}）→ 这个 API Key 本身没有可用额度，请检查 Key 所在项目。`);
+  } catch (e) { console.error('诊断请求出错：', e.message); }
   throw new Error('所有模型都不可用：' + tried.join('；') + '。请到 https://aistudio.google.com/rate-limit 查看你的免费额度，或在仓库变量 GEMINI_MODEL 指定一个有额度的模型。');
 }
 
