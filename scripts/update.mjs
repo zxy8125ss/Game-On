@@ -86,7 +86,11 @@ async function srcFixture(feed, key, label, keep) {
     const home = e.HomeTeam, away = e.AwayTeam, t = Date.parse(String(e.DateUtc || '').replace(' ', 'T'));
     if (!home || !away || isNaN(t) || !keep(home, away)) continue;
     const fin = e.HomeTeamScore != null && e.AwayTeamScore != null;
-    add({ id: `${key}-${feed.replace(/\D/g, '')}-${e.MatchNumber}`, src: key, sport: 'football', sub: `${label}第${e.RoundNumber}轮`, title: `${zh(home)} vs ${zh(away)}`, teams: [zh(home), zh(away)], bj: bj(t), dur: 115, ...(e.Location ? { note: e.Location } : {}), ...(fin ? { result: `${zh(home)} ${e.HomeTeamScore}:${e.AwayTeamScore} ${zh(away)}` } : {}), _en: [home, away] });
+    // UTC 00:00 是"开球时间未定"的占位（例如德甲会提前几周才排定具体时间），只记日期
+    const tbd = /\s00:00(:00)?Z?$/.test(String(e.DateUtc)) && !fin;
+    const when = tbd ? { date: isoDay(t) } : { bj: bj(t) };
+    const note = [e.Location, tbd ? '开球时间待联赛公布' : ''].filter(Boolean).join(' · ');
+    add({ id: `${key}-${feed.replace(/\D/g, '')}-${e.MatchNumber}`, src: key, sport: 'football', sub: `${label}第${e.RoundNumber}轮`, title: `${zh(home)} vs ${zh(away)}`, teams: [zh(home), zh(away)], ...when, dur: 115, ...(note ? { note } : {}), ...(fin ? { result: `${zh(home)} ${e.HomeTeamScore}:${e.AwayTeamScore} ${zh(away)}` } : {}), _en: [home, away] });
   }
 }
 
@@ -206,7 +210,7 @@ for (const key of OK_SRC) {
   for (const [id, m] of byId) {
     const t = startOf(m);
     const legacy = LEGACY[key] && LEGACY[key].test(id);
-    if ((m.src === key || legacy) && t >= FROM && t <= TO) byId.delete(id);   // 由新抓取结果替换
+    if ((m.src === key && t >= FROM && t <= TO) || (legacy && t >= FROM)) byId.delete(id);   // 由新抓取结果替换；旧格式条目一律清掉，避免重复
   }
 }
 for (const m of AUTO.values()) { delete m._en; delete m._round; Object.keys(m).forEach(k => m[k] === undefined && delete m[k]); byId.set(m.id, m); }
