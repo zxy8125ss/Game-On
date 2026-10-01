@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-10-01T23:42:41+08:00",
+ "updatedAt": "2026-10-02T03:36:40+08:00",
  "note": "自动更新 8/8 项成功",
  "matches": [
   {
@@ -1618,6 +1618,48 @@
    "note": "Etihad Stadium"
   },
   {
+   "id": "liga-2026-105",
+   "src": "liga",
+   "sport": "football",
+   "sub": "西甲第11轮",
+   "title": "巴塞罗那 vs 阿拉维斯",
+   "teams": [
+    "巴塞罗那",
+    "阿拉维斯"
+   ],
+   "date": "2026-11-01",
+   "dur": 115,
+   "note": "Spotify Camp Nou · 开球时间待联赛公布"
+  },
+  {
+   "id": "liga-2026-107",
+   "src": "liga",
+   "sport": "football",
+   "sub": "西甲第11轮",
+   "title": "莱万特 vs 马德里竞技",
+   "teams": [
+    "莱万特",
+    "马德里竞技"
+   ],
+   "date": "2026-11-01",
+   "dur": 115,
+   "note": "Estadio Ciutat de València · 开球时间待联赛公布"
+  },
+  {
+   "id": "liga-2026-108",
+   "src": "liga",
+   "sport": "football",
+   "sub": "西甲第11轮",
+   "title": "桑坦德竞技 vs 皇家马德里",
+   "teams": [
+    "桑坦德竞技",
+    "皇家马德里"
+   ],
+   "date": "2026-11-01",
+   "dur": 115,
+   "note": "El Sardinero · 开球时间待联赛公布"
+  },
+  {
    "id": "s16-sw-8",
    "sport": "lol",
    "sub": "S16 全球总决赛 · 瑞士轮（得州艾伦）",
@@ -1632,6 +1674,20 @@
    "dur": 360,
    "tbdTeams": true,
    "note": "LPL：AL、BLG、TES、iG。每轮对阵抽签后公布"
+  },
+  {
+   "id": "epl-2026-90",
+   "src": "epl",
+   "sport": "football",
+   "sub": "英超第9轮",
+   "title": "热刺 vs 水晶宫",
+   "teams": [
+    "热刺",
+    "水晶宫"
+   ],
+   "bj": "2026-11-01 01:30",
+   "dur": 115,
+   "note": "Tottenham Hotspur Stadium"
   },
   {
    "id": "s16-qf-1",
@@ -1745,10 +1801,10 @@
  ],
  "sources": [
   "F1 官方赛历：7 场",
-  "欧国联 A 级：18 场",
+  "欧国联 A 级：16 场",
   "欧冠：20 场",
-  "英超：17 场",
-  "西甲：8 场",
+  "英超：18 场",
+  "西甲：11 场",
   "德甲：11 场",
   "LoL 电竞：0 场",
   "官方页面整理：1 条改动"
