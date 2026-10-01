@@ -701,6 +701,15 @@ function stampOf(d){
   return !isNaN(r)&&(isNaN(u)||r>u)?'赛程更新于 '+fmtStamp(d.review.at)+'（Claude 复核）':'赛程更新于 '+fmtStamp(d.updatedAt);
 }
 function showSync(extra){$('sync').textContent=extra||stampOf(LIVE)||'赛程数据：内置版本'}
+const BUILD='2026-10-01-2300';
+// 页面自动更新：发现新版本就重新加载一次（避免手机主屏幕 app 一直显示旧版）
+async function checkVersion(){
+  try{
+    const r=await fetch('version.json?t='+Date.now(),{cache:'no-store'});if(!r.ok)return;
+    const v=(await r.json()).build;
+    if(v&&v!==BUILD&&sessionStorage.getItem('gameon-reload')!==v){sessionStorage.setItem('gameon-reload',v);location.replace(location.pathname+'?v='+encodeURIComponent(v))}
+  }catch(e){}
+}
 function ghToken(){try{return localStorage.getItem('gameon-gh')||''}catch(e){return ''}}
 async function fetchSchedule(){
   const r=await fetch('data/schedule.json?t='+Date.now(),{cache:'no-store'});
@@ -710,6 +719,7 @@ async function fetchSchedule(){
   return d;
 }
 async function loadSchedule(manual){
+  checkVersion();
   try{const d=await fetchSchedule();LIVE=d;showSync(manual?'已刷新 · '+stampOf(d):null);render()}
   catch(e){if(manual)showSync('刷新失败，请检查网络后再试')}
 }
