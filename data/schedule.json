@@ -1,6 +1,6 @@
 {
- "updatedAt": "2026-10-02T18:29:25+08:00",
- "note": "自动更新 7/8 项成功",
+ "updatedAt": "2026-10-02T23:04:03+08:00",
+ "note": "自动更新 8/8 项成功",
  "matches": [
   {
    "id": "lpl26-ig-we",
@@ -339,6 +339,32 @@
    "by": "claude"
   },
   {
+   "id": "ten-china-open-qinwenzheng-r64",
+   "sport": "tennis",
+   "sub": "中国网球公开赛 · 女单第1轮",
+   "title": "郑钦文 vs 卡林斯卡娅",
+   "teams": [
+    "郑钦文",
+    "卡林斯卡娅"
+   ],
+   "date": "2026-10-03",
+   "dur": 120,
+   "note": "Capital Group Diamond场第3场"
+  },
+  {
+   "id": "ten-china-open-xinransun-r64",
+   "sport": "tennis",
+   "sub": "中国网球公开赛 · 女单第1轮",
+   "title": "孙欣然 vs 布克沙",
+   "teams": [
+    "孙欣然",
+    "布克沙"
+   ],
+   "date": "2026-10-03",
+   "dur": 120,
+   "note": "HSBC Moon场第3场"
+  },
+  {
    "id": "unl-2047960",
    "src": "unl",
    "sport": "football",
@@ -369,6 +395,32 @@
    "channels": [
     "咪咕视频"
    ]
+  },
+  {
+   "id": "ten-china-open-linzhu-r64",
+   "sport": "tennis",
+   "sub": "中国网球公开赛 · 女单第1轮",
+   "title": "韦基奇 vs 朱琳",
+   "teams": [
+    "韦基奇",
+    "朱琳"
+   ],
+   "bj": "2026-10-03 11:00",
+   "dur": 120,
+   "note": "HSBC Moon场第1场"
+  },
+  {
+   "id": "ten-china-open-xinyugao-r64",
+   "sport": "tennis",
+   "sub": "中国网球公开赛 · 女单第1轮",
+   "title": "高馨妤 vs 斯瓦泰克",
+   "teams": [
+    "高馨妤",
+    "斯瓦泰克"
+   ],
+   "bj": "2026-10-03 13:00",
+   "dur": 120,
+   "note": "Capital Group Diamond场第2场"
   },
   {
    "id": "cn-u23-uzb",
@@ -415,6 +467,19 @@
    "note": "丰田体育场；日本半决赛点球 9:8 淘汰乌兹别克斯坦，韩国半决赛 2:1 胜中国U23",
    "bj": "2026-10-03 18:30",
    "by": "claude"
+  },
+  {
+   "id": "ten-china-open-xinyuwang-r64",
+   "sport": "tennis",
+   "sub": "中国网球公开赛 · 女单第1轮",
+   "title": "卡塔尔 vs 王曦雨",
+   "teams": [
+    "卡塔尔",
+    "王曦雨"
+   ],
+   "bj": "2026-10-03 19:00",
+   "dur": 120,
+   "note": "Lotus场第4场"
   },
   {
    "id": "unl-2047968",
@@ -1822,7 +1887,7 @@
   "西甲：11 场",
   "德甲：11 场",
   "LoL 电竞：0 场",
-  "官方页面整理失败（Expected ',' or ']' after array element in JSON at position 1076 (line 1 column 1077)）"
+  "官方页面整理：5 条改动"
  ],
  "review": {
   "by": "claude",
