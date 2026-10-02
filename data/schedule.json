@@ -1,6 +1,6 @@
 {
- "updatedAt": "2026-10-02T18:00:56+08:00",
- "note": "自动更新 7/7 项成功",
+ "updatedAt": "2026-10-02T18:29:25+08:00",
+ "note": "自动更新 7/8 项成功",
  "matches": [
   {
    "id": "lpl26-ig-we",
@@ -1821,7 +1821,8 @@
   "英超：18 场",
   "西甲：11 场",
   "德甲：11 场",
-  "LoL 电竞：0 场"
+  "LoL 电竞：0 场",
+  "官方页面整理失败（Expected ',' or ']' after array element in JSON at position 1076 (line 1 column 1077)）"
  ],
  "review": {
   "by": "claude",
