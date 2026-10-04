@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-10-04T10:43:52+08:00",
+ "updatedAt": "2026-10-04T18:33:55+08:00",
  "note": "自动更新 8/8 项成功",
  "matches": [
   {
@@ -706,6 +706,32 @@
    "channels": [
     "咪咕视频"
    ]
+  },
+  {
+   "id": "ten-china-open-qinwenzheng-r32",
+   "sport": "tennis",
+   "sub": "中国网球公开赛 · 女单第3轮",
+   "title": "玛丽·鲍兹科娃 vs 郑钦文",
+   "teams": [
+    "玛丽·鲍兹科娃",
+    "郑钦文"
+   ],
+   "bj": "2026-10-05 11:00",
+   "dur": 120,
+   "note": "Capital Group Diamond球场第2场"
+  },
+  {
+   "id": "ten-china-open-xinransun-r32",
+   "sport": "tennis",
+   "sub": "中国网球公开赛 · 女单第3轮",
+   "title": "可可·高夫 vs 孙欣然",
+   "teams": [
+    "可可·高夫",
+    "孙欣然"
+   ],
+   "bj": "2026-10-05 20:30",
+   "dur": 120,
+   "note": "Capital Group Diamond球场第5场"
   },
   {
    "id": "unl-2047937",
@@ -2033,7 +2059,7 @@
   "西甲：11 场",
   "德甲：11 场",
   "LoL 电竞：0 场",
-  "官方页面整理：4 条改动"
+  "官方页面整理：2 条改动"
  ],
  "review": {
   "by": "claude",
