@@ -1,6 +1,6 @@
 {
- "updatedAt": "2026-10-06T01:27:01+08:00",
- "note": "自动更新 8/8 项成功",
+ "updatedAt": "2026-10-06T05:30:51+08:00",
+ "note": "自动更新 8/9 项成功",
  "matches": [
   {
    "id": "us26-zheng-ryb",
@@ -670,6 +670,21 @@
    "by": "claude"
   },
   {
+   "id": "ten-china-open-wangxiyu-r32",
+   "sport": "tennis",
+   "sub": "中国网球公开赛 · 女双第2轮",
+   "title": "谢淑薇/奥斯塔彭科 vs 蒋欣玗/王曦雨",
+   "teams": [
+    "谢淑薇",
+    "奥斯塔彭科",
+    "蒋欣玗",
+    "王曦雨"
+   ],
+   "date": "2026-10-06",
+   "dur": 120,
+   "note": "HSBC MOON 球场第3场"
+  },
+  {
    "id": "unl-2047937",
    "src": "unl",
    "sport": "football",
@@ -683,7 +698,8 @@
    "dur": 115,
    "channels": [
     "咪咕视频"
-   ]
+   ],
+   "result": "法国 4:1 比利时"
   },
   {
    "id": "unl-2047938",
@@ -699,7 +715,8 @@
    "dur": 115,
    "channels": [
     "咪咕视频"
-   ]
+   ],
+   "result": "意大利 3:1 土耳其"
   },
   {
    "id": "cn-a-tjk",
@@ -1975,6 +1992,102 @@
    "note": "对阵待瑞士轮结束后确定"
   },
   {
+   "id": "ucl-2049620",
+   "src": "ucl",
+   "sport": "football",
+   "sub": "欧冠 · League 组",
+   "title": "Fenerbahçe vs 利物浦",
+   "teams": [
+    "Fenerbahçe",
+    "利物浦"
+   ],
+   "bj": "2026-11-05 01:45",
+   "dur": 115,
+   "channels": [
+    "咪咕视频"
+   ]
+  },
+  {
+   "id": "ucl-2049622",
+   "src": "ucl",
+   "sport": "football",
+   "sub": "欧冠 · League 组",
+   "title": "雅典AEK vs 皇家马德里",
+   "teams": [
+    "雅典AEK",
+    "皇家马德里"
+   ],
+   "bj": "2026-11-05 01:45",
+   "dur": 115,
+   "channels": [
+    "咪咕视频"
+   ]
+  },
+  {
+   "id": "ucl-2049616",
+   "src": "ucl",
+   "sport": "football",
+   "sub": "欧冠 · League 组",
+   "title": "多特蒙德 vs 皇家贝蒂斯",
+   "teams": [
+    "多特蒙德",
+    "皇家贝蒂斯"
+   ],
+   "bj": "2026-11-05 04:00",
+   "dur": 115,
+   "channels": [
+    "咪咕视频"
+   ]
+  },
+  {
+   "id": "ucl-2049617",
+   "src": "ucl",
+   "sport": "football",
+   "sub": "欧冠 · League 组",
+   "title": "Porto vs 那不勒斯",
+   "teams": [
+    "Porto",
+    "那不勒斯"
+   ],
+   "bj": "2026-11-05 04:00",
+   "dur": 115,
+   "channels": [
+    "咪咕视频"
+   ]
+  },
+  {
+   "id": "ucl-2049619",
+   "src": "ucl",
+   "sport": "football",
+   "sub": "欧冠 · League 组",
+   "title": "莱比锡 vs 曼城",
+   "teams": [
+    "莱比锡",
+    "曼城"
+   ],
+   "bj": "2026-11-05 04:00",
+   "dur": 115,
+   "channels": [
+    "咪咕视频"
+   ]
+  },
+  {
+   "id": "ucl-2049621",
+   "src": "ucl",
+   "sport": "football",
+   "sub": "欧冠 · League 组",
+   "title": "Slavia Praha vs 阿森纳",
+   "teams": [
+    "Slavia Praha",
+    "阿森纳"
+   ],
+   "bj": "2026-11-05 04:00",
+   "dur": 115,
+   "channels": [
+    "咪咕视频"
+   ]
+  },
+  {
    "id": "s16-qf-2",
    "sport": "lol",
    "sub": "S16 全球总决赛 · 八强赛（得州艾伦）",
@@ -2070,13 +2183,14 @@
  ],
  "sources": [
   "F1 官方赛历：8 场",
-  "欧国联 A 级：9 场",
-  "欧冠：25 场",
+  "欧国联 A 级：8 场",
+  "欧冠：31 场",
   "英超：19 场",
   "西甲：11 场",
   "德甲：11 场",
   "LoL 电竞：0 场",
-  "官方页面整理：0 条改动"
+  "翻译失败（Bad Unicode escape in JSON at position 105 (line 4 column 22)），暂用外文名",
+  "官方页面整理：1 条改动"
  ],
  "review": {
   "by": "claude",
