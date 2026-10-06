@@ -1,6 +1,6 @@
 {
- "updatedAt": "2026-10-06T19:15:17+08:00",
- "note": "自动更新 7/8 项成功",
+ "updatedAt": "2026-10-06T23:28:57+08:00",
+ "note": "自动更新 8/8 项成功",
  "matches": [
   {
    "id": "us26-zheng-ryb",
@@ -669,24 +669,6 @@
    "result": "高芙 2:0 孙心然（7-5 6-1）"
   },
   {
-   "id": "ten-china-open-qinwenzheng-r16",
-   "sport": "tennis",
-   "sub": "中国网球公开赛 · 女单第4轮（16强）",
-   "title": "郑钦文 vs 查拉耶娃",
-   "teams": [
-    "郑钦文",
-    "查拉耶娃"
-   ],
-   "date": "2026-10-06",
-   "dur": 150,
-   "note": "对手为亚美尼亚选手查拉耶娃（世界排名约 118，已淘汰菲尔南德斯，新华社、WTA 官网确认对阵）；比赛日仅见新浪（C）称“10/6 前后”，具体日期与时间待 10/6 官方出场顺序确认",
-   "channels": [
-    "咪咕视频"
-   ],
-   "verify": "pending",
-   "by": "claude"
-  },
-  {
    "id": "unl-2047937",
    "src": "unl",
    "sport": "football",
@@ -787,6 +769,40 @@
    "channels": [
     "咪咕视频"
    ]
+  },
+  {
+   "id": "ten-china-open-shuaizhang-r16",
+   "sport": "tennis",
+   "sub": "中国网球公开赛 · 女双第2尔",
+   "title": "捷尔尼亚科娃/张帅 vs 巴尔通科娃/奇瓦林斯卡",
+   "teams": [
+    "捷尔尼亚科娃",
+    "张帅",
+    "巴尔通科娃",
+    "奇瓦林斯卡"
+   ],
+   "bj": "2026-10-07 13:00",
+   "dur": 120,
+   "note": "Lotus 球场第2场"
+  },
+  {
+   "id": "ten-china-open-qinwenzheng-r16",
+   "sport": "tennis",
+   "sub": "中国网球公开赛 · 女单第4轮（16强）",
+   "title": "郑钦文 vs 查拉耶娃",
+   "teams": [
+    "郑钦文",
+    "查拉耶娃"
+   ],
+   "date": "2026-10-06",
+   "dur": 150,
+   "note": "对手为亚美尼亚选手查拉耶娃（世界排名约 118，已淘汰菲尔南德斯，新华社、WTA 官网确认对阵）；比赛日仅见新浪（C）称“10/6 前后”，具体日期与时间待 10/6 官方出场顺序确认",
+   "channels": [
+    "咪咕视频"
+   ],
+   "verify": "pending",
+   "by": "claude",
+   "bj": "2026-10-07 19:00"
   },
   {
    "id": "bl-2026-40",
@@ -2206,7 +2222,7 @@
   "西甲：11 场",
   "德甲：11 场",
   "LoL 电竞：0 场",
-  "官方页面整理失败（Expected ',' or '}' after property value in JSON at position 761 (line 1 column 762)）"
+  "官方页面整理：2 条改动"
  ],
  "review": {
   "by": "claude",
