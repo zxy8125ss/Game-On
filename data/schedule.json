@@ -1,6 +1,6 @@
 {
- "updatedAt": "2026-10-06T11:06:11+08:00",
- "note": "自动更新 9/9 项成功",
+ "updatedAt": "2026-10-06T19:15:17+08:00",
+ "note": "自动更新 7/8 项成功",
  "matches": [
   {
    "id": "us26-zheng-ryb",
@@ -2199,15 +2199,14 @@
   }
  ],
  "sources": [
-  "F1 官方赛历：8 场",
+  "F1 官方赛历：7 场",
   "欧国联 A 级：8 场",
   "欧冠：31 场",
   "英超：19 场",
   "西甲：11 场",
   "德甲：11 场",
   "LoL 电竞：0 场",
-  "翻译新名称 3 个",
-  "官方页面整理：1 条改动"
+  "官方页面整理失败（Expected ',' or '}' after property value in JSON at position 761 (line 1 column 762)）"
  ],
  "review": {
   "by": "claude",
