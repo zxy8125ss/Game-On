@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-10-07T19:03:14+08:00",
+ "updatedAt": "2026-10-07T23:48:20+08:00",
  "note": "自动更新 8/8 项成功",
  "matches": [
   {
@@ -1813,6 +1813,20 @@
    "note": "Stamford Bridge"
   },
   {
+   "id": "liga-2026-107",
+   "src": "liga",
+   "sport": "football",
+   "sub": "西甲第11轮",
+   "title": "莱万特 vs 马德里竞技",
+   "teams": [
+    "莱万特",
+    "马德里竞技"
+   ],
+   "bj": "2026-10-31 21:00",
+   "dur": 115,
+   "note": "Estadio Ciutat de València"
+  },
+  {
    "id": "epl-2026-88",
    "src": "epl",
    "sport": "football",
@@ -1825,48 +1839,6 @@
    "bj": "2026-10-31 23:00",
    "dur": 115,
    "note": "Etihad Stadium"
-  },
-  {
-   "id": "liga-2026-105",
-   "src": "liga",
-   "sport": "football",
-   "sub": "西甲第11轮",
-   "title": "巴塞罗那 vs 阿拉维斯",
-   "teams": [
-    "巴塞罗那",
-    "阿拉维斯"
-   ],
-   "date": "2026-11-01",
-   "dur": 115,
-   "note": "Spotify Camp Nou · 开球时间待联赛公布"
-  },
-  {
-   "id": "liga-2026-107",
-   "src": "liga",
-   "sport": "football",
-   "sub": "西甲第11轮",
-   "title": "莱万特 vs 马德里竞技",
-   "teams": [
-    "莱万特",
-    "马德里竞技"
-   ],
-   "date": "2026-11-01",
-   "dur": 115,
-   "note": "Estadio Ciutat de València · 开球时间待联赛公布"
-  },
-  {
-   "id": "liga-2026-108",
-   "src": "liga",
-   "sport": "football",
-   "sub": "西甲第11轮",
-   "title": "桑坦德竞技 vs 皇家马德里",
-   "teams": [
-    "桑坦德竞技",
-    "皇家马德里"
-   ],
-   "date": "2026-11-01",
-   "dur": 115,
-   "note": "El Sardinero · 开球时间待联赛公布"
   },
   {
    "id": "s16-sw-8",
@@ -1899,6 +1871,20 @@
    "note": "Tottenham Hotspur Stadium"
   },
   {
+   "id": "liga-2026-105",
+   "src": "liga",
+   "sport": "football",
+   "sub": "西甲第11轮",
+   "title": "巴塞罗那 vs 阿拉维斯",
+   "teams": [
+    "巴塞罗那",
+    "阿拉维斯"
+   ],
+   "bj": "2026-11-01 04:00",
+   "dur": 115,
+   "note": "Spotify Camp Nou"
+  },
+  {
    "id": "f1-2026-19-q",
    "src": "f1",
    "sport": "f1",
@@ -1908,6 +1894,20 @@
    "bj": "2026-11-01 05:00",
    "dur": 60,
    "note": "罗德里格斯兄弟赛道"
+  },
+  {
+   "id": "liga-2026-108",
+   "src": "liga",
+   "sport": "football",
+   "sub": "西甲第11轮",
+   "title": "桑坦德竞技 vs 皇家马德里",
+   "teams": [
+    "桑坦德竞技",
+    "皇家马德里"
+   ],
+   "bj": "2026-11-01 23:15",
+   "dur": 115,
+   "note": "El Sardinero"
   },
   {
    "id": "epl-2026-87",
