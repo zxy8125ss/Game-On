@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-10-11T09:58:48+08:00",
+ "updatedAt": "2026-10-11T18:48:10+08:00",
  "note": "自动更新 8/8 项成功",
  "matches": [
   {
@@ -795,48 +795,6 @@
    "result": "郑钦文 2:1 查拉耶娃（6-1 2-6 6-4）"
   },
   {
-   "id": "bl-2026-40",
-   "src": "bl",
-   "sport": "football",
-   "sub": "德甲第5轮",
-   "title": "美因茨 vs 勒沃库森",
-   "teams": [
-    "美因茨",
-    "勒沃库森"
-   ],
-   "date": "2026-10-09",
-   "dur": 115,
-   "note": "MEWA ARENA · 开球时间待联赛公布"
-  },
-  {
-   "id": "bl-2026-41",
-   "src": "bl",
-   "sport": "football",
-   "sub": "德甲第5轮",
-   "title": "奥格斯堡 vs 拜仁",
-   "teams": [
-    "奥格斯堡",
-    "拜仁"
-   ],
-   "date": "2026-10-09",
-   "dur": 115,
-   "note": "WWK ARENA · 开球时间待联赛公布"
-  },
-  {
-   "id": "bl-2026-45",
-   "src": "bl",
-   "sport": "football",
-   "sub": "德甲第5轮",
-   "title": "多特蒙德 vs 云达不莱梅",
-   "teams": [
-    "多特蒙德",
-    "云达不莱梅"
-   ],
-   "date": "2026-10-09",
-   "dur": 115,
-   "note": "SIGNAL IDUNA PARK · 开球时间待联赛公布"
-  },
-  {
    "id": "ten-china-open-shuaizhang-qf",
    "sport": "tennis",
    "sub": "中国网球公开赛 · 女双1/4决赛",
@@ -885,6 +843,21 @@
    "by": "claude",
    "bj": "2026-10-09 19:35",
    "result": "青岛海牛 0:3 北京国安"
+  },
+  {
+   "id": "bl-2026-45",
+   "src": "bl",
+   "sport": "football",
+   "sub": "德甲第5轮",
+   "title": "多特蒙德 vs 云达不莱梅",
+   "teams": [
+    "多特蒙德",
+    "云达不莱梅"
+   ],
+   "bj": "2026-10-10 02:30",
+   "dur": 115,
+   "note": "SIGNAL IDUNA PARK",
+   "result": "多特蒙德 2:2 云达不莱梅"
   },
   {
    "id": "ten-china-open-shuaizhang-sf",
@@ -944,7 +917,8 @@
    ],
    "bj": "2026-10-10 19:30",
    "dur": 115,
-   "note": "Emirates Stadium"
+   "note": "Emirates Stadium",
+   "result": "阿森纳 2:1 利兹联"
   },
   {
    "id": "csl27-cd-tj",
@@ -976,6 +950,36 @@
    "note": "滨海湾街道赛道"
   },
   {
+   "id": "bl-2026-40",
+   "src": "bl",
+   "sport": "football",
+   "sub": "德甲第5轮",
+   "title": "美因茨 vs 勒沃库森",
+   "teams": [
+    "美因茨",
+    "勒沃库森"
+   ],
+   "bj": "2026-10-10 21:30",
+   "dur": 115,
+   "note": "MEWA ARENA",
+   "result": "美因茨 3:4 勒沃库森"
+  },
+  {
+   "id": "bl-2026-41",
+   "src": "bl",
+   "sport": "football",
+   "sub": "德甲第5轮",
+   "title": "奥格斯堡 vs 拜仁",
+   "teams": [
+    "奥格斯堡",
+    "拜仁"
+   ],
+   "bj": "2026-10-10 21:30",
+   "dur": 115,
+   "note": "WWK ARENA",
+   "result": "奥格斯堡 2:2 拜仁"
+  },
+  {
    "id": "epl-2026-53",
    "src": "epl",
    "sport": "football",
@@ -987,7 +991,8 @@
    ],
    "bj": "2026-10-10 22:00",
    "dur": 115,
-   "note": "Stamford Bridge"
+   "note": "Stamford Bridge",
+   "result": "切尔西 5:1 伯恩茅斯"
   },
   {
    "id": "liga-2026-71",
@@ -1001,7 +1006,8 @@
    ],
    "bj": "2026-10-10 22:15",
    "dur": 115,
-   "note": "Mendizorroza"
+   "note": "Mendizorroza",
+   "result": "阿拉维斯 1:2 马德里竞技"
   },
   {
    "id": "epl-2026-59",
@@ -1015,7 +1021,8 @@
    ],
    "bj": "2026-10-11 00:30",
    "dur": 115,
-   "note": "Old Trafford"
+   "note": "Old Trafford",
+   "result": "曼联 1:1 热刺"
   },
   {
    "id": "liga-2026-74",
@@ -1029,7 +1036,8 @@
    ],
    "bj": "2026-10-11 00:30",
    "dur": 115,
-   "note": "Spotify Camp Nou"
+   "note": "Spotify Camp Nou",
+   "result": "巴塞罗那 3:0 赫塔费"
   },
   {
    "id": "liga-2026-79",
@@ -1043,7 +1051,8 @@
    ],
    "bj": "2026-10-11 03:00",
    "dur": 115,
-   "note": "Bernabéu"
+   "note": "Bernabéu",
+   "result": "皇家马德里 1:0 比利亚雷亚尔"
   },
   {
    "id": "ten-china-open-shuaizhang-f",
@@ -1267,48 +1276,6 @@
    ]
   },
   {
-   "id": "bl-2026-51",
-   "src": "bl",
-   "sport": "football",
-   "sub": "德甲第6轮",
-   "title": "柏林联合 vs 多特蒙德",
-   "teams": [
-    "柏林联合",
-    "多特蒙德"
-   ],
-   "date": "2026-10-16",
-   "dur": 115,
-   "note": "An der Alten Försterei · 开球时间待联赛公布"
-  },
-  {
-   "id": "bl-2026-53",
-   "src": "bl",
-   "sport": "football",
-   "sub": "德甲第6轮",
-   "title": "勒沃库森 vs 弗赖堡",
-   "teams": [
-    "勒沃库森",
-    "弗赖堡"
-   ],
-   "date": "2026-10-16",
-   "dur": 115,
-   "note": "BayArena · 开球时间待联赛公布"
-  },
-  {
-   "id": "bl-2026-54",
-   "src": "bl",
-   "sport": "football",
-   "sub": "德甲第6轮",
-   "title": "拜仁 vs 莱比锡",
-   "teams": [
-    "拜仁",
-    "莱比锡"
-   ],
-   "date": "2026-10-16",
-   "dur": 115,
-   "note": "Allianz Arena · 开球时间待联赛公布"
-  },
-  {
    "id": "s16-pi-1",
    "sport": "lol",
    "sub": "S16 全球总决赛 · 入围赛（洛杉矶）",
@@ -1362,6 +1329,20 @@
    "note": "RCDE Stadium"
   },
   {
+   "id": "bl-2026-51",
+   "src": "bl",
+   "sport": "football",
+   "sub": "德甲第6轮",
+   "title": "柏林联合 vs 多特蒙德",
+   "teams": [
+    "柏林联合",
+    "多特蒙德"
+   ],
+   "bj": "2026-10-17 21:30",
+   "dur": 115,
+   "note": "An der Alten Försterei"
+  },
+  {
    "id": "epl-2026-62",
    "src": "epl",
    "sport": "football",
@@ -1404,6 +1385,20 @@
    "note": "Estadio La Cartuja"
   },
   {
+   "id": "bl-2026-54",
+   "src": "bl",
+   "sport": "football",
+   "sub": "德甲第6轮",
+   "title": "拜仁 vs 莱比锡",
+   "teams": [
+    "拜仁",
+    "莱比锡"
+   ],
+   "bj": "2026-10-18 00:30",
+   "dur": 115,
+   "note": "Allianz Arena"
+  },
+  {
    "id": "epl-2026-66",
    "src": "epl",
    "sport": "football",
@@ -1416,6 +1411,20 @@
    "bj": "2026-10-18 21:00",
    "dur": 115,
    "note": "Elland Road"
+  },
+  {
+   "id": "bl-2026-53",
+   "src": "bl",
+   "sport": "football",
+   "sub": "德甲第6轮",
+   "title": "勒沃库森 vs 弗赖堡",
+   "teams": [
+    "勒沃库森",
+    "弗赖堡"
+   ],
+   "bj": "2026-10-18 21:30",
+   "dur": 115,
+   "note": "BayArena"
   },
   {
    "id": "epl-2026-69",
@@ -1620,48 +1629,6 @@
    ]
   },
   {
-   "id": "bl-2026-59",
-   "src": "bl",
-   "sport": "football",
-   "sub": "德甲第7轮",
-   "title": "弗赖堡 vs 拜仁",
-   "teams": [
-    "弗赖堡",
-    "拜仁"
-   ],
-   "date": "2026-10-23",
-   "dur": 115,
-   "note": "Europa-Park Stadion · 开球时间待联赛公布"
-  },
-  {
-   "id": "bl-2026-60",
-   "src": "bl",
-   "sport": "football",
-   "sub": "德甲第7轮",
-   "title": "霍芬海姆 vs 勒沃库森",
-   "teams": [
-    "霍芬海姆",
-    "勒沃库森"
-   ],
-   "date": "2026-10-23",
-   "dur": 115,
-   "note": "SNP Arena · 开球时间待联赛公布"
-  },
-  {
-   "id": "bl-2026-63",
-   "src": "bl",
-   "sport": "football",
-   "sub": "德甲第7轮",
-   "title": "多特蒙德 vs 法兰克福",
-   "teams": [
-    "多特蒙德",
-    "法兰克福"
-   ],
-   "date": "2026-10-23",
-   "dur": 115,
-   "note": "SIGNAL IDUNA PARK · 开球时间待联赛公布"
-  },
-  {
    "id": "s16-sw-1",
    "sport": "lol",
    "sub": "S16 全球总决赛 · 瑞士轮（得州艾伦）",
@@ -1718,6 +1685,20 @@
    "bj": "2026-10-25 00:30",
    "dur": 115,
    "note": "Stamford Bridge"
+  },
+  {
+   "id": "bl-2026-63",
+   "src": "bl",
+   "sport": "football",
+   "sub": "德甲第7轮",
+   "title": "多特蒙德 vs 法兰克福",
+   "teams": [
+    "多特蒙德",
+    "法兰克福"
+   ],
+   "bj": "2026-10-25 00:30",
+   "dur": 115,
+   "note": "SIGNAL IDUNA PARK"
   },
   {
    "id": "s16-sw-2",
@@ -1787,6 +1768,34 @@
    "bj": "2026-10-25 22:00",
    "dur": 115,
    "note": "Old Trafford"
+  },
+  {
+   "id": "bl-2026-60",
+   "src": "bl",
+   "sport": "football",
+   "sub": "德甲第7轮",
+   "title": "霍芬海姆 vs 勒沃库森",
+   "teams": [
+    "霍芬海姆",
+    "勒沃库森"
+   ],
+   "bj": "2026-10-25 22:30",
+   "dur": 115,
+   "note": "SNP Arena"
+  },
+  {
+   "id": "bl-2026-59",
+   "src": "bl",
+   "sport": "football",
+   "sub": "德甲第7轮",
+   "title": "弗赖堡 vs 拜仁",
+   "teams": [
+    "弗赖堡",
+    "拜仁"
+   ],
+   "bj": "2026-10-26 00:30",
+   "dur": 115,
+   "note": "Europa-Park Stadion"
   },
   {
    "id": "s16-sw-3",
@@ -1862,34 +1871,6 @@
    "note": "LPL：AL、BLG、TES、iG。每轮对阵抽签后公布"
   },
   {
-   "id": "bl-2026-71",
-   "src": "bl",
-   "sport": "football",
-   "sub": "德甲第8轮",
-   "title": "勒沃库森 vs 斯图加特",
-   "teams": [
-    "勒沃库森",
-    "斯图加特"
-   ],
-   "date": "2026-10-30",
-   "dur": 115,
-   "note": "BayArena · 开球时间待联赛公布"
-  },
-  {
-   "id": "bl-2026-72",
-   "src": "bl",
-   "sport": "football",
-   "sub": "德甲第8轮",
-   "title": "拜仁 vs 多特蒙德",
-   "teams": [
-    "拜仁",
-    "多特蒙德"
-   ],
-   "date": "2026-10-30",
-   "dur": 115,
-   "note": "Allianz Arena · 开球时间待联赛公布"
-  },
-  {
    "id": "s16-sw-6",
    "sport": "lol",
    "sub": "S16 全球总决赛 · 瑞士轮（得州艾伦）",
@@ -1950,6 +1931,20 @@
    "note": "Estadio Ciutat de València"
   },
   {
+   "id": "bl-2026-71",
+   "src": "bl",
+   "sport": "football",
+   "sub": "德甲第8轮",
+   "title": "勒沃库森 vs 斯图加特",
+   "teams": [
+    "勒沃库森",
+    "斯图加特"
+   ],
+   "bj": "2026-10-31 22:30",
+   "dur": 115,
+   "note": "BayArena"
+  },
+  {
    "id": "epl-2026-88",
    "src": "epl",
    "sport": "football",
@@ -1992,6 +1987,20 @@
    "bj": "2026-11-01 01:30",
    "dur": 115,
    "note": "Tottenham Hotspur Stadium"
+  },
+  {
+   "id": "bl-2026-72",
+   "src": "bl",
+   "sport": "football",
+   "sub": "德甲第8轮",
+   "title": "拜仁 vs 多特蒙德",
+   "teams": [
+    "拜仁",
+    "多特蒙德"
+   ],
+   "bj": "2026-11-01 01:30",
+   "dur": 115,
+   "note": "Allianz Arena"
   },
   {
    "id": "liga-2026-105",
@@ -2266,48 +2275,6 @@
    "note": "对阵待瑞士轮结束后确定"
   },
   {
-   "id": "bl-2026-74",
-   "src": "bl",
-   "sport": "football",
-   "sub": "德甲第9轮",
-   "title": "科隆 vs 勒沃库森",
-   "teams": [
-    "科隆",
-    "勒沃库森"
-   ],
-   "date": "2026-11-06",
-   "dur": 115,
-   "note": "RheinEnergieSTADION · 开球时间待联赛公布"
-  },
-  {
-   "id": "bl-2026-76",
-   "src": "bl",
-   "sport": "football",
-   "sub": "德甲第9轮",
-   "title": "美因茨 vs 拜仁",
-   "teams": [
-    "美因茨",
-    "拜仁"
-   ],
-   "date": "2026-11-06",
-   "dur": 115,
-   "note": "MEWA ARENA · 开球时间待联赛公布"
-  },
-  {
-   "id": "bl-2026-81",
-   "src": "bl",
-   "sport": "football",
-   "sub": "德甲第9轮",
-   "title": "多特蒙德 vs 埃尔弗斯贝格",
-   "teams": [
-    "多特蒙德",
-    "埃尔弗斯贝格"
-   ],
-   "date": "2026-11-06",
-   "dur": 115,
-   "note": "SIGNAL IDUNA PARK · 开球时间待联赛公布"
-  },
-  {
    "id": "s16-qf-3",
    "sport": "lol",
    "sub": "S16 全球总决赛 · 八强赛（得州艾伦）",
@@ -2352,6 +2319,34 @@
    "bj": "2026-11-07 20:30",
    "dur": 115,
    "note": "Elland Road"
+  },
+  {
+   "id": "bl-2026-76",
+   "src": "bl",
+   "sport": "football",
+   "sub": "德甲第9轮",
+   "title": "美因茨 vs 拜仁",
+   "teams": [
+    "美因茨",
+    "拜仁"
+   ],
+   "bj": "2026-11-07 22:30",
+   "dur": 115,
+   "note": "MEWA ARENA"
+  },
+  {
+   "id": "bl-2026-81",
+   "src": "bl",
+   "sport": "football",
+   "sub": "德甲第9轮",
+   "title": "多特蒙德 vs 埃尔弗斯贝格",
+   "teams": [
+    "多特蒙德",
+    "埃尔弗斯贝格"
+   ],
+   "bj": "2026-11-07 22:30",
+   "dur": 115,
+   "note": "SIGNAL IDUNA PARK"
   },
   {
    "id": "epl-2026-91",
@@ -2464,6 +2459,20 @@
    "note": "Stadium of Light"
   },
   {
+   "id": "bl-2026-74",
+   "src": "bl",
+   "sport": "football",
+   "sub": "德甲第9轮",
+   "title": "科隆 vs 勒沃库森",
+   "teams": [
+    "科隆",
+    "勒沃库森"
+   ],
+   "bj": "2026-11-08 22:30",
+   "dur": 115,
+   "note": "RheinEnergieSTADION"
+  },
+  {
    "id": "epl-2026-98",
    "src": "epl",
    "sport": "football",
@@ -2525,9 +2534,9 @@
   "欧冠：31 场",
   "英超：25 场",
   "西甲：13 场",
-  "德甲：11 场",
+  "德甲：14 场",
   "LoL 电竞：0 场",
-  "官方页面整理：1 条改动"
+  "官方页面整理：0 条改动"
  ],
  "review": {
   "by": "claude",
