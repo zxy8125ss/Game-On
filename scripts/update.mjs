@@ -153,7 +153,9 @@ async function srcWta() {
         const ret = /ret|w\/o|def/i.test(x.ScoreString || '') ? '，对手退赛' : '';
         res = { a: wa, b: wb, sets: sets.join(' ') || x.ScoreString || '', ret };
       }
-      const round = WTA_ROUND[+x.RoundID] || '';
+      // 场次编号与轮次对应：1=决赛，2–3=半决赛，4–7=1/4决赛，8–15=16强，16–31=32强，32–63=首轮
+      const no = parseInt(String(x.MatchID).replace(/\D/g, ''), 10);
+      const round = no === 1 ? '决赛' : no <= 3 ? '半决赛' : no <= 7 ? '1/4决赛' : no <= 15 ? '16强' : no <= 31 ? (dbl ? '首轮' : '32强') : no <= 63 ? '首轮' : (WTA_ROUND[+x.RoundID] || '');
       add({ id: `wta-${year}-${tid}-${String(x.MatchID).toLowerCase()}`, src: 'wta', sport: 'tennis',
         sub: `${zh(tname)} ${level} · ${dbl ? '女双' : '女单'}${round}`, title: `${zh(sideA)} vs ${sideB ? zh(sideB) : '待定（资格赛选手）'}`,
         teams: [zh(sideA), sideB ? zh(sideB) : ''].filter(Boolean), ...when, dur: dbl ? 90 : 150,
