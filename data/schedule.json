@@ -1,6 +1,6 @@
 {
- "updatedAt": "2026-10-12T10:28:53+08:00",
- "note": "自动更新 9/9 项成功",
+ "updatedAt": "2026-10-12T19:56:22+08:00",
+ "note": "自动更新 10/10 项成功",
  "matches": [
   {
    "id": "cn-a-mdv",
@@ -1143,7 +1143,8 @@
    ],
    "bj": "2026-10-11 23:30",
    "dur": 115,
-   "note": "Anfield"
+   "note": "Anfield",
+   "result": "利物浦 0:3 曼城"
   },
   {
    "id": "wta-2026-1075-ld024",
@@ -1157,7 +1158,20 @@
    ],
    "date": "2026-10-12",
    "dur": 90,
-   "note": "Court 4 · 接上一场后进行"
+   "result": "郭涵煜 / 梅拉德诺维奇 2:0 伦斯登 / 帕诺娃（6-4 6-3）"
+  },
+  {
+   "id": "wta-2026-1075-ls045",
+   "src": "wta",
+   "sport": "tennis",
+   "sub": "武网 WTA1000 · 女单首轮",
+   "title": "王曦雨 vs 王欣瑜",
+   "teams": [
+    "王曦雨",
+    "王欣瑜"
+   ],
+   "date": "2026-10-12",
+   "dur": 150
   },
   {
    "id": "wta-2026-1075-ls060",
@@ -1171,21 +1185,49 @@
    ],
    "date": "2026-10-12",
    "dur": 150,
-   "note": "Dongfeng·Voyah Center Court · 接上一场后进行"
+   "note": "Dongfeng Voyah Center Court · 接上一场后进行"
   },
   {
-   "id": "wta-2026-1075-ls045",
+   "id": "wta-2026-1075-ls051",
    "src": "wta",
    "sport": "tennis",
    "sub": "武网 WTA1000 · 女单首轮",
-   "title": "王曦雨 vs 王欣瑜",
+   "title": "郭涵煜 vs 科斯蒂亚",
    "teams": [
-    "王曦雨",
-    "王欣瑜"
+    "郭涵煜",
+    "科斯蒂亚"
    ],
-   "bj": "2026-10-12 19:30",
+   "date": "2026-10-13",
    "dur": 150,
-   "note": "Dongfeng·Voyah Center Court"
+   "note": "Dongfeng Voyah Center Court · 接上一场后进行"
+  },
+  {
+   "id": "wta-2026-1075-ld022",
+   "src": "wta",
+   "sport": "tennis",
+   "sub": "武网 WTA1000 · 女双首轮",
+   "title": "麦克纳利 / 特詹 vs 汤千慧 / 徐一璠",
+   "teams": [
+    "麦克纳利 / 特詹",
+    "汤千慧 / 徐一璠"
+   ],
+   "date": "2026-10-13",
+   "dur": 90,
+   "note": "Court 4 · 接上一场后进行"
+  },
+  {
+   "id": "wta-2026-1075-ls036",
+   "src": "wta",
+   "sport": "tennis",
+   "sub": "武网 WTA1000 · 女单首轮",
+   "title": "克鲁格 vs 张帅",
+   "teams": [
+    "克鲁格",
+    "张帅"
+   ],
+   "bj": "2026-10-13 19:00",
+   "dur": 150,
+   "note": "Dongfeng Voyah Center Court"
   },
   {
    "id": "ucl-2049571",
@@ -2601,14 +2643,15 @@
   }
  ],
  "sources": [
-  "F1 官方赛历：9 场",
+  "F1 官方赛历：8 场",
   "欧国联 A 级：0 场",
   "欧冠：31 场",
-  "英超：25 场",
+  "英超：24 场",
   "西甲：13 场",
   "德甲：13 场",
   "LoL 电竞：0 场",
-  "WTA 网球：5 场",
+  "WTA 网球：8 场",
+  "翻译新名称 27 个",
   "官方页面整理：0 条改动"
  ],
  "review": {
