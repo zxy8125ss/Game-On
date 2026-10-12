@@ -39,7 +39,8 @@ const getJSON = async (url, opts) => (await get(url, opts)).json();
 // ---------- 1. 结构化来源 ----------
 const AUTO = new Map();          // id -> match
 const OK_SRC = new Set();        // 本次成功的来源，用来替换旧数据
-const add = m => { const t = startOf(m); if (t >= FROM && t <= TO) AUTO.set(m.id, m); };
+const CATALOG = new Map();      // 全部场次（含非焦点），供网页模糊搜索、按关注对象补全
+const add = (m, focus = true) => { const t = startOf(m); if (t >= FROM && t <= TO) { CATALOG.set(m.id, m); if (focus) AUTO.set(m.id, m); } };
 
 async function srcF1() {
   const j = await getJSON('https://api.jolpi.ca/ergast/f1/current/races.json?limit=100');
@@ -72,10 +73,11 @@ async function srcUefa(compId, key, label, keep) {
     const away = m.awayTeam?.translations?.displayName?.EN || m.awayTeam?.internationalName;
     const group = m.group?.metaData?.groupName || m.group?.translations?.name?.EN || '';
     const t = Date.parse(m.kickOffTime?.dateTime || '');
-    if (!home || !away || isNaN(t) || !keep(home, away, group)) continue;
+    if (!home || !away || isNaN(t)) continue;
+    const focus = keep(home, away, group);
     const fin = /FINISHED/i.test(m.status || '');
     const sh = m.score?.total?.home, sa = m.score?.total?.away;
-    add({ id: `${key}-${m.id}`, src: key, sport: 'football', sub: label + (group ? ` · ${group.replace(/^Group\s*/i, '')} 组` : ''), title: `${zh(home)} vs ${zh(away)}`, teams: [zh(home), zh(away)], bj: bj(t), dur: 115, channels: ['咪咕视频'], ...(fin && sh != null ? { result: `${zh(home)} ${sh}:${sa} ${zh(away)}` } : {}), _en: [home, away] });
+    add({ id: `${key}-${m.id}`, src: key, sport: 'football', sub: label + (group ? ` · ${group.replace(/^Group\s*/i, '')} 组` : ''), title: `${zh(home)} vs ${zh(away)}`, teams: [zh(home), zh(away)], bj: bj(t), dur: 115, channels: ['咪咕视频'], ...(fin && sh != null ? { result: `${zh(home)} ${sh}:${sa} ${zh(away)}` } : {}), _en: [home, away] }, focus);
   }
 }
 
@@ -85,13 +87,14 @@ async function srcFixture(feed, key, label, keep) {
   if (!Array.isArray(arr) || !arr.length) throw new Error('赛程为空或格式变化');
   for (const e of arr) {
     const home = e.HomeTeam, away = e.AwayTeam, t = Date.parse(String(e.DateUtc || '').replace(' ', 'T'));
-    if (!home || !away || isNaN(t) || !keep(home, away)) continue;
+    if (!home || !away || isNaN(t)) continue;
+    const focus = keep(home, away);
     const fin = e.HomeTeamScore != null && e.AwayTeamScore != null;
     // UTC 00:00 是"开球时间未定"的占位（例如德甲会提前几周才排定具体时间），只记日期
     const tbd = /\s00:00(:00)?Z?$/.test(String(e.DateUtc)) && !fin;
     const when = tbd ? { date: isoDay(t) } : { bj: bj(t) };
     const note = [e.Location, tbd ? '开球时间待联赛公布' : ''].filter(Boolean).join(' · ');
-    add({ id: `${key}-${feed.replace(/\D/g, '')}-${e.MatchNumber}`, src: key, sport: 'football', sub: `${label}第${e.RoundNumber}轮`, title: `${zh(home)} vs ${zh(away)}`, teams: [zh(home), zh(away)], ...when, dur: 115, ...(note ? { note } : {}), ...(fin ? { result: `${zh(home)} ${e.HomeTeamScore}:${e.AwayTeamScore} ${zh(away)}` } : {}), _en: [home, away] });
+    add({ id: `${key}-${feed.replace(/\D/g, '')}-${e.MatchNumber}`, src: key, sport: 'football', sub: `${label}第${e.RoundNumber}轮`, title: `${zh(home)} vs ${zh(away)}`, teams: [zh(home), zh(away)], ...when, dur: 115, ...(note ? { note } : {}), ...(fin ? { result: `${zh(home)} ${e.HomeTeamScore}:${e.AwayTeamScore} ${zh(away)}` } : {}), _en: [home, away] }, focus);
   }
 }
 
@@ -112,6 +115,54 @@ async function srcLol() {
   }
 }
 
+// WTA 官方接口：巡回赛日历 + 每站已排期场次（出场顺序公布后才有具体时间）与比分
+const WTA_ROUND = { 1: '决赛', 2: '半决赛', 3: '1/4决赛', 4: '16强', 5: '32强', 6: '首轮', 7: '首轮' };
+async function srcWta() {
+  const H_ = { headers: { accept: 'application/json', referer: 'https://www.wtatennis.com/' } };
+  const cal = await getJSON(`https://api.wtatennis.com/tennis/tournaments/?page=0&pageSize=30&excludeLevels=ITF&from=${isoDay(now - 3 * DAY)}&to=${isoDay(now + 14 * DAY)}`, H_);
+  const list = (cal.content || []).map(c => ({ ...(c.tournamentGroup || {}), ...c })).filter(t => /WTA (1000|500|250)/.test(t.level || t.tournamentGroup?.level || ''));
+  for (const t of list) {
+    const tid = t.tournamentGroup?.id || t.id, year = String(t.startDate || t.year || '').slice(0, 4) || new Date(now).getUTCFullYear();
+    const tname = (t.tournamentGroup?.name || t.name || '').trim(), level = (t.level || t.tournamentGroup?.level || '').replace('WTA ', 'WTA');
+    let j; try { j = await getJSON(`https://api.wtatennis.com/tennis/tournaments/${tid}/${year}/matches?states=L,C,U`, H_); } catch { continue; }
+    for (const x of j.matches || []) {
+      if (x.DrawLevelType !== 'M') continue;
+      const dbl = x.DrawMatchType === 'D';
+      const nm = (f, l) => [f, l].filter(Boolean).join(' ').trim();
+      const sideA = [nm(x.PlayerNameFirstA, x.PlayerNameLastA), dbl ? nm(x.PlayerNameFirstA2, x.PlayerNameLastA2) : ''].filter(Boolean).join(' / ');
+      const sideB = [nm(x.PlayerNameFirstB, x.PlayerNameLastB), dbl ? nm(x.PlayerNameFirstB2, x.PlayerNameLastB2) : ''].filter(Boolean).join(' / ');
+      if (!sideA) continue;
+      const cn = [x.PlayerCountryA, x.PlayerCountryB, x.PlayerCountryA2, x.PlayerCountryB2].includes('CHN');
+      if (dbl && !cn) continue;                                   // 双打只收中国选手
+      const st = x.MatchState || 'U';
+      const ts = Date.parse(x.MatchTimeStamp || '');
+      if (isNaN(ts)) continue;
+      const hhmm = bj(ts).slice(11);
+      const timed = st === 'U' && x.NotBeforeISOTime && hhmm !== '23:59';
+      const when = timed ? { bj: bj(ts) } : { date: bj(ts).slice(0, 10) };
+      // 比分：按盘统计（A 方视角）
+      let res;
+      if (st === 'F') {
+        const sets = []; let wa = 0, wb = 0;
+        for (let i = 1; i <= 5; i++) {
+          const a = x[`ScoreSet${i}A`], b = x[`ScoreSet${i}B`];
+          if (a === '' || a == null || b === '' || b == null) continue;
+          const tb = x[`ScoreTbSet${i}`]; sets.push(`${a}-${b}${tb ? `(${tb})` : ''}`);
+          if (+a > +b) wa++; else if (+b > +a) wb++;
+        }
+        const ret = /ret|w\/o|def/i.test(x.ScoreString || '') ? '，对手退赛' : '';
+        res = { a: wa, b: wb, sets: sets.join(' ') || x.ScoreString || '', ret };
+      }
+      const round = WTA_ROUND[+x.RoundID] || '';
+      add({ id: `wta-${year}-${tid}-${String(x.MatchID).toLowerCase()}`, src: 'wta', sport: 'tennis',
+        sub: `${zh(tname)} ${level} · ${dbl ? '女双' : '女单'}${round}`, title: `${zh(sideA)} vs ${sideB ? zh(sideB) : '待定（资格赛选手）'}`,
+        teams: [zh(sideA), sideB ? zh(sideB) : ''].filter(Boolean), ...when, dur: dbl ? 90 : 150,
+        ...(st === 'L' ? { note: '进行中' } : !timed && st === 'U' ? { note: `${x.CourtName || ''}${x.CourtName ? ' · ' : ''}接上一场后进行` } : x.CourtName ? { note: x.CourtName } : {}),
+        ...(sideB ? {} : { tbdTeams: true }), _en: [sideA, sideB].filter(Boolean), _tn: tname, _res: res }, cn);
+    }
+  }
+}
+
 const NL_A = (h, a, g) => /^Group A\d/i.test(g) || /League A/i.test(g);
 const SOURCES_STRUCT = [
   ['F1 官方赛历', 'f1', srcF1],
@@ -121,6 +172,7 @@ const SOURCES_STRUCT = [
   ['西甲', 'liga', () => srcFixture('la-liga-2026', 'liga', '西甲', (h, a) => isBig(h) || isBig(a))],
   ['德甲', 'bl', () => srcFixture('bundesliga-2026', 'bl', '德甲', (h, a) => isBig(h) || isBig(a))],
   ['LoL 电竞', 'lol', srcLol],
+  ['WTA 网球', 'wta', srcWta],
 ];
 for (const [label, key, fn] of SOURCES_STRUCT) {
   const before = AUTO.size;
@@ -152,17 +204,24 @@ async function gemini(parts, label) {
 }
 
 // 2a. 翻译新出现的外文名
-const unknown = [...new Set([...AUTO.values()].flatMap(m => m._en || []).filter(n => n && !names[n]))];
+const unknown = [...new Set([...CATALOG.values()].flatMap(m => [...(m._en || []), m._tn]).filter(n => n && !names[n]))];
 if (unknown.length && KEY) {
   try {
-    const out = await gemini([{ text: `把下面这些体育队伍、国家、大奖赛、赛道名称翻译成中国大陆体育媒体最常用的简体中文叫法（如 Manchester City→曼城，Bayern Munich→拜仁，Czechia→捷克，Bahrain Grand Prix→巴林大奖赛）。只输出一个 JSON 对象，键为原文，值为中文。\n${JSON.stringify(unknown)}` }], '翻译');
+    const out = await gemini([{ text: `把下面这些体育队伍、国家、大奖赛、赛道、网球选手（双打用 / 分隔两人）和网球赛事城市名翻译成中国大陆体育媒体最常用的简体中文叫法（如 Manchester City→曼城，Bayern Munich→拜仁，Czechia→捷克，Bahrain Grand Prix→巴林大奖赛，Qinwen Zheng→郑钦文，Aryna Sabalenka→萨巴伦卡，WUHAN→武网，BEIJING→中网）。外国网球选手只译姓（如 Elena Rybakina→莱巴金娜），拿不准的保留英文原文。只输出一个 JSON 对象，键为原文，值为中文。\n${JSON.stringify(unknown)}` }], '翻译');
     let n = 0; for (const [k, v] of Object.entries(out || {})) if (typeof v === 'string' && v.trim() && unknown.includes(k)) { names[k] = v.trim(); n++; }
     fs.writeFileSync(NAMES, JSON.stringify(names, null, 1) + '\n');
     report.push(`翻译新名称 ${n} 个`);
   } catch (e) { report.push(`翻译失败（${e.message}），暂用外文名`); }
 }
 // 用译名重写标题
-for (const m of AUTO.values()) if (m._en) {
+for (const m of CATALOG.values()) if (m._en) {
+  if (m.src === 'wta') {
+    const [h, a] = m._en;
+    if (m._tn) m.sub = m.sub.replace(/^\S+/, zh(m._tn));
+    m.title = `${zh(h)} vs ${a ? zh(a) : '待定（资格赛选手）'}`; m.teams = [zh(h), a ? zh(a) : ''].filter(Boolean);
+    if (m._res) { const r = m._res, w = r.a >= r.b; m.result = `${zh(h)} ${r.a}:${r.b} ${zh(a)}（${r.sets}${r.ret}）`; }
+    continue;
+  }
   if (m.sport === 'f1') { m.sub = `${zh(m._en[0])}（第${m._round}站）`; if (m._en[1]) m.note = zh(m._en[1]); }
   else {
     const [h, a] = m._en; const oh = m.teams[0], oa = m.teams[1];
@@ -204,6 +263,18 @@ if (pages.length && KEY) {
   }
 }
 
+// 网页搜索用的完整场次表
+const CAT_FILE = 'data/catalog.json';
+if (OK_SRC.size) {
+  const cat = [...CATALOG.values()].map(m => {
+    const o = { id: m.id, sport: m.sport, sub: m.sub, title: m.title, teams: m.teams, ...(m.bj ? { bj: m.bj } : { date: m.date }), dur: m.dur };
+    if (m.result) o.result = m.result; if (m.note) o.note = m.note; if (m.channels) o.channels = m.channels; if (m.tbdTeams) o.tbdTeams = true;
+    const en = [...(m._en || []), m._tn].filter(Boolean).join(' '); if (en) o.en = en;
+    return o;
+  }).sort((a, b) => startOf(a) - startOf(b));
+  fs.writeFileSync(CAT_FILE, JSON.stringify({ updatedAt: new Date(now + TZ).toISOString().replace(/\.\d{3}Z$/, '+08:00'), matches: cat }) + '\n');
+}
+
 // ---------- 3. 合并 ----------
 const LEGACY = { f1: /^f1-(?!\d{4}-)/, unl: /^unl-[a-z]/, epl: /^epl\d/, liga: /^liga-[a-z]/, bl: /^bl\d/ };
 const byId = new Map(doc.matches.map(m => [m.id, m]));
@@ -214,7 +285,7 @@ for (const key of OK_SRC) {
     if ((m.src === key && t >= FROM && t <= TO) || (legacy && t >= FROM)) byId.delete(id);   // 由新抓取结果替换；旧格式条目一律清掉，避免重复
   }
 }
-for (const m of AUTO.values()) { delete m._en; delete m._round; Object.keys(m).forEach(k => m[k] === undefined && delete m[k]); byId.set(m.id, m); }
+for (const m of AUTO.values()) { delete m._en; delete m._round; delete m._tn; delete m._res; Object.keys(m).forEach(k => m[k] === undefined && delete m[k]); byId.set(m.id, m); }
 
 const valid = m => m && /^[a-z0-9][a-z0-9-]{2,60}$/.test(m.id || '') && ALLOWED.test(m.id) && ['football', 'tennis'].includes(m.sport) && m.title &&
   (m.bj ? /^\d{4}-\d{2}-\d{2} \d{2}:\d{2}$/.test(m.bj) : /^\d{4}-\d{2}-\d{2}$/.test(m.date || '')) && !isNaN(startOf(m));

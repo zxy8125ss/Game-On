@@ -268,14 +268,18 @@ dialog::backdrop{background:rgba(5,8,18,.55)}
 
 <dialog id="d-add"><form class="dlg" id="f-add">
   <h3 id="add-title">添加比赛</h3>
+  <div id="add-search">
+    <label class="field">搜索比赛<input id="a-q" type="search" autocomplete="off" placeholder="随便输：郑钦文 武网 / 曼城 / 新加坡 F1 / 10/18"></label>
+    <div class="flist" id="a-res"><p class="help">输入人名、球队、赛事或日期，空格分隔多个词。</p></div>
+    <details id="a-manual"><summary class="help" style="cursor:pointer">搜不到？手动填写</summary>
   <div class="two">
     <label class="field">项目<select id="a-sport"><option value="tennis">网球</option><option value="f1">F1</option><option value="lol">电竞</option><option value="football">足球</option><option value="custom">其他</option></select></label>
     <label class="field">赛事<input id="a-sub" placeholder="如 武网 · 女单次轮"></label>
   </div>
-  <label class="field">对阵 / 标题<input id="a-title" required placeholder="如 郑钦文 vs 莱巴金娜"></label>
+  <label class="field">对阵 / 标题<input id="a-title" placeholder="如 郑钦文 vs 莱巴金娜"></label>
   <label class="field">参赛方（逗号分隔，用于关注匹配）<input id="a-teams" placeholder="郑钦文, 莱巴金娜"></label>
   <div class="two">
-    <label class="field">日期（北京时间）<input id="a-date" type="date" required></label>
+    <label class="field">日期（北京时间）<input id="a-date" type="date"></label>
     <label class="field">开赛时间（不填=待定）<input id="a-time" type="time"></label>
   </div>
   <div class="two">
@@ -283,7 +287,10 @@ dialog::backdrop{background:rgba(5,8,18,.55)}
     <label class="field">转播平台<input id="a-ch" placeholder="咪咕视频, 央视体育"></label>
   </div>
   <label class="field">备注<input id="a-note"></label>
-  <div class="row-end"><button type="button" class="btn" data-close>取消</button><button class="btn primary">保存</button></div>
+  <div class="row-end"><button class="btn primary">保存手动填写</button></div>
+    </details>
+  </div>
+  <div class="row-end"><button type="button" class="btn" data-close>完成</button></div>
 </form></dialog>
 
 <dialog id="d-follow"><form class="dlg" id="f-follow">
@@ -336,7 +343,7 @@ const DEF={
     {id:'fmc',name:'曼城',aliases:['曼城','Man City']},
     {id:'fbar',name:'巴萨',aliases:['巴塞罗那','巴萨','Barcelona']},
   ],
-  custom:[], marks:{}, removed:[],
+  custom:[], marks:{}, removed:[], pins:[],
   settings:{lead:15,spoiler:false},
 };
 let S=JSON.parse(JSON.stringify(DEF));
@@ -354,8 +361,12 @@ const holLabel=key=>HOLI.has(key)?'假':MAKEUP.has(key)?'班':null;
 const overlap=(a,b,c,d)=>Math.max(0,Math.min(b,d)-Math.max(a,c));
 
 // ---------- data ----------
+let CAT=[];
 function allMatches(){
-  return [...((LIVE&&Array.isArray(LIVE.matches))?LIVE.matches:SEED),...S.custom].map(x=>{
+  const base=[...((LIVE&&Array.isArray(LIVE.matches))?LIVE.matches:SEED),...S.custom];
+  const ids=new Set(base.map(x=>x.id)), pins=new Set(S.pins||[]);
+  const extra=CAT.filter(c=>!ids.has(c.id)&&(pins.has(c.id)||followHits(c).length));
+  return [...base,...extra].map(x=>{
     const known=!!x.bj;
     const start=known?parseBJ(...x.bj.split(' ')):parseBJ(x.date||x.bj);
     return {...x,known,start,end:start+(x.dur||120)*M};
@@ -409,7 +420,7 @@ async function flush(){
   catch(e){saveNote('同步失败（'+(e&&e.code||'未知')+'），改动暂存在本机。')}
   saving=false; if(dirty){dirty=false;flush()}
 }
-function merge(src){if(!src)return;['follows','custom','marks','settings','removed'].forEach(k=>{if(src[k]!==undefined)S[k]=k==='settings'?{lead:src[k].lead??DEF.settings.lead,spoiler:src[k].spoiler??DEF.settings.spoiler}:src[k]});
+function merge(src){if(!src)return;['follows','custom','marks','settings','removed','pins'].forEach(k=>{if(src[k]!==undefined)S[k]=k==='settings'?{lead:src[k].lead??DEF.settings.lead,spoiler:src[k].spoiler??DEF.settings.spoiler}:src[k]});
   const rm=new Set(S.removed||[]);for(const f of DEF.follows){if(!rm.has(f.id)&&!S.follows.some(x=>x.id===f.id))S.follows.push(f)}}
 try{merge(JSON.parse(localStorage.getItem('ziye-state')||'null'))}catch(e){}
 try{if(!localStorage.getItem('gameon-spoil-v2')){S.settings.spoiler=false;localStorage.setItem('gameon-spoil-v2','1')}}catch(e){}
@@ -643,12 +654,36 @@ function openAdd(c){
   $('a-teams').value=(c?.teams||[]).join(', ');
   $('a-date').value=c?(c.bj?c.bj.split(' ')[0]:c.date):(UI.day&&UI.day!=='all'?UI.day:dkey(Date.now())); $('a-time').value=c?.bj?c.bj.split(' ')[1]:'';
   $('a-dur').value=c?.dur||120; $('a-ch').value=(c?.channels||[]).join(', '); $('a-note').value=c?.note||'';
-  $('d-add').showModal();
+  $('a-manual').open=!!c; $('a-q').value=''; searchAdd();
+  $('d-add').showModal(); if(!c)setTimeout(()=>$('a-q').focus(),50);
 }
 $('b-add').onclick=()=>openAdd();
 const splitList=s=>s.split(/[,，、]/).map(x=>x.trim()).filter(Boolean);
+// 模糊搜索：每个词都要在 标题/赛事/参赛方/英文名/日期 里出现
+function searchAdd(){
+  const q=low($('a-q').value).trim(), box=$('a-res');
+  if(!q){box.innerHTML='<p class="help">输入人名、球队、赛事或日期，空格分隔多个词。</p>';return}
+  const toks=q.split(/\s+/);
+  const live=(LIVE&&Array.isArray(LIVE.matches))?LIVE.matches:[];
+  const pool=new Map([...CAT,...live].map(x=>[x.id,x]));
+  const inList=new Set(ALL.map(m=>m.id));
+  const now=Date.now();
+  const hits=[...pool.values()].filter(x=>{
+    const d=x.bj||x.date||''; const [y,mo,da]=d.slice(0,10).split('-');
+    const hay=low([x.title,x.sub,(x.teams||[]).join(' '),x.en,x.note,d,+mo+'/'+(+da),+mo+'月'+(+da)+'日',SPORT[x.sport]].join(' '));
+    return toks.every(t=>hay.includes(t));
+  }).map(x=>({x,t:parseBJ(...String(x.bj||x.date).split(' '))})).filter(o=>o.t>now-2*DAY).sort((a,b)=>a.t-b.t).slice(0,30);
+  if(!hits.length){box.innerHTML='<p class="help">没找到。可能是还没公布赛程（网球一般前一天晚上才出出场顺序），可以先去「关注」里加这个人，赛程一出来会自动出现；或点下面手动填写。</p>';return}
+  box.innerHTML=hits.map(({x})=>{const p=bjParts(parseBJ(...String(x.bj||x.date).split(' ')));const has=inList.has(x.id);
+    return `<div class="fitem"><div><b>${esc(x.title)}</b><small>${p.m}/${p.d} ${x.bj?x.bj.slice(11):'时间待定'} · ${esc(x.sub||SPORT[x.sport])}</small></div>${has?'<span class="help">已在列表</span>':`<button type="button" class="x" data-pin="${x.id}">添加</button>`}</div>`}).join('');
+}
+$('a-q').addEventListener('input',searchAdd);
+$('a-q').addEventListener('keydown',e=>{if(e.key==='Enter')e.preventDefault()});
+$('a-res').addEventListener('click',e=>{const b=e.target.closest('[data-pin]');if(!b)return;const id=b.dataset.pin;
+  S.pins=[...new Set([...(S.pins||[]),id])];S.removed=(S.removed||[]).filter(x=>x!==id);persist();render();searchAdd()});
 $('f-add').addEventListener('submit',e=>{
   e.preventDefault();
+  if(!$('a-manual').open||!$('a-title').value.trim()||!$('a-date').value){$('d-add').close();return}
   const date=$('a-date').value, time=$('a-time').value;
   const c={id:editing?.id||('c'+Date.now().toString(36)),custom:true,sport:$('a-sport').value,sub:$('a-sub').value.trim(),title:$('a-title').value.trim(),
     teams:splitList($('a-teams').value),dur:Math.max(15,+$('a-dur').value||120),channels:splitList($('a-ch').value),note:$('a-note').value.trim()};
@@ -711,7 +746,7 @@ function stampOf(d){
   return !isNaN(r)&&(isNaN(u)||r>u)?'赛程更新于 '+fmtStamp(d.review.at)+'（Claude 复核）':'赛程更新于 '+fmtStamp(d.updatedAt);
 }
 function showSync(extra){$('sync').textContent=extra||stampOf(LIVE)||'赛程数据：内置版本'}
-const BUILD='2026-10-01-2325';
+const BUILD='2026-10-12-1010';
 // 页面自动更新：发现新版本就重新加载一次（避免手机主屏幕 app 一直显示旧版）
 async function checkVersion(){
   try{
@@ -728,8 +763,9 @@ async function fetchSchedule(){
   if(!d||!Array.isArray(d.matches))throw new Error('bad');
   return d;
 }
+async function loadCatalog(){try{const r=await fetch('data/catalog.json?t='+Date.now(),{cache:'no-store'});if(r.ok){const d=await r.json();if(d&&Array.isArray(d.matches))CAT=d.matches}}catch(e){}}
 async function loadSchedule(manual){
-  checkVersion();
+  checkVersion(); loadCatalog().then(()=>render());
   try{const d=await fetchSchedule();LIVE=d;showSync(manual?'已刷新 · '+stampOf(d):null);render()}
   catch(e){if(manual)showSync('刷新失败，请检查网络后再试')}
 }

@@ -39,12 +39,12 @@ jobs:
         run: node scripts/update.mjs
       - name: 提交更新
         run: |
-          if git diff --quiet -- data/schedule.json data/names.json; then
+          if git diff --quiet -- data/schedule.json data/names.json data/catalog.json; then
             echo "数据无变化"; exit 0
           fi
           git config user.name "game-on-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/schedule.json data/names.json
+          git add data/schedule.json data/names.json data/catalog.json
           git commit -m "更新赛程 $(TZ=Asia/Shanghai date '+%Y-%m-%d %H:%M')"
           # 运行期间仓库可能有新提交：先同步再推送，最多重试 3 次
           for i in 1 2 3; do
