@@ -1,6 +1,6 @@
 {
- "updatedAt": "2026-10-13T19:44:57+08:00",
- "note": "自动更新 10/10 项成功",
+ "updatedAt": "2026-10-13T23:20:03+08:00",
+ "note": "自动更新 8/8 项成功",
  "matches": [
   {
    "id": "cn-a-mdv",
@@ -1227,7 +1227,8 @@
     "张帅"
    ],
    "date": "2026-10-13",
-   "dur": 150
+   "dur": 150,
+   "result": "克鲁格 2:0 张帅（6-3 6-0）"
   },
   {
    "id": "wta-2026-1075-ls022",
@@ -1240,8 +1241,21 @@
     "王曦雨"
    ],
    "date": "2026-10-13",
-   "dur": 150,
-   "note": "Dongfeng Voyah Center Court · 接上一场后进行"
+   "dur": 150
+  },
+  {
+   "id": "wta-2026-1075-ld015",
+   "src": "wta",
+   "sport": "tennis",
+   "sub": "武网 WTA1000 · 女双16强",
+   "title": "Anhelina Kalinina / Dayana Yastremska vs Anna Danilina / Shuai Zhang",
+   "teams": [
+    "Anhelina Kalinina / Dayana Yastremska",
+    "Anna Danilina / Shuai Zhang"
+   ],
+   "date": "2026-10-14",
+   "dur": 90,
+   "note": "Court 1 · 接上一场后进行"
   },
   {
    "id": "wta-2026-1075-ls030",
@@ -2699,16 +2713,14 @@
   }
  ],
  "sources": [
-  "F1 官方赛历：7 场",
+  "F1 官方赛历：6 场",
   "欧国联 A 级：0 场",
   "欧冠：31 场",
   "英超：22 场",
   "西甲：10 场",
   "德甲：11 场",
   "LoL 电竞：0 场",
-  "WTA 网球：10 场",
-  "翻译新名称 5 个",
-  "官方页面整理：0 条改动"
+  "WTA 网球：11 场"
  ],
  "review": {
   "by": "claude",
