@@ -1,6 +1,6 @@
 {
- "updatedAt": "2026-10-14T00:28:46+08:00",
- "note": "自动更新 9/10 项成功",
+ "updatedAt": "2026-10-14T04:16:43+08:00",
+ "note": "自动更新 10/10 项成功",
  "matches": [
   {
    "id": "cn-a-mdv",
@@ -1249,10 +1249,10 @@
    "src": "wta",
    "sport": "tennis",
    "sub": "武网 WTA1000 · 女双16强",
-   "title": "Anhelina Kalinina / Dayana Yastremska vs Anna Danilina / Shuai Zhang",
+   "title": "卡利尼娜 /雅斯特雷姆斯卡 vs 达尼利娜 / 张帅",
    "teams": [
-    "Anhelina Kalinina / Dayana Yastremska",
-    "Anna Danilina / Shuai Zhang"
+    "卡利尼娜 /雅斯特雷姆斯卡",
+    "达尼利娜 / 张帅"
    ],
    "date": "2026-10-14",
    "dur": 90,
@@ -2698,6 +2698,70 @@
    "tbdTeams": true
   },
   {
+   "id": "unl-2047873",
+   "src": "unl",
+   "sport": "football",
+   "sub": "欧国联 A 级 · A1 组",
+   "title": "土耳其 vs 比利时",
+   "teams": [
+    "土耳其",
+    "比利时"
+   ],
+   "bj": "2026-11-13 01:00",
+   "dur": 115,
+   "channels": [
+    "咪咕视频"
+   ]
+  },
+  {
+   "id": "unl-2047872",
+   "src": "unl",
+   "sport": "football",
+   "sub": "欧国联 A 级 · A3 组",
+   "title": "捷克 vs 西班牙",
+   "teams": [
+    "捷克",
+    "西班牙"
+   ],
+   "bj": "2026-11-13 03:45",
+   "dur": 115,
+   "channels": [
+    "咪咕视频"
+   ]
+  },
+  {
+   "id": "unl-2047878",
+   "src": "unl",
+   "sport": "football",
+   "sub": "欧国联 A 级 · A1 组",
+   "title": "意大利 vs 法国",
+   "teams": [
+    "意大利",
+    "法国"
+   ],
+   "bj": "2026-11-13 03:45",
+   "dur": 115,
+   "channels": [
+    "咪咕视频"
+   ]
+  },
+  {
+   "id": "unl-2047879",
+   "src": "unl",
+   "sport": "football",
+   "sub": "欧国联 A 级 · A3 组",
+   "title": "英格兰 vs 克罗地亚",
+   "teams": [
+    "英格兰",
+    "克罗地亚"
+   ],
+   "bj": "2026-11-13 03:45",
+   "dur": 115,
+   "channels": [
+    "咪咕视频"
+   ]
+  },
+  {
    "id": "s16-final",
    "sport": "lol",
    "sub": "S16 全球总决赛 · 决赛（纽约巴克莱中心）",
@@ -2715,14 +2779,14 @@
  ],
  "sources": [
   "F1 官方赛历：6 场",
-  "欧国联 A 级：0 场",
+  "欧国联 A 级：4 场",
   "欧冠：31 场",
   "英超：21 场",
   "西甲：10 场",
   "德甲：11 场",
   "LoL 电竞：0 场",
   "WTA 网球：8 场",
-  "翻译失败（Gemini 不可用），暂用外文名",
+  "翻译新名称 10 个",
   "官方页面整理：0 条改动"
  ],
  "review": {
