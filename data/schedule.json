@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-10-24T20:56:33+08:00",
+ "updatedAt": "2026-10-25T01:29:29+08:00",
  "note": "自动更新 9/9 项成功",
  "matches": [
   {
@@ -2195,10 +2195,10 @@
    "src": "lol",
    "sport": "lol",
    "sub": "S16 全球总决赛 · Swiss",
-   "title": "AL vs TES",
+   "title": "TES vs AL",
    "teams": [
-    "AL",
-    "TES"
+    "TES",
+    "AL"
    ],
    "bj": "2026-10-25 01:00",
    "dur": 60,
