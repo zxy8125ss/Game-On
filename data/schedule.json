@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-10-24T09:41:02+08:00",
+ "updatedAt": "2026-10-24T16:51:33+08:00",
  "note": "自动更新 9/9 项成功",
  "matches": [
   {
@@ -3422,48 +3422,6 @@
    "note": "Tottenham Hotspur Stadium"
   },
   {
-   "id": "liga-2026-123",
-   "src": "liga",
-   "sport": "football",
-   "sub": "西甲第13轮",
-   "title": "巴塞罗那 vs 比利亚雷亚尔",
-   "teams": [
-    "巴塞罗那",
-    "比利亚雷亚尔"
-   ],
-   "date": "2026-11-22",
-   "dur": 115,
-   "note": "Spotify Camp Nou · 开球时间待联赛公布"
-  },
-  {
-   "id": "liga-2026-124",
-   "src": "liga",
-   "sport": "football",
-   "sub": "西甲第13轮",
-   "title": "赫塔费 vs 马德里竞技",
-   "teams": [
-    "赫塔费",
-    "马德里竞技"
-   ],
-   "date": "2026-11-22",
-   "dur": 115,
-   "note": "Coliseum · 开球时间待联赛公布"
-  },
-  {
-   "id": "liga-2026-129",
-   "src": "liga",
-   "sport": "football",
-   "sub": "西甲第13轮",
-   "title": "皇家马德里 vs 塞尔塔",
-   "teams": [
-    "皇家马德里",
-    "塞尔塔"
-   ],
-   "date": "2026-11-22",
-   "dur": 115,
-   "note": "Bernabéu · 开球时间待联赛公布"
-  },
-  {
    "id": "epl-2026-109",
    "src": "epl",
    "sport": "football",
@@ -3478,6 +3436,20 @@
    "note": "St. James' Park"
   },
   {
+   "id": "liga-2026-129",
+   "src": "liga",
+   "sport": "football",
+   "sub": "西甲第13轮",
+   "title": "皇家马德里 vs 塞尔塔",
+   "teams": [
+    "皇家马德里",
+    "塞尔塔"
+   ],
+   "bj": "2026-11-22 04:00",
+   "dur": 115,
+   "note": "Bernabéu"
+  },
+  {
    "id": "f1-2026-21-r",
    "src": "f1",
    "sport": "f1",
@@ -3487,6 +3459,20 @@
    "bj": "2026-11-22 12:00",
    "dur": 120,
    "note": "拉斯维加斯街道赛道"
+  },
+  {
+   "id": "liga-2026-123",
+   "src": "liga",
+   "sport": "football",
+   "sub": "西甲第13轮",
+   "title": "巴塞罗那 vs 比利亚雷亚尔",
+   "teams": [
+    "巴塞罗那",
+    "比利亚雷亚尔"
+   ],
+   "bj": "2026-11-22 21:00",
+   "dur": 115,
+   "note": "Spotify Camp Nou"
   },
   {
    "id": "epl-2026-107",
@@ -3501,6 +3487,20 @@
    "bj": "2026-11-23 00:30",
    "dur": 115,
    "note": "Anfield"
+  },
+  {
+   "id": "liga-2026-124",
+   "src": "liga",
+   "sport": "football",
+   "sub": "西甲第13轮",
+   "title": "赫塔费 vs 马德里竞技",
+   "teams": [
+    "赫塔费",
+    "马德里竞技"
+   ],
+   "bj": "2026-11-23 04:00",
+   "dur": 115,
+   "note": "Coliseum"
   }
  ],
  "sources": [
