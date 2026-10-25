@@ -1,6 +1,6 @@
 {
- "updatedAt": "2026-10-25T17:08:01+08:00",
- "note": "自动更新 9/9 项成功",
+ "updatedAt": "2026-10-25T21:23:16+08:00",
+ "note": "自动更新 10/10 项成功",
  "matches": [
   {
    "id": "cn-u23-tha",
@@ -2130,7 +2130,8 @@
    ],
    "bj": "2026-10-24 19:30",
    "dur": 115,
-   "note": "Villa Park"
+   "note": "Villa Park",
+   "result": "阿斯顿维拉 2:1 曼城"
   },
   {
    "id": "epl-2026-71",
@@ -2144,7 +2145,8 @@
    ],
    "bj": "2026-10-24 22:00",
    "dur": 115,
-   "note": "Emirates Stadium"
+   "note": "Emirates Stadium",
+   "result": "阿森纳 2:0 埃弗顿"
   },
   {
    "id": "epl-2026-73",
@@ -2158,7 +2160,8 @@
    ],
    "bj": "2026-10-25 00:30",
    "dur": 115,
-   "note": "Stamford Bridge"
+   "note": "Stamford Bridge",
+   "result": "切尔西 0:2 热刺"
   },
   {
    "id": "bl-2026-63",
@@ -2172,7 +2175,8 @@
    ],
    "bj": "2026-10-25 00:30",
    "dur": 115,
-   "note": "SIGNAL IDUNA PARK"
+   "note": "SIGNAL IDUNA PARK",
+   "result": "多特蒙德 1:0 法兰克福"
   },
   {
    "id": "s16-sw-2",
@@ -2221,7 +2225,8 @@
    ],
    "bj": "2026-10-25 03:00",
    "dur": 115,
-   "note": "Riyadh Air Metropolitano"
+   "note": "Riyadh Air Metropolitano",
+   "result": "马德里竞技 1:0 拉科鲁尼亚"
   },
   {
    "id": "f1-2026-18-q",
@@ -2315,6 +2320,62 @@
    "note": "SNP Arena"
   },
   {
+   "id": "wta-2026-1023-ls022",
+   "src": "wta",
+   "sport": "tennis",
+   "sub": "广州 WTA250 · 女单32强",
+   "title": "施晗 vs 伊布拉吉莫娃",
+   "teams": [
+    "施晗",
+    "伊布拉吉莫娃"
+   ],
+   "date": "2026-10-26",
+   "dur": 150,
+   "note": "Center Court · 接上一场后进行"
+  },
+  {
+   "id": "wta-2026-1023-ld009",
+   "src": "wta",
+   "sport": "tennis",
+   "sub": "广州 WTA250 · 女双16强",
+   "title": "哈弗拉格 / 库兰巴耶娃 vs 屈依涵 / 张瑞恩",
+   "teams": [
+    "哈弗拉格 / 库兰巴耶娃",
+    "屈依涵 / 张瑞恩"
+   ],
+   "date": "2026-10-26",
+   "dur": 90,
+   "note": "Court 2 · 接上一场后进行"
+  },
+  {
+   "id": "wta-2026-1056-ld015",
+   "src": "wta",
+   "sport": "tennis",
+   "sub": "东京 WTA500 · 女双16强",
+   "title": "埃拉尼 / 保利尼 vs 达尼利娜 / 蒋欣玗",
+   "teams": [
+    "埃拉尼 / 保利尼",
+    "达尼利娜 / 蒋欣玗"
+   ],
+   "date": "2026-10-26",
+   "dur": 90,
+   "note": "Show Court · 接上一场后进行"
+  },
+  {
+   "id": "wta-2026-1056-ld010",
+   "src": "wta",
+   "sport": "tennis",
+   "sub": "东京 WTA500 · 女双16强",
+   "title": "佩雷斯 / 雪尔斯 vs 汤千慧 / 徐一璠",
+   "teams": [
+    "佩雷斯 / 雪尔斯",
+    "汤千慧 / 徐一璠"
+   ],
+   "date": "2026-10-26",
+   "dur": 90,
+   "note": "Show Court · 接上一场后进行"
+  },
+  {
    "id": "bl-2026-59",
    "src": "bl",
    "sport": "football",
@@ -2404,6 +2465,20 @@
    "bj": "2026-10-26 04:00",
    "dur": 115,
    "note": "Spotify Camp Nou"
+  },
+  {
+   "id": "wta-2026-1056-ls030",
+   "src": "wta",
+   "sport": "tennis",
+   "sub": "东京 WTA500 · 女单32强",
+   "title": "王欣瑜 vs 帕克斯",
+   "teams": [
+    "王欣瑜",
+    "帕克斯"
+   ],
+   "bj": "2026-10-26 09:30",
+   "dur": 150,
+   "note": "Center"
   },
   {
    "id": "s16-sw-4",
@@ -3571,7 +3646,8 @@
   "西甲：10 场",
   "德甲：11 场",
   "LoL 电竞：11 场",
-  "WTA 网球：0 场",
+  "WTA 网球：5 场",
+  "翻译新名称 9 个",
   "官方页面整理：0 条改动"
  ],
  "review": {
