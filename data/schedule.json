@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-10-27T03:59:13+08:00",
+ "updatedAt": "2026-10-27T10:09:11+08:00",
  "note": "自动更新 9/9 项成功",
  "matches": [
   {
@@ -2485,10 +2485,10 @@
    "src": "lol",
    "sport": "lol",
    "sub": "S16 全球总决赛 · Swiss",
-   "title": "TLAW vs AL",
+   "title": "AL vs TLAW",
    "teams": [
-    "TLAW",
-    "AL"
+    "AL",
+    "TLAW"
    ],
    "bj": "2026-10-27 06:00",
    "dur": 180,
@@ -2496,7 +2496,8 @@
     "哔哩哔哩",
     "虎牙",
     "斗鱼"
-   ]
+   ],
+   "result": "AL 0 : TLAW 2"
   },
   {
    "id": "wta-2026-1023-ls025",
@@ -2529,6 +2530,24 @@
    "note": "LPL：AL、BLG、TES、iG。每轮对阵抽签后公布"
   },
   {
+   "id": "lol-115660540726095065",
+   "src": "lol",
+   "sport": "lol",
+   "sub": "S16 全球总决赛 · Swiss",
+   "title": "LYON vs IG",
+   "teams": [
+    "LYON",
+    "IG"
+   ],
+   "bj": "2026-10-29 07:00",
+   "dur": 180,
+   "channels": [
+    "哔哩哔哩",
+    "虎牙",
+    "斗鱼"
+   ]
+  },
+  {
    "id": "s16-sw-6",
    "sport": "lol",
    "sub": "S16 全球总决赛 · 瑞士轮（得州艾伦）",
@@ -2543,6 +2562,24 @@
    "dur": 360,
    "tbdTeams": true,
    "note": "LPL：AL、BLG、TES、iG。每轮对阵抽签后公布"
+  },
+  {
+   "id": "lol-115660540726095069",
+   "src": "lol",
+   "sport": "lol",
+   "sub": "S16 全球总决赛 · Swiss",
+   "title": "BLG vs TES",
+   "teams": [
+    "BLG",
+    "TES"
+   ],
+   "bj": "2026-10-30 07:00",
+   "dur": 180,
+   "channels": [
+    "哔哩哔哩",
+    "虎牙",
+    "斗鱼"
+   ]
   },
   {
    "id": "s16-sw-7",
@@ -3680,12 +3717,108 @@
    "channels": [
     "咪咕视频"
    ]
+  },
+  {
+   "id": "ucl-2049634",
+   "src": "ucl",
+   "sport": "football",
+   "sub": "欧冠 · League 组",
+   "title": "巴黎圣日耳曼 vs 罗马",
+   "teams": [
+    "巴黎圣日耳曼",
+    "罗马"
+   ],
+   "bj": "2026-11-26 04:00",
+   "dur": 115,
+   "channels": [
+    "咪咕视频"
+   ]
+  },
+  {
+   "id": "ucl-2049635",
+   "src": "ucl",
+   "sport": "football",
+   "sub": "欧冠 · League 组",
+   "title": "国际米兰 vs 斯图加特",
+   "teams": [
+    "国际米兰",
+    "斯图加特"
+   ],
+   "bj": "2026-11-26 04:00",
+   "dur": 115,
+   "channels": [
+    "咪咕视频"
+   ]
+  },
+  {
+   "id": "ucl-2049636",
+   "src": "ucl",
+   "sport": "football",
+   "sub": "欧冠 · League 组",
+   "title": "马竞 vs 维京",
+   "teams": [
+    "马竞",
+    "维京"
+   ],
+   "bj": "2026-11-26 04:00",
+   "dur": 115,
+   "channels": [
+    "咪咕视频"
+   ]
+  },
+  {
+   "id": "ucl-2049637",
+   "src": "ucl",
+   "sport": "football",
+   "sub": "欧冠 · League 组",
+   "title": "葡萄牙体育 vs 曼联",
+   "teams": [
+    "葡萄牙体育",
+    "曼联"
+   ],
+   "bj": "2026-11-26 04:00",
+   "dur": 115,
+   "channels": [
+    "咪咕视频"
+   ]
+  },
+  {
+   "id": "ucl-2049638",
+   "src": "ucl",
+   "sport": "football",
+   "sub": "欧冠 · League 组",
+   "title": "布鲁日 vs 利物浦",
+   "teams": [
+    "布鲁日",
+    "利物浦"
+   ],
+   "bj": "2026-11-26 04:00",
+   "dur": 115,
+   "channels": [
+    "咪咕视频"
+   ]
+  },
+  {
+   "id": "ucl-2049639",
+   "src": "ucl",
+   "sport": "football",
+   "sub": "欧冠 · League 组",
+   "title": "里尔 vs 拜仁慕尼黑",
+   "teams": [
+    "里尔",
+    "拜仁慕尼黑"
+   ],
+   "bj": "2026-11-26 04:00",
+   "dur": 115,
+   "channels": [
+    "咪咕视频"
+   ]
   }
  ],
  "sources": [
-  "F1 官方赛历：8 场",
+  "F1 官方赛历：7 场",
   "欧国联 A 级：16 场",
-  "欧冠：15 场",
+  "欧冠：21 场",
   "英超：17 场",
   "西甲：9 场",
   "德甲：10 场",
