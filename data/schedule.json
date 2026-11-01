@@ -1,75 +1,7 @@
 {
- "updatedAt": "2026-11-01T02:37:44+08:00",
+ "updatedAt": "2026-11-01T10:19:07+08:00",
  "note": "自动更新 9/9 项成功",
  "matches": [
-  {
-   "id": "unl-2047950",
-   "src": "unl",
-   "sport": "football",
-   "sub": "欧国联 A 级 · A4 组",
-   "title": "威尔士 vs 挪威",
-   "teams": [
-    "威尔士",
-    "挪威"
-   ],
-   "bj": "2026-10-02 02:45",
-   "dur": 115,
-   "channels": [
-    "咪咕视频"
-   ],
-   "result": "威尔士 2:1 挪威"
-  },
-  {
-   "id": "unl-2047951",
-   "src": "unl",
-   "sport": "football",
-   "sub": "欧国联 A 级 · A2 组",
-   "title": "希腊 vs 荷兰",
-   "teams": [
-    "希腊",
-    "荷兰"
-   ],
-   "bj": "2026-10-02 02:45",
-   "dur": 115,
-   "channels": [
-    "咪咕视频"
-   ],
-   "result": "希腊 2:2 荷兰"
-  },
-  {
-   "id": "unl-2047954",
-   "src": "unl",
-   "sport": "football",
-   "sub": "欧国联 A 级 · A2 组",
-   "title": "德国 vs 塞尔维亚",
-   "teams": [
-    "德国",
-    "塞尔维亚"
-   ],
-   "bj": "2026-10-02 02:45",
-   "dur": 115,
-   "channels": [
-    "咪咕视频"
-   ],
-   "result": "德国 2:0 塞尔维亚"
-  },
-  {
-   "id": "unl-2047957",
-   "src": "unl",
-   "sport": "football",
-   "sub": "欧国联 A 级 · A4 组",
-   "title": "丹麦 vs 葡萄牙",
-   "teams": [
-    "丹麦",
-    "葡萄牙"
-   ],
-   "bj": "2026-10-02 02:45",
-   "dur": 115,
-   "channels": [
-    "咪咕视频"
-   ],
-   "result": "丹麦 2:4 葡萄牙"
-  },
   {
    "id": "ten-china-open-yuanyue-r64",
    "sport": "tennis",
@@ -2609,7 +2541,8 @@
    ],
    "bj": "2026-10-31 20:30",
    "dur": 115,
-   "note": "Stamford Bridge"
+   "note": "Stamford Bridge",
+   "result": "切尔西 2:0 曼联"
   },
   {
    "id": "liga-2026-107",
@@ -2623,7 +2556,8 @@
    ],
    "bj": "2026-10-31 21:00",
    "dur": 115,
-   "note": "Estadio Ciutat de València"
+   "note": "Estadio Ciutat de València",
+   "result": "莱万特 0:2 马德里竞技"
   },
   {
    "id": "bl-2026-71",
@@ -2637,7 +2571,8 @@
    ],
    "bj": "2026-10-31 22:30",
    "dur": 115,
-   "note": "BayArena"
+   "note": "BayArena",
+   "result": "勒沃库森 2:4 斯图加特"
   },
   {
    "id": "epl-2026-88",
@@ -2651,7 +2586,8 @@
    ],
    "bj": "2026-10-31 23:00",
    "dur": 115,
-   "note": "Etihad Stadium"
+   "note": "Etihad Stadium",
+   "result": "曼城 0:1 布莱顿"
   },
   {
    "id": "s16-sw-8",
@@ -2681,7 +2617,8 @@
    ],
    "bj": "2026-11-01 01:30",
    "dur": 115,
-   "note": "Tottenham Hotspur Stadium"
+   "note": "Tottenham Hotspur Stadium",
+   "result": "热刺 2:0 水晶宫"
   },
   {
    "id": "bl-2026-72",
@@ -2695,7 +2632,8 @@
    ],
    "bj": "2026-11-01 01:30",
    "dur": 115,
-   "note": "Allianz Arena"
+   "note": "Allianz Arena",
+   "result": "拜仁 2:2 多特蒙德"
   },
   {
    "id": "liga-2026-105",
@@ -2709,7 +2647,8 @@
    ],
    "bj": "2026-11-01 04:00",
    "dur": 115,
-   "note": "Spotify Camp Nou"
+   "note": "Spotify Camp Nou",
+   "result": "巴塞罗那 6:1 阿拉维斯"
   },
   {
    "id": "f1-2026-19-q",
@@ -2727,10 +2666,10 @@
    "src": "lol",
    "sport": "lol",
    "sub": "S16 全球总决赛 · Swiss",
-   "title": "HLE vs BLG",
+   "title": "BLG vs HLE",
    "teams": [
-    "HLE",
-    "BLG"
+    "BLG",
+    "HLE"
    ],
    "bj": "2026-11-01 07:00",
    "dur": 180,
@@ -2738,7 +2677,8 @@
     "哔哩哔哩",
     "虎牙",
     "斗鱼"
-   ]
+   ],
+   "result": "BLG 2 : HLE 0"
   },
   {
    "id": "liga-2026-108",
@@ -2876,6 +2816,24 @@
    "note": "对阵待瑞士轮结束后确定"
   },
   {
+   "id": "lol-115660540726095109",
+   "src": "lol",
+   "sport": "lol",
+   "sub": "S16 全球总决赛 · Quarterfinals",
+   "title": "TES vs IG",
+   "teams": [
+    "TES",
+    "IG"
+   ],
+   "bj": "2026-11-04 06:00",
+   "dur": 300,
+   "channels": [
+    "哔哩哔哩",
+    "虎牙",
+    "斗鱼"
+   ]
+  },
+  {
    "id": "ucl-2049620",
    "src": "ucl",
    "sport": "football",
@@ -3002,6 +2960,24 @@
    "dur": 300,
    "tbdTeams": true,
    "note": "对阵待瑞士轮结束后确定"
+  },
+  {
+   "id": "lol-115660540726095097",
+   "src": "lol",
+   "sport": "lol",
+   "sub": "S16 全球总决赛 · Quarterfinals",
+   "title": "DK vs BLG",
+   "teams": [
+    "DK",
+    "BLG"
+   ],
+   "bj": "2026-11-06 06:00",
+   "dur": 300,
+   "channels": [
+    "哔哩哔哩",
+    "虎牙",
+    "斗鱼"
+   ]
   },
   {
    "id": "s16-qf-4",
@@ -4002,7 +3978,7 @@
   "英超：20 场",
   "西甲：11 场",
   "德甲：10 场",
-  "LoL 电竞：2 场",
+  "LoL 电竞：3 场",
   "WTA 网球：1 场",
   "官方页面整理：0 条改动"
  ],
