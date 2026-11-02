@@ -1,6 +1,6 @@
 {
- "updatedAt": "2026-11-03T02:52:02+08:00",
- "note": "自动更新 10/10 项成功",
+ "updatedAt": "2026-11-03T06:48:34+08:00",
+ "note": "自动更新 9/9 项成功",
  "matches": [
   {
    "id": "ten-china-open-tangxu-r32",
@@ -3731,18 +3731,87 @@
    "bj": "2026-11-30 02:30",
    "dur": 115,
    "note": "SIGNAL IDUNA PARK"
+  },
+  {
+   "id": "epl-2026-124",
+   "src": "epl",
+   "sport": "football",
+   "sub": "英超第13轮",
+   "title": "切尔西 vs 水晶宫",
+   "teams": [
+    "切尔西",
+    "水晶宫"
+   ],
+   "bj": "2026-12-03 03:30",
+   "dur": 115,
+   "note": "Stamford Bridge"
+  },
+  {
+   "id": "epl-2026-127",
+   "src": "epl",
+   "sport": "football",
+   "sub": "英超第13轮",
+   "title": "利物浦 vs 桑德兰",
+   "teams": [
+    "利物浦",
+    "桑德兰"
+   ],
+   "bj": "2026-12-03 03:30",
+   "dur": 115,
+   "note": "Anfield"
+  },
+  {
+   "id": "epl-2026-128",
+   "src": "epl",
+   "sport": "football",
+   "sub": "英超第13轮",
+   "title": "曼城 vs 利兹联",
+   "teams": [
+    "曼城",
+    "利兹联"
+   ],
+   "bj": "2026-12-03 03:30",
+   "dur": 115,
+   "note": "Etihad Stadium"
+  },
+  {
+   "id": "epl-2026-123",
+   "src": "epl",
+   "sport": "football",
+   "sub": "英超第13轮",
+   "title": "布伦特福德 vs 阿森纳",
+   "teams": [
+    "布伦特福德",
+    "阿森纳"
+   ],
+   "bj": "2026-12-03 04:15",
+   "dur": 115,
+   "note": "Gtech Community Stadium"
+  },
+  {
+   "id": "epl-2026-129",
+   "src": "epl",
+   "sport": "football",
+   "sub": "英超第13轮",
+   "title": "纽卡斯尔 vs 曼联",
+   "teams": [
+    "纽卡斯尔",
+    "曼联"
+   ],
+   "bj": "2026-12-03 04:15",
+   "dur": 115,
+   "note": "St. James' Park"
   }
  ],
  "sources": [
-  "F1 官方赛历：8 场",
+  "F1 官方赛历：7 场",
   "欧国联 A 级：16 场",
   "欧冠：21 场",
-  "英超：17 场",
-  "西甲：10 场",
+  "英超：22 场",
+  "西甲：9 场",
   "德甲：8 场",
   "LoL 电竞：3 场",
   "WTA 网球：4 场",
-  "翻译新名称 11 个",
   "官方页面整理：0 条改动"
  ],
  "review": {
