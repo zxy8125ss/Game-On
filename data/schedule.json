@@ -1,75 +1,7 @@
 {
- "updatedAt": "2026-11-04T00:38:02+08:00",
+ "updatedAt": "2026-11-04T04:31:34+08:00",
  "note": "自动更新 9/9 项成功",
  "matches": [
-  {
-   "id": "unl-2047924",
-   "src": "unl",
-   "sport": "football",
-   "sub": "欧国联 A 级 · A4 组",
-   "title": "葡萄牙 vs 挪威",
-   "teams": [
-    "葡萄牙",
-    "挪威"
-   ],
-   "bj": "2026-10-05 02:45",
-   "dur": 115,
-   "channels": [
-    "咪咕视频"
-   ],
-   "result": "葡萄牙 2:1 挪威"
-  },
-  {
-   "id": "unl-2047925",
-   "src": "unl",
-   "sport": "football",
-   "sub": "欧国联 A 级 · A2 组",
-   "title": "荷兰 vs 塞尔维亚",
-   "teams": [
-    "荷兰",
-    "塞尔维亚"
-   ],
-   "bj": "2026-10-05 02:45",
-   "dur": 115,
-   "channels": [
-    "咪咕视频"
-   ],
-   "result": "荷兰 2:1 塞尔维亚"
-  },
-  {
-   "id": "unl-2047926",
-   "src": "unl",
-   "sport": "football",
-   "sub": "欧国联 A 级 · A2 组",
-   "title": "希腊 vs 德国",
-   "teams": [
-    "希腊",
-    "德国"
-   ],
-   "bj": "2026-10-05 02:45",
-   "dur": 115,
-   "channels": [
-    "咪咕视频"
-   ],
-   "result": "希腊 0:0 德国"
-  },
-  {
-   "id": "unl-2047930",
-   "src": "unl",
-   "sport": "football",
-   "sub": "欧国联 A 级 · A4 组",
-   "title": "威尔士 vs 丹麦",
-   "teams": [
-    "威尔士",
-    "丹麦"
-   ],
-   "bj": "2026-10-05 02:45",
-   "dur": 115,
-   "channels": [
-    "咪咕视频"
-   ],
-   "result": "威尔士 0:1 丹麦"
-  },
   {
    "id": "ten-china-open-qinwenzheng-r32",
    "sport": "tennis",
@@ -3829,13 +3761,27 @@
    "date": "2026-12-04",
    "dur": 115,
    "note": "Allianz Arena · 开球时间待联赛公布"
+  },
+  {
+   "id": "epl-2026-130",
+   "src": "epl",
+   "sport": "football",
+   "sub": "英超第13轮",
+   "title": "热刺 vs 富勒姆",
+   "teams": [
+    "热刺",
+    "富勒姆"
+   ],
+   "bj": "2026-12-04 04:00",
+   "dur": 115,
+   "note": "Tottenham Hotspur Stadium"
   }
  ],
  "sources": [
-  "F1 官方赛历：7 场",
+  "F1 官方赛历：6 场",
   "欧国联 A 级：16 场",
   "欧冠：21 场",
-  "英超：21 场",
+  "英超：22 场",
   "西甲：8 场",
   "德甲：11 场",
   "LoL 电竞：2 场",
