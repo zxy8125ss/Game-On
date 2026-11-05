@@ -1,25 +1,7 @@
 {
- "updatedAt": "2026-11-05T04:50:47+08:00",
+ "updatedAt": "2026-11-05T11:32:47+08:00",
  "note": "自动更新 9/9 项成功",
  "matches": [
-  {
-   "id": "ten-china-open-wangxiyu-r32",
-   "sport": "tennis",
-   "sub": "中国网球公开赛 · 女双第2轮",
-   "title": "谢淑薇/奥斯塔彭科 vs 蒋欣玗/王曦雨",
-   "teams": [
-    "谢淑薇",
-    "奥斯塔彭科",
-    "蒋欣玗",
-    "王曦雨"
-   ],
-   "date": "2026-10-06",
-   "dur": 120,
-   "note": "HSBC MOON球场第3场；谢淑薇/奥斯塔彭科胜蒋欣玗/王曦雨（首盘1-6、次盘6-1、抢十4-10，据北青网10/6，单一来源且非A/B列表，暂不写入result），待A/B级来源复核；已删除重复条目 ten-china-open-wangxiyu-r2",
-   "bj": "2026-10-06 11:00",
-   "by": "claude",
-   "verify": "pending"
-  },
   {
    "id": "cn-a-tjk",
    "sport": "football",
@@ -2528,7 +2510,8 @@
    "dur": 115,
    "channels": [
     "咪咕视频"
-   ]
+   ],
+   "result": "多特蒙德 2:1 皇家贝蒂斯"
   },
   {
    "id": "ucl-2049617",
@@ -2544,7 +2527,8 @@
    "dur": 115,
    "channels": [
     "咪咕视频"
-   ]
+   ],
+   "result": "波尔图 4:1 那不勒斯"
   },
   {
    "id": "ucl-2049619",
@@ -2560,7 +2544,8 @@
    "dur": 115,
    "channels": [
     "咪咕视频"
-   ]
+   ],
+   "result": "莱比锡 2:3 曼城"
   },
   {
    "id": "ucl-2049621",
@@ -2576,7 +2561,8 @@
    "dur": 115,
    "channels": [
     "咪咕视频"
-   ]
+   ],
+   "result": "布拉格斯拉维亚 1:2 阿森纳"
   },
   {
    "id": "s16-qf-2",
@@ -2787,9 +2773,9 @@
    "src": "lol",
    "sport": "lol",
    "sub": "S16 全球总决赛 · Semifinals",
-   "title": "TBD vs IG",
+   "title": "GEN vs IG",
    "teams": [
-    "TBD",
+    "GEN",
     "IG"
    ],
    "bj": "2026-11-08 06:00",
