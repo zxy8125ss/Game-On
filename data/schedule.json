@@ -1,41 +1,7 @@
 {
- "updatedAt": "2026-11-06T00:52:40+08:00",
+ "updatedAt": "2026-11-06T05:07:13+08:00",
  "note": "自动更新 9/9 项成功",
  "matches": [
-  {
-   "id": "unl-2047946",
-   "src": "unl",
-   "sport": "football",
-   "sub": "欧国联 A 级 · A3 组",
-   "title": "克罗地亚 vs 西班牙",
-   "teams": [
-    "克罗地亚",
-    "西班牙"
-   ],
-   "bj": "2026-10-07 02:45",
-   "dur": 115,
-   "channels": [
-    "咪咕视频"
-   ],
-   "result": "克罗地亚 1:2 西班牙"
-  },
-  {
-   "id": "unl-2047947",
-   "src": "unl",
-   "sport": "football",
-   "sub": "欧国联 A 级 · A3 组",
-   "title": "英格兰 vs 捷克",
-   "teams": [
-    "英格兰",
-    "捷克"
-   ],
-   "bj": "2026-10-07 02:45",
-   "dur": 115,
-   "channels": [
-    "咪咕视频"
-   ],
-   "result": "英格兰 3:0 捷克"
-  },
   {
    "id": "ten-china-open-shuaizhang-r16",
    "sport": "tennis",
@@ -3850,13 +3816,27 @@
    "date": "2026-12-06",
    "dur": 115,
    "note": "Spotify Camp Nou · 开球时间待联赛公布"
+  },
+  {
+   "id": "epl-2026-133",
+   "src": "epl",
+   "sport": "football",
+   "sub": "英超第14轮",
+   "title": "布伦特福德 vs 曼城",
+   "teams": [
+    "布伦特福德",
+    "曼城"
+   ],
+   "bj": "2026-12-06 04:00",
+   "dur": 115,
+   "note": "Gtech Community Stadium"
   }
  ],
  "sources": [
   "F1 官方赛历：7 场",
   "欧国联 A 级：16 场",
-  "欧冠：21 场",
-  "英超：24 场",
+  "欧冠：16 场",
+  "英超：25 场",
   "西甲：11 场",
   "德甲：11 场",
   "LoL 电竞：3 场",
