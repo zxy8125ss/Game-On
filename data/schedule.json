@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-11-06T05:07:13+08:00",
+ "updatedAt": "2026-11-06T11:28:56+08:00",
  "note": "自动更新 9/9 项成功",
  "matches": [
   {
@@ -2574,10 +2574,10 @@
    "src": "lol",
    "sport": "lol",
    "sub": "S16 全球总决赛 · Quarterfinals",
-   "title": "DK vs BLG",
+   "title": "BLG vs DK",
    "teams": [
-    "DK",
-    "BLG"
+    "BLG",
+    "DK"
    ],
    "bj": "2026-11-06 06:00",
    "dur": 300,
@@ -2585,7 +2585,8 @@
     "哔哩哔哩",
     "虎牙",
     "斗鱼"
-   ]
+   ],
+   "result": "BLG 3 : DK 0"
   },
   {
    "id": "wta-2026-1074-ld007",
@@ -2840,6 +2841,24 @@
    "bj": "2026-11-09 06:00",
    "dur": 300,
    "tbdTeams": true
+  },
+  {
+   "id": "lol-115660540726095121",
+   "src": "lol",
+   "sport": "lol",
+   "sub": "S16 全球总决赛 · Semifinals",
+   "title": "TBD vs BLG",
+   "teams": [
+    "TBD",
+    "BLG"
+   ],
+   "bj": "2026-11-09 06:00",
+   "dur": 300,
+   "channels": [
+    "哔哩哔哩",
+    "虎牙",
+    "斗鱼"
+   ]
   },
   {
    "id": "unl-2047873",
