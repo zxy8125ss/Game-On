@@ -1,22 +1,7 @@
 {
- "updatedAt": "2026-11-08T23:36:36+08:00",
+ "updatedAt": "2026-11-09T02:52:21+08:00",
  "note": "自动更新 9/9 项成功",
  "matches": [
-  {
-   "id": "bl-2026-45",
-   "src": "bl",
-   "sport": "football",
-   "sub": "德甲第5轮",
-   "title": "多特蒙德 vs 云达不莱梅",
-   "teams": [
-    "多特蒙德",
-    "云达不莱梅"
-   ],
-   "bj": "2026-10-10 02:30",
-   "dur": 115,
-   "note": "SIGNAL IDUNA PARK",
-   "result": "多特蒙德 2:2 云达不莱梅"
-  },
   {
    "id": "ten-china-open-shuaizhang-sf",
    "sport": "tennis",
@@ -3848,7 +3833,7 @@
   "西甲：13 场",
   "德甲：11 场",
   "LoL 电竞：2 场",
-  "WTA 网球：1 场",
+  "WTA 网球：0 场",
   "官方页面整理：0 条改动"
  ],
  "review": {
