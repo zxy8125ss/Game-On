@@ -1,22 +1,7 @@
 {
- "updatedAt": "2026-11-08T19:15:05+08:00",
+ "updatedAt": "2026-11-08T23:36:36+08:00",
  "note": "自动更新 9/9 项成功",
  "matches": [
-  {
-   "id": "csl27-qd-bj",
-   "sport": "football",
-   "sub": "中超第27轮",
-   "title": "青岛海牛 vs 北京国安",
-   "teams": [
-    "青岛海牛",
-    "北京国安"
-   ],
-   "dur": 115,
-   "note": "国安客场3:0，法比奥梅开二度、塞尔吉尼奥头球破门，青岛海牛提前3轮降级（央视网、京报网10/9一致）",
-   "by": "claude",
-   "bj": "2026-10-09 19:35",
-   "result": "青岛海牛 0:3 北京国安"
-  },
   {
    "id": "bl-2026-45",
    "src": "bl",
@@ -2574,7 +2559,8 @@
    ],
    "bj": "2026-11-07 20:30",
    "dur": 115,
-   "note": "Elland Road"
+   "note": "Elland Road",
+   "result": "利兹联 1:0 热刺"
   },
   {
    "id": "bl-2026-76",
@@ -2588,7 +2574,8 @@
    ],
    "bj": "2026-11-07 22:30",
    "dur": 115,
-   "note": "MEWA ARENA"
+   "note": "MEWA ARENA",
+   "result": "美因茨 1:2 拜仁"
   },
   {
    "id": "bl-2026-81",
@@ -2602,7 +2589,8 @@
    ],
    "bj": "2026-11-07 22:30",
    "dur": 115,
-   "note": "SIGNAL IDUNA PARK"
+   "note": "SIGNAL IDUNA PARK",
+   "result": "多特蒙德 2:1 埃尔弗斯贝格"
   },
   {
    "id": "epl-2026-91",
@@ -2616,7 +2604,8 @@
    ],
    "bj": "2026-11-07 23:00",
    "dur": 115,
-   "note": "Emirates Stadium"
+   "note": "Emirates Stadium",
+   "result": "阿森纳 1:0 赫尔城"
   },
   {
    "id": "epl-2026-99",
@@ -2630,7 +2619,8 @@
    ],
    "bj": "2026-11-08 01:30",
    "dur": 115,
-   "note": "The City Ground"
+   "note": "The City Ground",
+   "result": "诺丁汉森林 3:1 曼城"
   },
   {
    "id": "f1-2026-20-q",
@@ -2655,7 +2645,8 @@
    ],
    "bj": "2026-11-08 04:00",
    "dur": 115,
-   "note": "Camp de Mestalla"
+   "note": "Camp de Mestalla",
+   "result": "瓦伦西亚 0:3 皇家马德里"
   },
   {
    "id": "s16-sf-1",
@@ -3455,20 +3446,6 @@
    "note": "Old Trafford"
   },
   {
-   "id": "liga-2026-133",
-   "src": "liga",
-   "sport": "football",
-   "sub": "西甲第14轮",
-   "title": "拉科鲁尼亚 vs 巴塞罗那",
-   "teams": [
-    "拉科鲁尼亚",
-    "巴塞罗那"
-   ],
-   "date": "2026-11-29",
-   "dur": 115,
-   "note": "Estadio ABANCA-RIAZOR · 开球时间待联赛公布"
-  },
-  {
    "id": "liga-2026-134",
    "src": "liga",
    "sport": "football",
@@ -3478,23 +3455,9 @@
     "埃尔切",
     "马德里竞技"
    ],
-   "date": "2026-11-29",
+   "bj": "2026-11-29 01:30",
    "dur": 115,
-   "note": "Estadio Martínez Valero · 开球时间待联赛公布"
-  },
-  {
-   "id": "liga-2026-138",
-   "src": "liga",
-   "sport": "football",
-   "sub": "西甲第14轮",
-   "title": "皇家马德里 vs 阿拉维斯",
-   "teams": [
-    "皇家马德里",
-    "阿拉维斯"
-   ],
-   "date": "2026-11-29",
-   "dur": 115,
-   "note": "Bernabéu · 开球时间待联赛公布"
+   "note": "Estadio Martínez Valero"
   },
   {
    "id": "f1-2026-22-q",
@@ -3506,6 +3469,20 @@
    "bj": "2026-11-29 02:00",
    "dur": 60,
    "note": "卢塞尔国际赛道"
+  },
+  {
+   "id": "liga-2026-138",
+   "src": "liga",
+   "sport": "football",
+   "sub": "西甲第14轮",
+   "title": "皇家马德里 vs 阿拉维斯",
+   "teams": [
+    "皇家马德里",
+    "阿拉维斯"
+   ],
+   "bj": "2026-11-29 04:00",
+   "dur": 115,
+   "note": "Bernabéu"
   },
   {
    "id": "epl-2026-114",
@@ -3534,6 +3511,20 @@
    "bj": "2026-11-29 22:05",
    "dur": 115,
    "note": "Stadium of Light"
+  },
+  {
+   "id": "liga-2026-133",
+   "src": "liga",
+   "sport": "football",
+   "sub": "西甲第14轮",
+   "title": "拉科鲁尼亚 vs 巴塞罗那",
+   "teams": [
+    "拉科鲁尼亚",
+    "巴塞罗那"
+   ],
+   "bj": "2026-11-29 23:15",
+   "dur": 115,
+   "note": "Estadio ABANCA-RIAZOR"
   },
   {
    "id": "f1-2026-22-r",
@@ -3573,6 +3564,20 @@
    "bj": "2026-11-30 02:30",
    "dur": 115,
    "note": "SIGNAL IDUNA PARK"
+  },
+  {
+   "id": "liga-2026-229",
+   "src": "liga",
+   "sport": "football",
+   "sub": "西甲第23轮",
+   "title": "皇家社会 vs 皇家马德里",
+   "teams": [
+    "皇家社会",
+    "皇家马德里"
+   ],
+   "bj": "2026-12-03 02:00",
+   "dur": 115,
+   "note": "Anoeta"
   },
   {
    "id": "epl-2026-124",
@@ -3643,6 +3648,20 @@
    "bj": "2026-12-03 04:15",
    "dur": 115,
    "note": "St. James' Park"
+  },
+  {
+   "id": "liga-2026-227",
+   "src": "liga",
+   "sport": "football",
+   "sub": "西甲第23轮",
+   "title": "巴塞罗那 vs 马德里竞技",
+   "teams": [
+    "巴塞罗那",
+    "马德里竞技"
+   ],
+   "bj": "2026-12-03 04:30",
+   "dur": 115,
+   "note": "Spotify Camp Nou"
   },
   {
    "id": "bl-2026-101",
@@ -3826,7 +3845,7 @@
   "欧国联 A 级：16 场",
   "欧冠：10 场",
   "英超：26 场",
-  "西甲：11 场",
+  "西甲：13 场",
   "德甲：11 场",
   "LoL 电竞：2 场",
   "WTA 网球：1 场",
