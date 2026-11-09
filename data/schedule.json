@@ -1,151 +1,7 @@
 {
- "updatedAt": "2026-11-09T20:48:58+08:00",
+ "updatedAt": "2026-11-10T03:12:55+08:00",
  "note": "自动更新 9/9 项成功",
  "matches": [
-  {
-   "id": "f1-2026-17-q",
-   "src": "f1",
-   "sport": "f1",
-   "sub": "新加坡大奖赛（第17站）",
-   "title": "排位赛",
-   "teams": [],
-   "bj": "2026-10-10 21:00",
-   "dur": 60,
-   "note": "滨海湾街道赛道"
-  },
-  {
-   "id": "bl-2026-40",
-   "src": "bl",
-   "sport": "football",
-   "sub": "德甲第5轮",
-   "title": "美因茨 vs 勒沃库森",
-   "teams": [
-    "美因茨",
-    "勒沃库森"
-   ],
-   "bj": "2026-10-10 21:30",
-   "dur": 115,
-   "note": "MEWA ARENA",
-   "result": "美因茨 3:4 勒沃库森"
-  },
-  {
-   "id": "bl-2026-41",
-   "src": "bl",
-   "sport": "football",
-   "sub": "德甲第5轮",
-   "title": "奥格斯堡 vs 拜仁",
-   "teams": [
-    "奥格斯堡",
-    "拜仁"
-   ],
-   "bj": "2026-10-10 21:30",
-   "dur": 115,
-   "note": "WWK ARENA",
-   "result": "奥格斯堡 2:2 拜仁"
-  },
-  {
-   "id": "epl-2026-53",
-   "src": "epl",
-   "sport": "football",
-   "sub": "英超第6轮",
-   "title": "切尔西 vs 伯恩茅斯",
-   "teams": [
-    "切尔西",
-    "伯恩茅斯"
-   ],
-   "bj": "2026-10-10 22:00",
-   "dur": 115,
-   "note": "Stamford Bridge",
-   "result": "切尔西 5:1 伯恩茅斯"
-  },
-  {
-   "id": "liga-2026-71",
-   "src": "liga",
-   "sport": "football",
-   "sub": "西甲第8轮",
-   "title": "阿拉维斯 vs 马德里竞技",
-   "teams": [
-    "阿拉维斯",
-    "马德里竞技"
-   ],
-   "bj": "2026-10-10 22:15",
-   "dur": 115,
-   "note": "Mendizorroza",
-   "result": "阿拉维斯 1:2 马德里竞技"
-  },
-  {
-   "id": "wta-2026-1020-ld001",
-   "src": "wta",
-   "sport": "tennis",
-   "sub": "中网 WTA1000 · 女双决赛",
-   "title": "西尼亚科娃 / 张帅 vs 达布罗斯基 / 斯特凡尼",
-   "teams": [
-    "西尼亚科娃 / 张帅",
-    "达布罗斯基 / 斯特凡尼"
-   ],
-   "date": "2026-10-11",
-   "dur": 90,
-   "result": "西尼亚科娃 / 张帅 0:2 达布罗斯基 / 斯特凡尼（1-6 2-6）"
-  },
-  {
-   "id": "wta-2026-1020-ls001",
-   "src": "wta",
-   "sport": "tennis",
-   "sub": "中网 WTA1000 · 女单决赛",
-   "title": "郑钦文 vs 安德烈耶娃",
-   "teams": [
-    "郑钦文",
-    "安德烈耶娃"
-   ],
-   "date": "2026-10-11",
-   "dur": 150,
-   "result": "郑钦文 2:0 安德烈耶娃（7-5 6-4）"
-  },
-  {
-   "id": "epl-2026-59",
-   "src": "epl",
-   "sport": "football",
-   "sub": "英超第6轮",
-   "title": "曼联 vs 热刺",
-   "teams": [
-    "曼联",
-    "热刺"
-   ],
-   "bj": "2026-10-11 00:30",
-   "dur": 115,
-   "note": "Old Trafford",
-   "result": "曼联 1:1 热刺"
-  },
-  {
-   "id": "liga-2026-74",
-   "src": "liga",
-   "sport": "football",
-   "sub": "西甲第8轮",
-   "title": "巴塞罗那 vs 赫塔费",
-   "teams": [
-    "巴塞罗那",
-    "赫塔费"
-   ],
-   "bj": "2026-10-11 00:30",
-   "dur": 115,
-   "note": "Spotify Camp Nou",
-   "result": "巴塞罗那 3:0 赫塔费"
-  },
-  {
-   "id": "liga-2026-79",
-   "src": "liga",
-   "sport": "football",
-   "sub": "西甲第8轮",
-   "title": "皇家马德里 vs 比利亚雷亚尔",
-   "teams": [
-    "皇家马德里",
-    "比利亚雷亚尔"
-   ],
-   "bj": "2026-10-11 03:00",
-   "dur": 115,
-   "note": "Bernabéu",
-   "result": "皇家马德里 1:0 比利亚雷亚尔"
-  },
   {
    "id": "ten-china-open-shuaizhang-f",
    "sport": "tennis",
@@ -2600,7 +2456,8 @@
    ],
    "bj": "2026-11-08 22:00",
    "dur": 115,
-   "note": "Selhurst Park"
+   "note": "Selhurst Park",
+   "result": "水晶宫 1:3 利物浦"
   },
   {
    "id": "epl-2026-100",
@@ -2614,7 +2471,8 @@
    ],
    "bj": "2026-11-08 22:00",
    "dur": 115,
-   "note": "Stadium of Light"
+   "note": "Stadium of Light",
+   "result": "桑德兰 1:0 切尔西"
   },
   {
    "id": "bl-2026-74",
@@ -2628,7 +2486,8 @@
    ],
    "bj": "2026-11-08 22:30",
    "dur": 115,
-   "note": "RheinEnergieSTADION"
+   "note": "RheinEnergieSTADION",
+   "result": "科隆 1:2 勒沃库森"
   },
   {
    "id": "epl-2026-98",
@@ -2642,7 +2501,8 @@
    ],
    "bj": "2026-11-09 00:30",
    "dur": 115,
-   "note": "Old Trafford"
+   "note": "Old Trafford",
+   "result": "曼联 4:4 阿斯顿维拉"
   },
   {
    "id": "f1-2026-20-r",
@@ -2667,7 +2527,8 @@
    ],
    "bj": "2026-11-09 04:00",
    "dur": 115,
-   "note": "Riyadh Air Metropolitano"
+   "note": "Riyadh Air Metropolitano",
+   "result": "马德里竞技 1:2 巴塞罗那"
   },
   {
    "id": "s16-sf-2",
@@ -3846,12 +3707,12 @@
   }
  ],
  "sources": [
-  "F1 官方赛历：8 场",
+  "F1 官方赛历：7 场",
   "欧国联 A 级：16 场",
   "欧冠：15 场",
-  "英超：25 场",
+  "英超：23 场",
   "西甲：13 场",
-  "德甲：11 场",
+  "德甲：9 场",
   "LoL 电竞：3 场",
   "WTA 网球：0 场",
   "官方页面整理：0 条改动"
