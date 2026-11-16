@@ -1,82 +1,7 @@
 {
- "updatedAt": "2026-11-16T20:42:14+08:00",
+ "updatedAt": "2026-11-17T02:57:03+08:00",
  "note": "自动更新 9/9 项成功",
  "matches": [
-  {
-   "id": "bl-2026-51",
-   "src": "bl",
-   "sport": "football",
-   "sub": "德甲第6轮",
-   "title": "柏林联合 vs 多特蒙德",
-   "teams": [
-    "柏林联合",
-    "多特蒙德"
-   ],
-   "bj": "2026-10-17 21:30",
-   "dur": 115,
-   "note": "An der Alten Försterei",
-   "result": "柏林联合 0:0 多特蒙德"
-  },
-  {
-   "id": "epl-2026-62",
-   "src": "epl",
-   "sport": "football",
-   "sub": "英超第7轮",
-   "title": "布伦特福德 vs 利物浦",
-   "teams": [
-    "布伦特福德",
-    "利物浦"
-   ],
-   "bj": "2026-10-17 22:00",
-   "dur": 115,
-   "note": "Gtech Community Stadium",
-   "result": "布伦特福德 1:2 利物浦"
-  },
-  {
-   "id": "epl-2026-67",
-   "src": "epl",
-   "sport": "football",
-   "sub": "英超第7轮",
-   "title": "曼城 vs 伊普斯维奇",
-   "teams": [
-    "曼城",
-    "伊普斯维奇"
-   ],
-   "bj": "2026-10-17 22:00",
-   "dur": 115,
-   "note": "Etihad Stadium",
-   "result": "曼城 3:2 伊普斯维奇"
-  },
-  {
-   "id": "liga-2026-81",
-   "src": "liga",
-   "sport": "football",
-   "sub": "西甲第9轮",
-   "title": "皇家贝蒂斯 vs 巴塞罗那",
-   "teams": [
-    "皇家贝蒂斯",
-    "巴塞罗那"
-   ],
-   "bj": "2026-10-18 00:30",
-   "dur": 115,
-   "note": "Estadio La Cartuja",
-   "result": "皇家贝蒂斯 2:5 巴塞罗那"
-  },
-  {
-   "id": "bl-2026-54",
-   "src": "bl",
-   "sport": "football",
-   "sub": "德甲第6轮",
-   "title": "拜仁 vs 莱比锡",
-   "teams": [
-    "拜仁",
-    "莱比锡"
-   ],
-   "bj": "2026-10-18 00:30",
-   "dur": 115,
-   "note": "Allianz Arena",
-   "result": "拜仁 6:1 莱比锡"
-  },
   {
    "id": "epl-2026-66",
    "src": "epl",
@@ -3426,7 +3351,7 @@
  ],
  "sources": [
   "F1 官方赛历：6 场",
-  "欧国联 A 级：10 场",
+  "欧国联 A 级：9 场",
   "欧冠：19 场",
   "英超：25 场",
   "西甲：14 场",
