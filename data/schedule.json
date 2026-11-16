@@ -1,37 +1,7 @@
 {
- "updatedAt": "2026-11-16T10:50:35+08:00",
+ "updatedAt": "2026-11-16T20:42:14+08:00",
  "note": "自动更新 9/9 项成功",
  "matches": [
-  {
-   "id": "epl-2026-64",
-   "src": "epl",
-   "sport": "football",
-   "sub": "英超第7轮",
-   "title": "埃弗顿 vs 切尔西",
-   "teams": [
-    "埃弗顿",
-    "切尔西"
-   ],
-   "bj": "2026-10-17 19:30",
-   "dur": 115,
-   "note": "Hill Dickinson Stadium",
-   "result": "埃弗顿 0:2 切尔西"
-  },
-  {
-   "id": "liga-2026-84",
-   "src": "liga",
-   "sport": "football",
-   "sub": "西甲第9轮",
-   "title": "西班牙人 vs 马德里竞技",
-   "teams": [
-    "西班牙人",
-    "马德里竞技"
-   ],
-   "bj": "2026-10-17 20:00",
-   "dur": 115,
-   "note": "RCDE Stadium",
-   "result": "西班牙人 0:1 马德里竞技"
-  },
   {
    "id": "bl-2026-51",
    "src": "bl",
