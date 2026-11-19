@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-11-19T12:15:14+08:00",
+ "updatedAt": "2026-11-19T20:59:35+08:00",
  "note": "自动更新 9/9 项成功",
  "matches": [
   {
@@ -2734,48 +2734,6 @@
    "note": "Spotify Camp Nou"
   },
   {
-   "id": "bl-2026-101",
-   "src": "bl",
-   "sport": "football",
-   "sub": "德甲第12轮",
-   "title": "沙尔克04 vs 多特蒙德",
-   "teams": [
-    "沙尔克04",
-    "多特蒙德"
-   ],
-   "date": "2026-12-04",
-   "dur": 115,
-   "note": "VELTINS-Arena · 开球时间待联赛公布"
-  },
-  {
-   "id": "bl-2026-106",
-   "src": "bl",
-   "sport": "football",
-   "sub": "德甲第12轮",
-   "title": "勒沃库森 vs 门兴",
-   "teams": [
-    "勒沃库森",
-    "门兴"
-   ],
-   "date": "2026-12-04",
-   "dur": 115,
-   "note": "BayArena · 开球时间待联赛公布"
-  },
-  {
-   "id": "bl-2026-108",
-   "src": "bl",
-   "sport": "football",
-   "sub": "德甲第12轮",
-   "title": "拜仁 vs 帕德博恩",
-   "teams": [
-    "拜仁",
-    "帕德博恩"
-   ],
-   "date": "2026-12-04",
-   "dur": 115,
-   "note": "Allianz Arena · 开球时间待联赛公布"
-  },
-  {
    "id": "epl-2026-130",
    "src": "epl",
    "sport": "football",
@@ -2788,6 +2746,20 @@
    "bj": "2026-12-04 04:00",
    "dur": 115,
    "note": "Tottenham Hotspur Stadium"
+  },
+  {
+   "id": "bl-2026-108",
+   "src": "bl",
+   "sport": "football",
+   "sub": "德甲第12轮",
+   "title": "拜仁 vs 帕德博恩",
+   "teams": [
+    "拜仁",
+    "帕德博恩"
+   ],
+   "bj": "2026-12-05 03:30",
+   "dur": 115,
+   "note": "Allianz Arena"
   },
   {
    "id": "epl-2026-134",
@@ -2815,6 +2787,20 @@
    "note": "亚斯码头赛道"
   },
   {
+   "id": "bl-2026-106",
+   "src": "bl",
+   "sport": "football",
+   "sub": "德甲第12轮",
+   "title": "勒沃库森 vs 门兴",
+   "teams": [
+    "勒沃库森",
+    "门兴"
+   ],
+   "bj": "2026-12-05 22:30",
+   "dur": 115,
+   "note": "BayArena"
+  },
+  {
    "id": "epl-2026-137",
    "src": "epl",
    "sport": "football",
@@ -2827,48 +2813,6 @@
    "bj": "2026-12-05 23:00",
    "dur": 115,
    "note": "Old Trafford"
-  },
-  {
-   "id": "liga-2026-142",
-   "src": "liga",
-   "sport": "football",
-   "sub": "西甲第15轮",
-   "title": "毕尔巴鄂竞技 vs 皇家马德里",
-   "teams": [
-    "毕尔巴鄂竞技",
-    "皇家马德里"
-   ],
-   "date": "2026-12-06",
-   "dur": 115,
-   "note": "Estadio San Mamés · 开球时间待联赛公布"
-  },
-  {
-   "id": "liga-2026-143",
-   "src": "liga",
-   "sport": "football",
-   "sub": "西甲第15轮",
-   "title": "马德里竞技 vs 皇家贝蒂斯",
-   "teams": [
-    "马德里竞技",
-    "皇家贝蒂斯"
-   ],
-   "date": "2026-12-06",
-   "dur": 115,
-   "note": "Riyadh Air Metropolitano · 开球时间待联赛公布"
-  },
-  {
-   "id": "liga-2026-144",
-   "src": "liga",
-   "sport": "football",
-   "sub": "西甲第15轮",
-   "title": "巴塞罗那 vs 塞尔塔",
-   "teams": [
-    "巴塞罗那",
-    "塞尔塔"
-   ],
-   "date": "2026-12-06",
-   "dur": 115,
-   "note": "Spotify Camp Nou · 开球时间待联赛公布"
   },
   {
    "id": "epl-2026-133",
@@ -2885,6 +2829,20 @@
    "note": "Gtech Community Stadium"
   },
   {
+   "id": "liga-2026-144",
+   "src": "liga",
+   "sport": "football",
+   "sub": "西甲第15轮",
+   "title": "巴塞罗那 vs 塞尔塔",
+   "teams": [
+    "巴塞罗那",
+    "塞尔塔"
+   ],
+   "bj": "2026-12-06 04:00",
+   "dur": 115,
+   "note": "Spotify Camp Nou"
+  },
+  {
    "id": "f1-2026-23-r",
    "src": "f1",
    "sport": "f1",
@@ -2894,6 +2852,34 @@
    "bj": "2026-12-06 21:00",
    "dur": 120,
    "note": "亚斯码头赛道"
+  },
+  {
+   "id": "bl-2026-101",
+   "src": "bl",
+   "sport": "football",
+   "sub": "德甲第12轮",
+   "title": "沙尔克04 vs 多特蒙德",
+   "teams": [
+    "沙尔克04",
+    "多特蒙德"
+   ],
+   "bj": "2026-12-06 22:30",
+   "dur": 115,
+   "note": "VELTINS-Arena"
+  },
+  {
+   "id": "liga-2026-142",
+   "src": "liga",
+   "sport": "football",
+   "sub": "西甲第15轮",
+   "title": "毕尔巴鄂竞技 vs 皇家马德里",
+   "teams": [
+    "毕尔巴鄂竞技",
+    "皇家马德里"
+   ],
+   "bj": "2026-12-06 23:15",
+   "dur": 115,
+   "note": "Estadio San Mamés"
   },
   {
    "id": "epl-2026-140",
@@ -2908,6 +2894,20 @@
    "bj": "2026-12-07 00:30",
    "dur": 115,
    "note": "Tottenham Hotspur Stadium"
+  },
+  {
+   "id": "liga-2026-143",
+   "src": "liga",
+   "sport": "football",
+   "sub": "西甲第15轮",
+   "title": "马德里竞技 vs 皇家贝蒂斯",
+   "teams": [
+    "马德里竞技",
+    "皇家贝蒂斯"
+   ],
+   "bj": "2026-12-07 04:00",
+   "dur": 115,
+   "note": "Riyadh Air Metropolitano"
   },
   {
    "id": "ucl-2049643",
@@ -3054,34 +3054,6 @@
    ]
   },
   {
-   "id": "bl-2026-110",
-   "src": "bl",
-   "sport": "football",
-   "sub": "德甲第13轮",
-   "title": "云达不莱梅 vs 勒沃库森",
-   "teams": [
-    "云达不莱梅",
-    "勒沃库森"
-   ],
-   "date": "2026-12-11",
-   "dur": 115,
-   "note": "Weserstadion · 开球时间待联赛公布"
-  },
-  {
-   "id": "bl-2026-115",
-   "src": "bl",
-   "sport": "football",
-   "sub": "德甲第13轮",
-   "title": "霍芬海姆 vs 拜仁",
-   "teams": [
-    "霍芬海姆",
-    "拜仁"
-   ],
-   "date": "2026-12-11",
-   "dur": 115,
-   "note": "SNP Arena · 开球时间待联赛公布"
-  },
-  {
    "id": "bl-2026-117",
    "src": "bl",
    "sport": "football",
@@ -3091,9 +3063,9 @@
     "多特蒙德",
     "奥格斯堡"
    ],
-   "date": "2026-12-11",
+   "bj": "2026-12-12 22:30",
    "dur": 115,
-   "note": "SIGNAL IDUNA PARK · 开球时间待联赛公布"
+   "note": "SIGNAL IDUNA PARK"
   },
   {
    "id": "epl-2026-148",
@@ -3180,6 +3152,34 @@
    "note": "Emirates Stadium"
   },
   {
+   "id": "bl-2026-115",
+   "src": "bl",
+   "sport": "football",
+   "sub": "德甲第13轮",
+   "title": "霍芬海姆 vs 拜仁",
+   "teams": [
+    "霍芬海姆",
+    "拜仁"
+   ],
+   "bj": "2026-12-14 00:30",
+   "dur": 115,
+   "note": "SNP Arena"
+  },
+  {
+   "id": "bl-2026-110",
+   "src": "bl",
+   "sport": "football",
+   "sub": "德甲第13轮",
+   "title": "云达不莱梅 vs 勒沃库森",
+   "teams": [
+    "云达不莱梅",
+    "勒沃库森"
+   ],
+   "bj": "2026-12-14 02:30",
+   "dur": 115,
+   "note": "Weserstadion"
+  },
+  {
    "id": "epl-2026-144",
    "src": "epl",
    "sport": "football",
@@ -3208,34 +3208,6 @@
    "note": "MKM Stadium"
   },
   {
-   "id": "bl-2026-124",
-   "src": "bl",
-   "sport": "football",
-   "sub": "德甲第14轮",
-   "title": "勒沃库森 vs 法兰克福",
-   "teams": [
-    "勒沃库森",
-    "法兰克福"
-   ],
-   "date": "2026-12-18",
-   "dur": 115,
-   "note": "BayArena · 开球时间待联赛公布"
-  },
-  {
-   "id": "bl-2026-125",
-   "src": "bl",
-   "sport": "football",
-   "sub": "德甲第14轮",
-   "title": "莱比锡 vs 多特蒙德",
-   "teams": [
-    "莱比锡",
-    "多特蒙德"
-   ],
-   "date": "2026-12-18",
-   "dur": 115,
-   "note": "Red Bull Arena · 开球时间待联赛公布"
-  },
-  {
    "id": "bl-2026-126",
    "src": "bl",
    "sport": "football",
@@ -3245,9 +3217,9 @@
     "拜仁",
     "云达不莱梅"
    ],
-   "date": "2026-12-18",
+   "bj": "2026-12-19 03:30",
    "dur": 115,
-   "note": "Allianz Arena · 开球时间待联赛公布"
+   "note": "Allianz Arena"
   }
  ],
  "sources": [
@@ -3256,7 +3228,7 @@
   "欧冠：19 场",
   "英超：25 场",
   "西甲：14 场",
-  "德甲：14 场",
+  "德甲：12 场",
   "LoL 电竞：0 场",
   "WTA 网球：0 场",
   "官方页面整理：0 条改动"
