@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-11-22T04:35:01+08:00",
+ "updatedAt": "2026-11-22T11:16:41+08:00",
  "note": "自动更新 9/9 项成功",
  "matches": [
   {
@@ -1949,7 +1949,8 @@
    ],
    "bj": "2026-11-21 20:30",
    "dur": 115,
-   "note": "Etihad Stadium"
+   "note": "Etihad Stadium",
+   "result": "曼城 1:1 富勒姆"
   },
   {
    "id": "bl-2026-85",
@@ -1963,7 +1964,8 @@
    ],
    "bj": "2026-11-21 22:30",
    "dur": 115,
-   "note": "ista-Borussia-Park"
+   "note": "ista-Borussia-Park",
+   "result": "门兴 0:1 多特蒙德"
   },
   {
    "id": "bl-2026-89",
@@ -1977,7 +1979,8 @@
    ],
    "bj": "2026-11-21 22:30",
    "dur": 115,
-   "note": "BayArena"
+   "note": "BayArena",
+   "result": "勒沃库森 4:0 帕德博恩"
   },
   {
    "id": "epl-2026-104",
@@ -1991,7 +1994,8 @@
    ],
    "bj": "2026-11-21 23:00",
    "dur": 115,
-   "note": "Stamford Bridge"
+   "note": "Stamford Bridge",
+   "result": "切尔西 1:4 利兹联"
   },
   {
    "id": "epl-2026-110",
@@ -2005,7 +2009,8 @@
    ],
    "bj": "2026-11-21 23:00",
    "dur": 115,
-   "note": "Tottenham Hotspur Stadium"
+   "note": "Tottenham Hotspur Stadium",
+   "result": "热刺 2:0 伊普斯维奇"
   },
   {
    "id": "epl-2026-109",
@@ -2019,7 +2024,8 @@
    ],
    "bj": "2026-11-22 01:30",
    "dur": 115,
-   "note": "St. James' Park"
+   "note": "St. James' Park",
+   "result": "纽卡斯尔 2:2 阿森纳"
   },
   {
    "id": "liga-2026-129",
@@ -2033,7 +2039,8 @@
    ],
    "bj": "2026-11-22 04:00",
    "dur": 115,
-   "note": "Bernabéu"
+   "note": "Bernabéu",
+   "result": "皇家马德里 2:1 塞尔塔"
   },
   {
    "id": "f1-2026-21-r",
