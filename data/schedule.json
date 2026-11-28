@@ -1,26 +1,7 @@
 {
- "updatedAt": "2026-11-28T06:44:51+08:00",
+ "updatedAt": "2026-11-28T12:46:14+08:00",
  "note": "自动更新 9/9 项成功",
  "matches": [
-  {
-   "id": "lol-115660540726095065",
-   "src": "lol",
-   "sport": "lol",
-   "sub": "S16 全球总决赛 · Swiss",
-   "title": "LYON vs IG",
-   "teams": [
-    "LYON",
-    "IG"
-   ],
-   "bj": "2026-10-29 07:00",
-   "dur": 180,
-   "channels": [
-    "哔哩哔哩",
-    "虎牙",
-    "斗鱼"
-   ],
-   "result": "LYON 1 : IG 2"
-  },
   {
    "id": "wta-2026-1023-ls006",
    "src": "wta",
@@ -1692,7 +1673,8 @@
    ],
    "bj": "2026-11-28 04:00",
    "dur": 115,
-   "note": "The City Ground"
+   "note": "The City Ground",
+   "result": "诺丁汉森林 3:2 切尔西"
   },
   {
    "id": "bl-2026-94",
